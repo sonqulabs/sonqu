@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from 'tailwindcss'
+import fonts from './tailwind/fonts.config'
+import colors from './tailwind/colors.config'
 
 const config: Config = {
   darkMode: ['class'],
@@ -10,8 +12,19 @@ const config: Config = {
     './src/common/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
+    fontFamily: {
+      ...fonts
+    },
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px'
+      }
+    },
     extend: {
       colors: {
+        ...colors,
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
