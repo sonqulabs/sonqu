@@ -23,6 +23,15 @@ const config: Config = {
       }
     },
     extend: {
+      screens: {
+        wrapper: '1216px',
+        '2xl': '1440px',
+        '3xl': '1536px',
+        '4xl': '1920px'
+      },
+      maxWidth: {
+        wrapper: '1200px'
+      },
       colors: {
         ...colors,
         background: 'hsl(var(--background))',

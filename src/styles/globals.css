@@ -76,3 +76,8 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* customize */
+.wrapper {
+  @apply max-w-wrapper wrapper:px-0 mx-auto w-full px-4;
+}
