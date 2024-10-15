@@ -1,0 +1,29 @@
+.home-hero {
+  height: 780px;
+}
+
+.home-hero__background-image {
+  object-fit: cover;
+  height: 810px;
+  object-position: bottom right;
+}
+
+.home-hero__btn {
+  background: #f38812;
+}
+
+@media (max-width: 768px) {
+  .home-hero__background-image {
+    object-position: bottom;
+  }
+}
+
+.home-tips__background-image {
+  object-fit: cover;
+  height: 100%;
+  object-position: top;
+}
+
+.home-tips__background-card {
+  background: #424141b5;
+}
