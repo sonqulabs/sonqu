@@ -1,13 +1,10 @@
-import HomeHero from './HomeHero'
-import HomeTips from './HomeTips'
+import { DishesPopular } from './components/DishesPopular'
 
 const HomeView = () => {
   return (
-    <>
-      <HomeHero />
-      <div className="h-52"></div>
-      <HomeTips />
-    </>
+    <main className="flex-1">
+      <DishesPopular />
+    </main>
   )
 }
 
