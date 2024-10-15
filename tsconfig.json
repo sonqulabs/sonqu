@@ -18,7 +18,12 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@wrappers": ["./src/common/wrappers/index"],
+      "@styles/*": ["./src/styles/*"],
+      "@interfaces/*": ["./src/common/interfaces/*"],
+      "@constants/*": ["./src/common/constants/*"],
+      "@shadcnui/*": ["./src/common/components/shadcnui/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

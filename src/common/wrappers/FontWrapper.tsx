@@ -1,10 +1,15 @@
 import { cn } from '@/lib/utils'
-import { Inter, Manrope, Fjalla_One, Finger_Paint } from 'next/font/google'
+import { Inter, Manrope, Fjalla_One, Finger_Paint, Poppins } from 'next/font/google'
 import { ReactNode } from 'react'
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter'
+})
+const poppins = Poppins({
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
 })
 
 const manrope = Manrope({
@@ -30,7 +35,8 @@ const FontWrapper = ({ children }: FontWrapperProps) => {
         manrope.variable,
         fjallaOne.variable,
         fingerPaint.variable,
-        'bg-marus-orange-200 flex min-h-screen flex-col font-sans antialiased'
+        poppins.variable,
+        'flex min-h-screen flex-col font-sans antialiased'
       )}
     >
       {children}

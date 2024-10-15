@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import '../styles/globals.css'
 import { FontWrapper } from '@/common/wrappers'
+import { Header } from '@/common/components/layout/header/Header'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <FontWrapper>{children}</FontWrapper>
+      <FontWrapper>
+        <Header />
+        {children}
+      </FontWrapper>
     </html>
   )
 }
