@@ -1,9 +1,14 @@
-import { DishesPopular } from './components/DishesPopular'
+import HomeHero from './HomeHero'
+import HomeTips from './HomeTips'
 
-export const HomeView = () => {
+const HomeView = () => {
   return (
-    <main className="flex-1">
-      <DishesPopular />
-    </main>
+    <>
+      <HomeHero />
+      <div className="h-52"></div>
+      <HomeTips />
+    </>
   )
 }
+
+export default HomeView
