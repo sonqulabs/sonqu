@@ -1,3 +1,5 @@
+import { HomeView } from '@/modules/home/HomeView'
+
 export default function Home() {
-  return <h1>Hola mundo</h1>
+  return <HomeView />
 }
