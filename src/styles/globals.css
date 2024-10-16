@@ -77,7 +77,6 @@ body {
   }
 }
 
-/* customize */
 .wrapper {
-  @apply max-w-wrapper wrapper:px-0 mx-auto w-full px-4;
+  @apply mx-auto 2xl:max-w-[2000px];
 }

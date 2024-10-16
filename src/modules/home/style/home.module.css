@@ -1,29 +1,74 @@
-.home-hero {
+.homeHero {
   height: 780px;
 }
-
-.home-hero__background-image {
+.homeHeightTips {
+  height: 500px;
+}
+.image {
+  background-image: url('/fondo-hero.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(1px 3px 3px #00000011);
+}
+.imageTips {
+  background-image: url('/fondo-tips.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left top;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(1px -3px 3px #00000011);
+}
+/* .homeHeroBackgroundImage {
   object-fit: cover;
   height: 810px;
   object-position: bottom right;
-}
+} */
 
-.home-hero__btn {
-  background: #f38812;
+@media (max-width: 1200px) {
+  .image {
+    background-position: right bottom;
+  }
+  .imageTips {
+    background-position: right top;
+  }
 }
-
-@media (max-width: 768px) {
-  .home-hero__background-image {
-    object-position: bottom;
+@media (max-width: 1024px) {
+  .image {
+    background-position: right bottom;
+  }
+  .homeHeightTips {
+    height: 580px;
+  }
+  .imageTips {
+    background-position: right top;
   }
 }
 
-.home-tips__background-image {
+@media (max-width: 768px) {
+  .image {
+    background-position: 75% bottom;
+  }
+  .homeHero {
+    height: 700px;
+  }
+  .homeHeightTips {
+    height: 500px;
+  }
+  .imageTips {
+    background-position: 75% top;
+  }
+}
+
+/* .home-tips__background-image {
   object-fit: cover;
   height: 100%;
   object-position: top;
-}
+} */
 
-.home-tips__background-card {
+.homeTipsBackgroundCard {
   background: #424141b5;
 }

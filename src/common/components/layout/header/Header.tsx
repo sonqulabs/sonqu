@@ -6,8 +6,8 @@ import MenuMobile from './MenuMobile'
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 z-40 bg-sonqu-white-400">
-      <div className="container flex h-14 items-center justify-between px-4 lg:px-2">
+    <header className="sticky top-0 z-40 bg-sonqu-white-400 drop-shadow-md">
+      <div className="container flex h-14 items-center justify-between">
         <Link href="/">
           <Image
             src="/logoSonqu.png"

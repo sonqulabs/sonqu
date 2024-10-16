@@ -19,40 +19,50 @@ const data = [
 
 const HomeTips = () => {
   return (
-    <div className="relative">
-      <div className="wrapper py-28">
-        <h2 className="mb-10 text-3xl font-bold uppercase text-white">Tips</h2>
+    <div className="wrapper relative">
+      <div
+        className={cn(
+          HomeStyles.homeHeightTips,
+          'container flex flex-col justify-center gap-3 px-4 xl:px-0'
+        )}
+      >
+        <h2 className="mb-1 pt-10 font-poppins text-lg font-bold uppercase text-white md:text-2xl">
+          Tips
+        </h2>
 
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div className="flex w-full justify-center gap-4">
           {data.map((item, i) => (
             <div
               className={cn(
-                HomeStyles['home-tips__background-card'],
-                'flex overflow-hidden rounded-3xl'
+                HomeStyles.homeTipsBackgroundCard,
+                'flex flex-1 flex-col items-center gap-3 overflow-hidden rounded-3xl lg:flex-row'
               )}
               key={i}
             >
-              <Image
-                src={item.img}
-                height={200}
-                width={200}
-                className="flex-1 object-cover"
-                alt="fondo hero"
-              />
-              <div className="relative max-w-80 px-4 py-8 text-white">
-                <h3 className="mb-2 text-xl">{item.title}</h3>
-                <p className="mb-2">{item.description}</p>
+              <div className="flex aspect-video h-full w-full overflow-hidden">
+                <Image
+                  src={item.img}
+                  className="h-full w-full object-cover"
+                  alt="fondo hero"
+                  height={200}
+                  width={200}
+                />
+              </div>
+              <div className="flex flex-col px-4 py-2 text-white lg:py-4">
+                <h3 className="mb-2 line-clamp-1 text-lg lg:text-xl">{item.title}</h3>
+                <p className="mb-2 line-clamp-3 text-justify text-xs sm:line-clamp-4 sm:text-sm">
+                  {item.description}
+                </p>
 
-                <button className="absolute bottom-4 right-7 ml-auto block italic opacity-50">
-                  Ver mas
-                </button>
+                <button className="self-end italic opacity-50">Ver mas</button>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <Image
+      <div className={cn(HomeStyles.imageTips, 'absolute top-0 z-[-2]')} />
+      {/* <Image
         src="/fondo-tips.png"
         height={500}
         width={500}
@@ -61,7 +71,7 @@ const HomeTips = () => {
           'absolute left-0 top-0 -z-10 w-full'
         )}
         alt="fondo hero"
-      />
+      /> */}
     </div>
   )
 }
