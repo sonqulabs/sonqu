@@ -17,21 +17,14 @@ const config: Config = {
     },
     container: {
       center: true,
-      padding: '2rem',
       screens: {
         '2xl': '1400px'
+      },
+      padding: {
+        DEFAULT: '1rem'
       }
     },
     extend: {
-      screens: {
-        wrapper: '1216px',
-        '2xl': '1440px',
-        '3xl': '1536px',
-        '4xl': '1920px'
-      },
-      maxWidth: {
-        wrapper: '1200px'
-      },
       colors: {
         ...colors,
         background: 'hsl(var(--background))',

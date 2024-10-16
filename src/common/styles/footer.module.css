@@ -1,0 +1,14 @@
+.image {
+  box-shadow: 0 -30px 30px 10px #be2a26;
+}
+
+@media (max-width: 1200px) {
+  .image {
+    box-shadow: 0 -15px 10px 5px #be2a26;
+  }
+}
+@media (max-width: 480px) {
+  .image {
+    box-shadow: 0 -5px 5px 2px #be2a26;
+  }
+}
