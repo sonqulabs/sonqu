@@ -1,0 +1,16 @@
+.imgTop {
+  height: 100px;
+  object-position: bottom;
+}
+
+@media (min-width: 768px) {
+  .imgTop {
+    height: 150px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .imgTop {
+    height: 200px;
+  }
+}

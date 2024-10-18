@@ -37,7 +37,7 @@ const FontWrapper = ({ children }: FontWrapperProps) => {
         fjallaOne.variable,
         fingerPaint.variable,
         poppins.variable,
-        'flex min-h-screen flex-col bg-sonqu-white-400 font-sans antialiased'
+        'flex min-h-screen flex-col bg-sonqu-white-400 font-poppins antialiased'
       )}
     >
       {children}
