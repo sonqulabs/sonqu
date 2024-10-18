@@ -18,8 +18,8 @@ export function getMenuList(pathname: string): Nav[] {
       active: pathname === '/nosotros'
     },
     {
-      name: 'Productos Recomendados',
-      href: '/',
+      name: 'Tienda',
+      href: '/productos',
       active: pathname === '/productos'
     },
     {
