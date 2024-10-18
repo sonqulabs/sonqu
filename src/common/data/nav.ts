@@ -24,7 +24,7 @@ export function getMenuList(pathname: string): Nav[] {
     },
     {
       name: 'Contacto',
-      href: '/',
+      href: '/contacto',
       active: pathname === '/contacto'
     }
   ]
