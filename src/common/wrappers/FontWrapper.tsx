@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils'
 import { Inter, Manrope, Fjalla_One, Finger_Paint, Poppins } from 'next/font/google'
 import { ReactNode } from 'react'
+import Footer from '../layout/footer/Footer'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -36,10 +37,11 @@ const FontWrapper = ({ children }: FontWrapperProps) => {
         fjallaOne.variable,
         fingerPaint.variable,
         poppins.variable,
-        'flex min-h-screen flex-col font-sans antialiased'
+        'flex min-h-screen flex-col bg-sonqu-white-400 font-poppins antialiased'
       )}
     >
       {children}
+      <Footer />
     </body>
   )
 }

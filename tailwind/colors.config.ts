@@ -19,6 +19,9 @@ const colors = {
       300: '#EEEEEE',
       400: '#E4E3E3',
       500: '#CECECE'
+    },
+    black: {
+      300: '#646161'
     }
   }
 }

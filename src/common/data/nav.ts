@@ -14,17 +14,17 @@ export function getMenuList(pathname: string): Nav[] {
     },
     {
       name: 'Nosotros',
-      href: '/',
+      href: '/nosotros',
       active: pathname === '/nosotros'
     },
     {
-      name: 'Productos Recomendados',
-      href: '/',
+      name: 'Tienda',
+      href: '/productos',
       active: pathname === '/productos'
     },
     {
       name: 'Contacto',
-      href: '/',
+      href: '/contacto',
       active: pathname === '/contacto'
     }
   ]

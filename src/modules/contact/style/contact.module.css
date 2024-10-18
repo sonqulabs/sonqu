@@ -1,0 +1,45 @@
+.imgTop {
+    height: 150px;
+    object-position: bottom;
+}
+
+.leftArrow {
+    position: absolute;
+    top: -50%;
+    left: -60px;
+    width: 56px;
+    height: 138px;
+}
+
+.socialNetworks::after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: #646161B2;
+    transform: translateY(25px);
+}
+
+.maxWidth {
+    max-width: 1055px;
+}
+
+@media (max-width: 860px) {
+    .wrapScreenShots {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 780px) {
+    .leftArrow {
+        top: -10px;
+        left: 0;
+        width: 28px;
+        height: 69px;
+    }
+}
+
+@media (max-width: 390px) {
+    .socialNetworks {
+        flex-direction: column;
+    }
+}
