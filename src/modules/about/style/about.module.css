@@ -2,3 +2,28 @@
     height: 150px;
     object-position: bottom;
 }
+
+.leftArrow {
+    position: absolute;
+    top: 0px;
+    left: 50px;
+    width: 56px;
+    height: 138px;
+}
+
+@media (max-width: 1300px) {
+    .leftArrow {
+        transform: scale(0.5);
+        top: -56px;
+        left: 25px;
+    }
+    
+}
+
+@media (max-width: 950px) {
+    .leftArrow {
+        transform: scale(0.3);
+        top: -50px;
+    }
+    
+}
