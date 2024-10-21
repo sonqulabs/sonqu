@@ -16,7 +16,7 @@ const PopoverOverlay = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTM
     <div
       ref={ref}
       className={cn(
-        'fixed inset-0 z-10 backdrop-blur-sm backdrop-filter',
+        'fixed inset-0 z-10 backdrop-blur-sm',
         'data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out', // Aquí aplicas el blur y el fondo semitransparente
         className
       )}

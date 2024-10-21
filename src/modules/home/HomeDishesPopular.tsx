@@ -1,8 +1,8 @@
 import { CardDishes } from '@/common/components/customize/CardDishes'
-import { GetDishesPopular } from '../data/DishesPopular'
 import { Star } from 'lucide-react'
+import { GetDishesPopular } from './data/DishesPopular'
 
-export const DishesPopular = () => {
+export const HomeDishesPopular = () => {
   const dishes = GetDishesPopular()
   return (
     <section className="container my-8 px-4 xl:px-0">
