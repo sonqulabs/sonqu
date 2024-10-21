@@ -1,5 +1,5 @@
-import { DishesPopular } from './components/DishesPopular'
 import { HomeCategoryRecipes } from './HomeCategoryRecipes'
+import { HomeDishesPopular } from './HomeDishesPopular'
 import HomeHero from './HomeHero'
 import HomeTips from './HomeTips'
 
@@ -9,7 +9,7 @@ const HomeView = () => {
       <HomeHero />
       <HomeCategoryRecipes />
       <HomeTips />
-      <DishesPopular />
+      <HomeDishesPopular />
     </main>
   )
 }

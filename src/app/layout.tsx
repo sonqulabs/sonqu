@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import '../styles/globals.css'
 import { FontWrapper } from '@/common/wrappers'
-import { Header } from '@/common/components/layout/header/Header'
+import { Header } from '@/common/layout/header/Header'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
