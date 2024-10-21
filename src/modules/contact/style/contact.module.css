@@ -23,7 +23,11 @@
     max-width: 1055px;
 }
 
-@media (max-width: 860px) {
+.social:hover span {
+    text-decoration: underline;
+}
+
+@media (max-width: 1050px) {
     .wrapScreenShots {
         justify-content: center;
     }

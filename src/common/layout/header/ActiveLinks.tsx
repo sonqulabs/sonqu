@@ -47,7 +47,7 @@ export const ActiveLinks = ({ label, href, active, submenus }: Nav) => {
           <Link
             href={href}
             className={cn(
-              'flex items-center font-poppins text-xs font-semibold uppercase leading-tight text-black',
+              'items-center font-poppins text-xs font-semibold uppercase leading-tight text-black inline-flex',
               {
                 'text-sonqu-red-300': active
               }

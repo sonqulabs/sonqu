@@ -129,12 +129,9 @@ body {
   background-color: #47C757;
 }
 
-.titokLogo {
-  background-color: #000000;
-}
-
+.titokLogo,
 .emailLogo {
-  background-color: #000;
+  background-color: #000000;
 }
 
 .shapeLogo {
