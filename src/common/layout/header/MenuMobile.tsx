@@ -1,6 +1,7 @@
+import { MenuIcon } from '@/common/components/icons/solid/MenuIcon'
 import { cn } from '@/lib/utils'
 import { Popover, PopoverContent, PopoverTrigger } from '@shadcnui/popover'
-import { MenuIcon } from '../../icons/solid/MenuIcon'
+import { NavLinksMobile } from './NavLinksMobile'
 
 const MenuMobile = () => {
   return (
@@ -12,16 +13,12 @@ const MenuMobile = () => {
       </PopoverTrigger>
       <PopoverContent
         className={cn(
-          'bg-p-blue-300 max-w-full overflow-auto border-none data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right',
-          {
-            // 'rounded-none': isScrolled,
-            // 'rounded-none rounded-tl-lg': !isScrolled
-          }
+          'max-w-full overflow-auto rounded-t-none rounded-ee-none rounded-se-md border-none bg-sonqu-white-400 p-0 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right'
         )}
-        sideOffset={20}
+        sideOffset={18}
         showOverlay
       >
-        <span className="fill-p-blue-300 absolute right-[9%] top-0 z-50 origin-top rotate-180 transform">
+        {/* <span className="absolute right-[7.5%] top-0 z-50 origin-top rotate-180 transform fill-sonqu-white-500">
           <svg
             className="block"
             width="10"
@@ -31,7 +28,9 @@ const MenuMobile = () => {
           >
             <polygon points="0,0 30,0 15,10" />
           </svg>
-        </span>
+        </span> */}
+
+        <NavLinksMobile />
       </PopoverContent>
     </Popover>
   )

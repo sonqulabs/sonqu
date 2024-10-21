@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
-import { SearchIcon } from '../../icons/outline/SearchIcon'
-import StylesButton from '../../../styles/header.module.css'
+import StylesButton from '../../styles/header.module.css'
+import { SearchIcon } from '@/common/components/icons/outline/SearchIcon'
 const SearchNav = () => {
   return (
     <button

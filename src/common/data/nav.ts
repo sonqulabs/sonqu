@@ -3,27 +3,55 @@ import { Nav } from '../interfaces/nav'
 export function getMenuList(pathname: string): Nav[] {
   return [
     {
-      name: 'Inicio',
+      label: 'Inicio',
       href: '/',
       active: pathname === '/'
     },
     {
-      name: 'Recetas',
-      href: '/categoria/brasa-familiar',
-      active: pathname.includes('/categoria') || pathname.includes('/products')
+      href: '/recetas',
+      label: 'Recetas',
+      active: pathname.includes('/recetas'),
+      submenus: [
+        {
+          href: '/catalog/sube-baja',
+          label: 'Comida Criolla',
+          active: pathname.includes('/catalog/sube-baja')
+        },
+        {
+          href: '/catalog/giratorios',
+          label: 'Postres Peruanos',
+          active: pathname.includes('/catalog/giratorios')
+        },
+
+        {
+          href: '/catalog/psicomotricidad',
+          label: 'Comida Andina',
+          active: pathname.includes('/catalog/psicomotricidad')
+        },
+        {
+          href: '/catalog/resorteras',
+          label: 'Bebidas Tradicionales',
+          active: pathname.includes('/catalog/resorteras')
+        },
+        {
+          href: '/catalog/columpios',
+          label: 'Clasicos',
+          active: pathname.includes('/catalog/columpios')
+        }
+      ]
     },
     {
-      name: 'Nosotros',
+      label: 'Nosotros',
       href: '/nosotros',
       active: pathname === '/nosotros'
     },
     {
-      name: 'Tienda',
+      label: 'Tienda',
       href: '/productos',
       active: pathname === '/productos'
     },
     {
-      name: 'Contacto',
+      label: 'Contacto',
       href: '/contacto',
       active: pathname === '/contacto'
     }
