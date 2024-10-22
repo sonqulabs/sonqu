@@ -1,38 +1,9 @@
-import { LogoEmail } from '@/common/components/icons/solid/LogoEmail'
-import { LogoFacebook } from '@/common/components/icons/solid/LogoFacebook'
-import { LogoInstagram } from '@/common/components/icons/solid/LogoInstagram'
-import { LogoTiktok } from '@/common/components/icons/solid/LogoTiktok'
-import { LogoWhatsApp } from '@/common/components/icons/solid/LogoWhatsApp'
-import { LogoYoutube } from '@/common/components/icons/solid/LogoYoutube'
 import { cn } from '@/lib/utils'
 import ContactStyles from '../style/contact.module.css'
+import Link from 'next/link'
+import { getNetworks } from '../data/Networks'
 
-const socialNet = [
-    {
-        logo: <LogoFacebook className='facebookLogo shapeLogo shadowLow' />,
-        name: "Sonqu"
-    },
-    {
-        logo: <LogoInstagram className='instagramLogo shapeLogo shadowLow' />,
-        name: "sonqu.oficial"
-    },
-    {
-        logo: <LogoYoutube className='youtubeLogo shapeLogo shadowLow' />,
-        name: "SONQU"
-    },
-    {
-        logo: <LogoWhatsApp className='whatsAppLogo shapeLogo shadowLow' />,
-        name: "+51 990938491"
-    },
-    {
-        logo: <LogoTiktok className='titokLogo shapeLogo shadowLow' />,
-        name: "@sonqu.ogicial"
-    },
-    {
-        logo: <LogoEmail className='emailLogo shapeLogo shadowLow' />,
-        name: "sonquoficial@gmail.com"
-    },
-]
+const socialNet = getNetworks();
 
 export const SocialNetworks = () => {
     return (
@@ -41,9 +12,15 @@ export const SocialNetworks = () => {
             <ul className={cn(ContactStyles.socialNetworks, 'flex flex-wrap gap-3 justify-center')}>
                 {
                     socialNet.map(social => (
-                        <li className='flex flex-row items-center gap-2' key={social.name}>
-                            {social.logo}
-                            <span className='font-bold text-sonqu-black-300'>{social.name}</span>
+                        <li key={social.name}>
+                            <Link 
+                                className={cn(ContactStyles.social, 'flex flex-row items-center gap-2')} 
+                                href={social.href} 
+                                target='_blank'
+                            >
+                                {social.logo}
+                                <span className='font-bold text-sonqu-black-300'>{social.name}</span>
+                            </Link>
                         </li>
                     ))
                 }

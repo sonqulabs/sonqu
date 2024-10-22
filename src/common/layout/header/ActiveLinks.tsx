@@ -47,7 +47,7 @@ export const ActiveLinks = ({ label, href, active, submenus }: Nav) => {
           <Link
             href={href}
             className={cn(
-              'flex items-center font-poppins text-xs font-semibold uppercase leading-tight text-black',
+              'inline-flex items-center font-poppins text-xs font-semibold uppercase leading-tight text-black',
               {
                 'text-sonqu-red-300': active
               }
@@ -62,7 +62,7 @@ export const ActiveLinks = ({ label, href, active, submenus }: Nav) => {
           </Link>
 
           {submenuOpen && (
-            <div className="absolute left-0 top-7 mt-2 w-auto overflow-hidden rounded-b-lg bg-sonqu-white-400 shadow-sm">
+            <div className="absolute left-0 top-8 mt-2 w-auto overflow-hidden rounded-b-lg bg-sonqu-white-400 shadow-sm">
               <ul className="m-0 w-full list-none p-0">
                 {submenus?.map(({ href, label }) => (
                   <li key={label} className="w-full whitespace-nowrap border-t border-gray-300">

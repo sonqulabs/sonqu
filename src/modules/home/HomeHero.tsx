@@ -11,7 +11,7 @@ const HomeHero = () => {
         )}
       >
         <div className="flex flex-col text-center sm:text-start">
-          <h1 className="font-jallaOne text-7xl uppercase">
+          <h1 className="font-jallaOne text-6xl uppercase sm:text-7xl">
             Las Mejores <span className="block"> Recetas</span>
           </h1>
           <h2 className="mb-4 font-fingerPaint text-3xl text-sonqu-black-300">En un solo lugar</h2>

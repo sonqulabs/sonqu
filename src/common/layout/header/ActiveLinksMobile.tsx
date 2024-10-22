@@ -3,11 +3,12 @@ import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { useState, useRef } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { useMenuStore } from '@/context/menuMobile'
 
 export const ActiveLinksMobile = ({ label, href, active, submenus }: Nav) => {
   const [submenuOpen, setSubmenuOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement | null>(null)
-
+  const { closeMenu } = useMenuStore()
   // Función para manejar el clic en el enlace
   const handleToggleSubmenu = () => {
     setSubmenuOpen((prev) => !prev)
@@ -28,6 +29,7 @@ export const ActiveLinksMobile = ({ label, href, active, submenus }: Nav) => {
               'hover:text-sonqu-red-300': !active
             }
           )}
+          onClick={closeMenu}
         >
           {label}
         </Link>
@@ -42,12 +44,13 @@ export const ActiveLinksMobile = ({ label, href, active, submenus }: Nav) => {
                   'text-sonqu-red-300': active
                 }
               )}
+              onClick={closeMenu}
             >
               {label}
             </Link>
             <ChevronDown
               onClick={handleToggleSubmenu}
-              className={cn('size-6 border-l border-gray-300 transition-transform duration-200', {
+              className={cn('size-6 border-l-2 border-gray-300 transition-transform duration-200', {
                 'rotate-180': submenuOpen
               })}
             />
@@ -62,6 +65,7 @@ export const ActiveLinksMobile = ({ label, href, active, submenus }: Nav) => {
                     className={cn(
                       'block w-full py-2 pl-6 text-[11px] font-medium uppercase leading-none text-gray-700 transition-colors hover:bg-sonqu-red-300 hover:text-white focus:bg-accent focus:text-white'
                     )}
+                    onClick={closeMenu}
                   >
                     {label}
                   </Link>
