@@ -5,7 +5,7 @@ import { GetDishesPopular } from './data/DishesPopular'
 export const HomeDishesPopular = () => {
   const dishes = GetDishesPopular()
   return (
-    <section className="container my-8 px-4 xl:px-0">
+    <section className="container mb-8 mt-10 px-4 xl:px-0">
       <h1 className="mb-4 flex items-center gap-2 font-poppins text-lg font-bold uppercase md:text-2xl">
         PLATOS POPULARES <Star className="size-6 fill-yellow-400 text-yellow-400" />
       </h1>
