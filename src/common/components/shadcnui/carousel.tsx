@@ -5,7 +5,8 @@ import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-reac
 
 import { cn } from '@/lib/utils'
 import { Button } from '@shadcnui/button'
-import { ArrowTopIcon } from '../icons/solid/ArrowTopIcon'
+// import { ArrowTopIcon } from '../icons/solid/ArrowTopIcon'
+import { LeftArrow } from '../icons/solid/LeftArrow'
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -196,7 +197,8 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
         onClick={scrollPrev}
         {...props}
       >
-        <ArrowTopIcon className="h-20 w-20 -rotate-90" />
+        <LeftArrow className="size-16 !w-fit fill-sonqu-red-300" />
+        {/* <ArrowTopIcon className="h-20 w-20 -rotate-90" /> */}
         <span className="sr-only">Previous slide</span>
       </Button>
     )
@@ -224,7 +226,8 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
         onClick={scrollNext}
         {...props}
       >
-        <ArrowTopIcon className="h-20 w-20 rotate-90" />
+        <LeftArrow className="size-16 !w-fit rotate-180 fill-sonqu-red-300" />
+        {/* <ArrowTopIcon className="h-20 w-20 rotate-90" /> */}
         <span className="sr-only">Next slide</span>
       </Button>
     )

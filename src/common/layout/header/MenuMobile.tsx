@@ -1,11 +1,15 @@
+'use client'
 import { MenuIcon } from '@/common/components/icons/solid/MenuIcon'
 import { cn } from '@/lib/utils'
 import { Popover, PopoverContent, PopoverTrigger } from '@shadcnui/popover'
 import { NavLinksMobile } from './NavLinksMobile'
+import { useMenuStore } from '@/context/menuMobile'
 
 const MenuMobile = () => {
+  const { isOpen, toggleMenu } = useMenuStore()
+
   return (
-    <Popover>
+    <Popover open={isOpen} onOpenChange={toggleMenu}>
       <PopoverTrigger asChild>
         <button className="rounded-md bg-transparent px-0 text-sm text-black shadow-none transition-all hover:bg-transparent lg:hidden">
           <MenuIcon className="size-5" />
