@@ -7,16 +7,17 @@ import {
   // CarouselPrevious
 } from '@shadcnui/carousel'
 import { CategoryDishes } from './data/DishesCategory'
-import Link from 'next/link'
-import Image from 'next/image'
 import Autoscroll from 'embla-carousel-auto-scroll'
 import StyleCarousel from './style/home.module.css'
 import { cn } from '@/lib/utils'
+import { ItemCarousel } from './components/ItemCarousel'
+
 export const HomeCategoryRecipes = () => {
   const menuCategorias = CategoryDishes()
+
   return (
     <section>
-      <div className="container pb-6 pt-0">
+      <div className="container pb-6 pt-0 max-lg:px-0">
         <Carousel
           opts={{
             loop: true,
@@ -40,21 +41,7 @@ export const HomeCategoryRecipes = () => {
                   key={name}
                   className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
                 >
-                  <Link
-                    href={`/categoria/${path}`}
-                    className="flex aspect-square flex-col items-center gap-2 text-center font-poppins text-sm font-medium uppercase lg:text-base"
-                  >
-                    <div className="h-full w-full overflow-hidden rounded-3xl">
-                      <Image
-                        src={image}
-                        alt={name}
-                        className="w-full object-cover transition-transform duration-300 hover:scale-105"
-                        width={200}
-                        height={200}
-                      />
-                    </div>
-                    {name}
-                  </Link>
+                  <ItemCarousel name={name} image={image} path={path} />
                 </CarouselItem>
               )
             })}

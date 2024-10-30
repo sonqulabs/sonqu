@@ -56,7 +56,7 @@ const Footer = () => {
             <div className="flex flex-wrap items-start gap-8">
               {footerSections.map((section, index) => (
                 <div key={index} className="space-y-2.5">
-                  <h4 className="text-base font-medium text-sonqu-yellow-300">{section.title}</h4>
+                  <h4 className="text-base font-medium text-white">{section.title}</h4>
                   <ul className="space-y-0">
                     {section.items.map((item, itemIndex) => (
                       <li key={itemIndex}>
@@ -74,7 +74,7 @@ const Footer = () => {
               ))}
 
               <div className="space-y-2.5">
-                <h4 className="text-base font-medium text-sonqu-yellow-300">Contacto</h4>
+                <h4 className="text-base font-medium text-white">Contacto</h4>
                 <ul className="space-y-2">
                   {contactInfo.map((item, index) => {
                     // Usamos aserción de tipo para evitar el error
