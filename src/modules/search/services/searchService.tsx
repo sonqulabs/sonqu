@@ -1,7 +1,8 @@
+const API_URL = process.env.NEXT_PUBLIC_API_URL
 export const searchService = () => {}
 
 export const searchCategory = async (category: string) => {
-  const result = await fetch(`http://localhost:3004/api/v1/search/${category}`, {
+  const result = await fetch(`${API_URL}/search/${category}`, {
     method: 'POST'
   })
 
@@ -11,7 +12,7 @@ export const searchCategory = async (category: string) => {
 }
 
 export const searchMatchesTitleRecipe = async (matches: string) => {
-  const result = await fetch(`http://localhost:3004/api/v1/search/matches/?query=${matches}`)
+  const result = await fetch(`${API_URL}/search/matches/?query=${matches}`)
 
   const data = await result.json()
   // console.log(data)
@@ -20,9 +21,15 @@ export const searchMatchesTitleRecipe = async (matches: string) => {
 
 export const searchMatchesRecipe = async (searchParam: { query: string; categories: string }) => {
   const params = new URLSearchParams(searchParam)
-  const result = await fetch(
-    `http://localhost:3004/api/v1/public/search/matches/?${params.toString()}`
-  )
+  const result = await fetch(`${API_URL}/public/search/matches/?${params.toString()}`)
+
+  const data = await result.json()
+  // console.log(data)
+  return data
+}
+
+export const getAllCategoriesGroup = async () => {
+  const result = await fetch(`${API_URL}/public/category-group`)
 
   const data = await result.json()
   // console.log(data)
