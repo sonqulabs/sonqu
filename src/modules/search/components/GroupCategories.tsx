@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { Button } from '@/common/components/shadcnui/button'
 import IconAdjustmentsHorizontal from '../Icons/IconAdjustmentsHorizontal'
 import { getAllCategoriesGroup } from '../services/searchService'
+import GroupCategoriesSkeleton from './GroupCategoriesSkeleton'
 
 // const listFood = [
 //   {
@@ -19,7 +20,7 @@ import { getAllCategoriesGroup } from '../services/searchService'
 //   { title: 'Ingredientres', data: [] }
 // ]
 
-const RadioGroupCategories = () => {
+const GroupCategories = () => {
   const { addParamCategories, deleteParamCategories, getCateries } = useSearchParamCategories()
 
   const [listFood, setListFood] = useState([])
@@ -44,9 +45,13 @@ const RadioGroupCategories = () => {
     getCG()
   }, [])
 
+  if (listFood.length == 0) {
+    return <GroupCategoriesSkeleton />
+  }
+
   return (
     <>
-      <div className="hidden flex-col gap-5 md:flex">
+      <div className="hidden min-w-48 flex-col gap-5 md:flex">
         <ListCategoriesGroup
           listFood={listFood}
           getCateries={getCateries}
@@ -142,4 +147,4 @@ const ListCategoriesGroup = ({ listFood, getCateries, handleGroup }) => {
   ))
 }
 
-export default RadioGroupCategories
+export default GroupCategories

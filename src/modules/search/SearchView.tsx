@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import RadioGroupCategories from './components/RadioGroupCategories'
+import GroupCategories from './components/GroupCategories'
 import Search from './components/Search'
 import SeacrhResult from './components/SearchResults'
 import SearchTags from './components/SearchTags'
@@ -28,7 +28,7 @@ const SearchView = ({ searchParams }: Props) => {
         </div>
 
         <div className="flex flex-col gap-8 md:flex-row">
-          <RadioGroupCategories />
+          <GroupCategories />
 
           <div className="flex-1">
             <SearchTags />
