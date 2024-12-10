@@ -29,7 +29,7 @@ const GroupCategories = () => {
   const toggleFilter = () => setIsOpen(!isOpen)
 
   const handleGroup = async (check, value) => {
-    console.log({ value, check })
+    // console.log({ value, check })
     if (check) {
       addParamCategories(value)
     } else {

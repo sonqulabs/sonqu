@@ -21,7 +21,7 @@ const useSearchParamCategories = () => {
     const paramCategories = params.get('categories') || ''
 
     const re = getParamCategories(paramCategories)
-    console.log({ re, valor })
+    // console.log({ re, valor })
 
     if (re.some((item) => item == valor)) return
     re.push(valor)

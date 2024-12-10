@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import GroupCategories from './components/GroupCategories'
 import Search from './components/Search'
-import SeacrhResult from './components/SearchResults'
+import SearchResult from './components/SearchResults'
 import SearchTags from './components/SearchTags'
 import IconAdjustmentsHorizontal from './Icons/IconAdjustmentsHorizontal'
 import SearchResultsSkeleton from './components/SearchResultsSkeleton'
@@ -37,7 +37,7 @@ const SearchView = ({ searchParams }: Props) => {
               key={searchParams.query || '' + searchParams.categories}
               fallback={<SearchResultsSkeleton />}
             >
-              <SeacrhResult searchParams={searchParams} />
+              <SearchResult searchParams={searchParams} />
             </Suspense>
           </div>
         </div>
