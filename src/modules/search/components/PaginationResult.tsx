@@ -20,7 +20,7 @@ const PaginationResult = ({ meta }) => {
 
   const addPage = (data) => {
     const params = new URLSearchParams(searchParams)
-    params.set('page', data)
+    params.set('page', data.toString())
     replace(`${pathname}?${params.toString()}`, { scroll: false })
   }
   return (
@@ -55,7 +55,7 @@ const PaginationResult = ({ meta }) => {
         </PaginationContent>
       </Pagination>
       <div className="flex items-center justify-center text-sm font-medium sm:justify-end">
-        Count: {meta.total}
+        <div className="rounded-full bg-white px-3 py-2">Count : {meta.total}</div>
       </div>
     </div>
   )

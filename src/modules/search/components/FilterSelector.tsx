@@ -1,31 +1,14 @@
 'use client'
-import { Checkbox } from '@/common/components/shadcnui/checkbox'
-import useSearchParamCategories from '../hooks/useSearchParamCategories'
-import { useEffect, useState } from 'react'
 import { Button } from '@/common/components/shadcnui/button'
-import IconAdjustmentsHorizontal from '../Icons/IconAdjustmentsHorizontal'
-import { getAllCategoriesGroup } from '../services/searchService'
-import GroupCategoriesSkeleton from './GroupCategoriesSkeleton'
+import { Checkbox } from '@/common/components/shadcnui/checkbox'
+import { useState } from 'react'
+import useSearchParamCategories from '../hooks/useSearchParamCategories'
+import FilterSelectorSkeleton from './FilterSelectorSkeleton'
 
-// const listFood = [
-//   {
-//     title: 'Tipos de Comida',
-//     data: ['Desayuno', 'Entrada', 'Almuerzo', 'Postre', 'Cena', 'Bebida']
-//   },
-//   { title: 'Sabor', data: ['Dulce', 'Salado', 'Amargo'] },
-//   { title: 'Dificultad', data: ['Dificil', 'Medio', 'Facil'] },
-//   { title: 'Comidas por Lugar', data: [] },
-//   { title: 'Comidas por Evento', data: [] },
-//   { title: 'Más populares', data: [] },
-//   { title: 'Ingredientres', data: [] }
-// ]
-
-const GroupCategories = () => {
+const FilterSelector = ({ data: listFood }) => {
   const { addParamCategories, deleteParamCategories, getCateries } = useSearchParamCategories()
 
-  const [listFood, setListFood] = useState([])
-
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
   const toggleFilter = () => setIsOpen(!isOpen)
 
   const handleGroup = async (check, value) => {
@@ -37,37 +20,46 @@ const GroupCategories = () => {
     }
   }
 
-  useEffect(() => {
-    const getCG = async () => {
-      setListFood(await getAllCategoriesGroup())
-    }
-
-    getCG()
-  }, [])
-
   if (listFood.length == 0) {
-    return <GroupCategoriesSkeleton />
+    return <FilterSelectorSkeleton />
   }
 
   return (
     <>
-      <div className="hidden min-w-48 flex-col gap-5 md:flex">
+      {/* <div className="hidden min-w-48 flex-col gap-5 md:flex">
         <ListCategoriesGroup
           listFood={listFood}
           getCateries={getCateries}
           handleGroup={handleGroup}
         />
-      </div>
+      </div> */}
 
-      <div className="h-fit w-full overflow-hidden rounded-lg border bg-background md:hidden md:w-64">
+      <div className="h-fit w-full overflow-hidden rounded-lg border bg-background md:w-64">
         <Button
           onClick={toggleFilter}
           variant="ghost"
-          className="flex w-full items-center justify-between p-4 md:hidden"
+          className="flex h-fit w-full items-center justify-between p-3"
         >
           <span className="flex items-center gap-2 text-base">
-            <IconAdjustmentsHorizontal />
-            Filtros
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-category"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M4 4h6v6h-6z" />
+              <path d="M14 4h6v6h-6z" />
+              <path d="M4 14h6v6h-6z" />
+              <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+            </svg>
+            Categorias
           </span>
           {isOpen ? (
             <svg
@@ -103,8 +95,8 @@ const GroupCategories = () => {
             </svg>
           )}
         </Button>
-        <div className={`${isOpen ? 'block' : 'hidden'} p-4 md:block`}>
-          <div className="flex flex-col gap-5">
+        <div className={`${isOpen ? 'block' : 'hidden'} `}>
+          <div className="flex flex-col gap-5 py-4 pl-5">
             <ListCategoriesGroup
               listFood={listFood}
               getCateries={getCateries}
@@ -147,4 +139,4 @@ const ListCategoriesGroup = ({ listFood, getCateries, handleGroup }) => {
   ))
 }
 
-export default GroupCategories
+export default FilterSelector

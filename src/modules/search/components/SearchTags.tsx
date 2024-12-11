@@ -7,8 +7,8 @@ const SearchTags = () => {
   const searchParams = useSearchParams()
 
   return (
-    <div className="mb-5 flex items-center gap-2">
-      <div className="h-8"></div>
+    <div className="flex items-center gap-2 md:mb-5">
+      <div className="md:h-8"></div>
       {searchParams
         .get('categories')
         ?.toString()
