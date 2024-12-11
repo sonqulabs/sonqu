@@ -18,10 +18,20 @@ const Search = () => {
     replace(`${pathname}?${params.toString()}`, { scroll: false })
   }
 
+  function debounce(func, delay) {
+    let timer
+    return (...arg) => {
+      clearTimeout(timer)
+      timer = setTimeout(() => func(...arg), delay)
+    }
+  }
+
+  const searchDebounce = debounce(handleSearch, 500)
+
   return (
     <div className="flex w-full max-w-96 gap-1 rounded-lg bg-white p-2">
       <input
-        onChange={(event) => handleSearch(event.target.value)}
+        onChange={(event) => searchDebounce(event.target.value)}
         type="text"
         className="flex-1 border-r border-gray-400 outline-none"
         defaultValue={searchParams.get('query')?.toString()}
