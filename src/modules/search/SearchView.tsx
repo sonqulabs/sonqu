@@ -6,14 +6,20 @@ import SearchTags from './components/SearchTags'
 import IconAdjustmentsHorizontal from './Icons/IconAdjustmentsHorizontal'
 import SearchResultsSkeleton from './components/SearchResultsSkeleton'
 import Filters from './components/Filters'
+import { TopSeparator } from '@/common/components/customize/TopSeparator'
 
-type Props = { searchParams: { query?: string; categories?: string; page?: string } }
+type Props = {
+  searchParams: { query?: string; categories?: string; difficulty: string; page?: string }
+}
 
 const SearchView = ({ searchParams }: Props) => {
   return (
-    <div className="bg-[#E4E3E3]">
+    <div>
+      <div className="wrapper flex-1">
+        <TopSeparator />
+      </div>
       <div className="wrapper container font-poppins">
-        <div className="mb-20 mt-20 flex flex-col items-center">
+        <div className="mb-14 mt-6 flex flex-col items-center">
           <h1 className="mb-2 text-center font-jallaOne text-6xl uppercase">
             ¿Que recetas buscas?
           </h1>
@@ -33,10 +39,17 @@ const SearchView = ({ searchParams }: Props) => {
             <SearchTags />
             {/* <SearchResultsSkeleton /> */}
             <Suspense
-              key={searchParams.query || '' + searchParams.categories + searchParams.page}
+              key={
+                '' +
+                searchParams.query +
+                searchParams.categories +
+                searchParams.difficulty +
+                searchParams.page
+              }
               fallback={<SearchResultsSkeleton />}
             >
               <SearchResult searchParams={searchParams} />
+              {/* <SearchResultsSkeleton /> */}
             </Suspense>
           </div>
         </div>

@@ -1,13 +1,24 @@
 import { Button } from '@/common/components/shadcnui/button'
 import { RadioGroup, RadioGroupItem } from '@/common/components/shadcnui/radio-group'
 import { useState } from 'react'
+import useSearchParamDifficult from '../../hooks/useSearchParamDifficult'
 
 const DifficultRadioGroup = () => {
   const [isOpen, setIsOpen] = useState(true)
   const toggleFilter = () => setIsOpen(!isOpen)
 
+  const { addParamDifficult, deleteParamDifficult } = useSearchParamDifficult()
+
+  const handleClickRadioGroup = (data) => {
+    if (data == 'none') {
+      deleteParamDifficult()
+    } else {
+      addParamDifficult(data)
+    }
+  }
+
   return (
-    <div className="h-fit w-full overflow-hidden rounded-lg border bg-background md:w-64">
+    <div className="h-fit w-full overflow-hidden rounded-lg border bg-background shadow-md md:w-64">
       <Button
         onClick={toggleFilter}
         variant="ghost"
@@ -70,10 +81,10 @@ const DifficultRadioGroup = () => {
       </Button>
       <div className={`${isOpen ? 'block' : 'hidden'} `}>
         <div className="flex flex-col gap-5 py-4 pl-5">
-          <RadioGroup defaultValue="none">
+          <RadioGroup defaultValue="none" onValueChange={handleClickRadioGroup}>
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="none" id="r1" />
-              <label htmlFor="r1">None</label>
+              <RadioGroupItem value="none" id="r0" />
+              <label htmlFor="r0">None</label>
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="facil" id="r1" />

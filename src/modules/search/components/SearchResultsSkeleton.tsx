@@ -48,9 +48,9 @@ const SearchResultsSkeleton = () => {
           <div
             key={i}
             role="status"
-            className="animate-pulse overflow-hidden rounded-3xl bg-white md:flex md:items-center md:space-y-0 rtl:space-x-reverse"
+            className="flex animate-pulse flex-col overflow-hidden rounded-3xl bg-white md:flex md:items-center lg:flex-row"
           >
-            <div className="flex h-full w-full items-center justify-center bg-gray-300 dark:bg-gray-700 sm:w-96">
+            <div className="flex h-full min-h-52 w-full flex-1 items-center justify-center bg-gray-300 object-cover dark:bg-gray-700 lg:w-0">
               <svg
                 className="h-10 w-10 text-gray-200 dark:text-gray-600"
                 aria-hidden="true"
@@ -61,17 +61,17 @@ const SearchResultsSkeleton = () => {
                 <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
               </svg>
             </div>
-            <div className="relative w-full max-w-80 px-4 py-8">
-              <div className="mb-4 h-3.5 w-48 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+            <div className="relative w-full px-4 py-8 lg:max-w-[60%]">
+              <div className="mb-4 h-3.5 max-w-48 rounded-full bg-gray-200 dark:bg-gray-700"></div>
               <div className="mb-3 h-3 max-w-[480px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
               <div className="mb-3 h-3 max-w-[480px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
               <div className="mb-3 h-3 max-w-[440px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
               <div className="mb-3 h-3 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
               <div className="mb-3 h-3 max-w-[440px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
-              <div className="mb-3 h-3 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
+              {/* <div className="mb-3 h-3 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
               <div className="mb-3 h-3 max-w-[440px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
               <div className="mb-3 h-3 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
-              <div className="mb-3 h-3 max-w-[440px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
+              <div className="mb-3 h-3 max-w-[440px] rounded-full bg-gray-200 dark:bg-gray-700"></div> */}
               {/* <div className="mb-3 h-3 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div> */}
               <div className="h-3 max-w-[360px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
             </div>

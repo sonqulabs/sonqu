@@ -34,7 +34,7 @@ const FilterSelector = ({ data: listFood }) => {
         />
       </div> */}
 
-      <div className="h-fit w-full overflow-hidden rounded-lg border bg-background md:w-64">
+      <div className="h-fit w-full overflow-hidden rounded-lg border bg-background shadow-md md:w-64">
         <Button
           onClick={toggleFilter}
           variant="ghost"
@@ -119,7 +119,7 @@ const ListCategoriesGroup = ({ listFood, getCateries, handleGroup }) => {
             <Checkbox
               // key={i}
               // value={itemData.name}
-              // id={itemData.name}
+              id={itemData.name}
               checked={getCateries().some((category) => category == itemData.name)}
               onCheckedChange={(check) => handleGroup(check, itemData.name)}
             />

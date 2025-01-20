@@ -50,7 +50,7 @@ export const ActiveLinksMobile = ({ label, href, active, submenus }: Nav) => {
             </Link>
             <ChevronDown
               onClick={handleToggleSubmenu}
-              className={cn('size-6 border-l-2 border-gray-300 transition-transform duration-200', {
+              className={cn('size-6 border-l-2 transition-transform duration-200', {
                 'rotate-180': submenuOpen
               })}
             />
