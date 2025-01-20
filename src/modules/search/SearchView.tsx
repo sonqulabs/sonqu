@@ -9,7 +9,7 @@ import Filters from './components/Filters'
 import { TopSeparator } from '@/common/components/customize/TopSeparator'
 
 type Props = {
-  searchParams: { query?: string; categories?: string; difficulty: string; page?: string }
+  searchParams: { query?: string; categories?: string; difficulty?: string; page?: string }
 }
 
 const SearchView = ({ searchParams }: Props) => {
