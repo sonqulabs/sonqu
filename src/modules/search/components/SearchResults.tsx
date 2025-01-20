@@ -37,7 +37,7 @@ const SearchResult = async ({ searchParams }) => {
                 key={i}
               >
                 <Image
-                  src={getImageRecipe(item.imageUrl, 'small')}
+                  src={getImageRecipe(item.imageUrl, 'medium')}
                   height={100}
                   width={100}
                   className="w-full flex-1 object-cover lg:w-0"
