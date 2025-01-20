@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { getRecipeId } from './services/recipeId'
+import { getImageRecipe } from '@/common/helpers/getImageRecipe'
 
 type Props = {
   id: string
@@ -8,14 +9,6 @@ type Props = {
 const RecipeIdView = async ({ id }: Props) => {
   const recipe = await getRecipeId(id)
   // console.log(recipe)
-  enum SIZES {
-    SMALL = 'small',
-    MEDIUM = 'medium',
-    LARGE = 'large'
-  }
-  const getImageRecipe = (name, size: SIZES) => {
-    return `https://res.cloudinary.com/dc05tenjs/image/upload/v1732720929/thumbnails/${size}/${name}.webp`
-  }
 
   return (
     <div className="wrapper container w-[500px] py-10">
@@ -36,7 +29,7 @@ const RecipeIdView = async ({ id }: Props) => {
       </div>
 
       <Image
-        src={getImageRecipe(recipe.imageUrl, SIZES.MEDIUM)}
+        src={getImageRecipe(recipe.imageUrl, 'medium')}
         height={300}
         width={300}
         className="m-auto mb-6 w-full rounded-lg object-cover"

@@ -29,11 +29,12 @@ const Search = () => {
   const searchDebounce = debounce(handleSearch, 500)
 
   return (
-    <div className="flex w-full max-w-96 gap-1 rounded-lg bg-white p-2">
+    <div className="flex w-full max-w-96 gap-1 rounded-lg bg-white p-2 shadow-md">
       <input
+        autoFocus={true}
         onChange={(event) => searchDebounce(event.target.value)}
         type="text"
-        className="flex-1 border-r border-gray-400 outline-none"
+        className="flex-1 border-r border-gray-400 px-1 outline-none"
         defaultValue={searchParams.get('query')?.toString()}
       />
       <svg
