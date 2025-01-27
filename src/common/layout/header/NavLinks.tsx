@@ -9,7 +9,7 @@ export const NavLinks = () => {
   const menuList = getMenuList(pathname)
   return (
     <div className="hidden lg:block">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-10">
         {menuList.map((link) => {
           return <ActiveLinks key={link.label} {...link} />
         })}

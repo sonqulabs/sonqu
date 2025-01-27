@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  env: {
+    APP_URL: 'http://localhost:3000/'
+  },
   images: {
     remotePatterns: [
       {
@@ -9,10 +12,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'stimpulsacdnprod.blob.core.windows.net'
-      },
+      }
     ],
-    unoptimized: true,
-  },
-};
+    unoptimized: true
+  }
+}
 
-export default nextConfig;
+export default nextConfig
