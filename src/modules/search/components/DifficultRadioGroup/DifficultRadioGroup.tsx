@@ -7,7 +7,7 @@ const DifficultRadioGroup = () => {
   const [isOpen, setIsOpen] = useState(true)
   const toggleFilter = () => setIsOpen(!isOpen)
 
-  const { addParamDifficult, deleteParamDifficult } = useSearchParamDifficult()
+  const { getParamDifficult, addParamDifficult, deleteParamDifficult } = useSearchParamDifficult()
 
   const handleClickRadioGroup = (data) => {
     if (data == 'none') {
@@ -16,7 +16,6 @@ const DifficultRadioGroup = () => {
       addParamDifficult(data)
     }
   }
-
   return (
     <div className="h-fit w-full overflow-hidden rounded-lg border bg-background shadow-md md:w-64">
       <Button
@@ -81,22 +80,34 @@ const DifficultRadioGroup = () => {
       </Button>
       <div className={`${isOpen ? 'block' : 'hidden'} `}>
         <div className="flex flex-col gap-5 py-4 pl-5">
-          <RadioGroup defaultValue="none" onValueChange={handleClickRadioGroup}>
+          <RadioGroup
+            value={getParamDifficult() || 'none'}
+            // defaultValue="None"
+            onValueChange={handleClickRadioGroup}
+          >
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="none" id="r0" />
-              <label htmlFor="r0">None</label>
+              <label htmlFor="r0" className="cursor-pointer">
+                None
+              </label>
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="facil" id="r1" />
-              <label htmlFor="r1">Facil</label>
+              <label className="cursor-pointer" htmlFor="r1">
+                Facil
+              </label>
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="medio" id="r2" />
-              <label htmlFor="r2">Medio</label>
+              <label className="cursor-pointer" htmlFor="r2">
+                Medio
+              </label>
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="dificil" id="r3" />
-              <label htmlFor="r3">Dificil</label>
+              <label className="cursor-pointer" htmlFor="r3">
+                Dificil
+              </label>
             </div>
           </RadioGroup>
         </div>

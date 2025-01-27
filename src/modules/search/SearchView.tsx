@@ -18,7 +18,7 @@ const SearchView = ({ searchParams }: Props) => {
       <div className="wrapper flex-1">
         <TopSeparator />
       </div>
-      <div className="wrapper container font-poppins">
+      <div className="container font-poppins">
         <div className="mb-14 mt-6 flex flex-col items-center">
           <h1 className="mb-2 text-center font-jallaOne text-6xl uppercase">
             ¿Que recetas buscas?

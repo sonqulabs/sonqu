@@ -5,6 +5,11 @@ const useSearchParamDifficult = () => {
   const pathname = usePathname()
   const { replace } = useRouter()
 
+  const getParamDifficult = () => {
+    const params = new URLSearchParams(searchParams)
+    return params.get('difficulty') || ''
+  }
+
   const addParamDifficult = (valor: string) => {
     const params = new URLSearchParams(searchParams)
 
@@ -20,6 +25,7 @@ const useSearchParamDifficult = () => {
   }
 
   return {
+    getParamDifficult,
     addParamDifficult,
     deleteParamDifficult
   }

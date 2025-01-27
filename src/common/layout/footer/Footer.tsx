@@ -9,6 +9,10 @@ import IconX from './iconsSocialMedia/IconX'
 import IconYoutube from './iconsSocialMedia/IconYoutube'
 import { contactInfo, footerSections } from '@/common/data/footer'
 import Link from 'next/link'
+import { getNetworks, linksNetworks } from '@/modules/contact/data/Networks'
+import IconTiktok from './iconsSocialMedia/IconTiktok'
+
+const socialNet = getNetworks()
 
 const Footer = () => {
   const iconComponents = { Mail, Phone, MapPin }
@@ -29,26 +33,26 @@ const Footer = () => {
           <div className="mb-12 flex flex-col gap-8 lg:flex-row lg:gap-16">
             <div className="max-w-md">
               <Image src="/logo.png" className="mb-2" height={150} width={140} alt="logo" />
-              <p className="mb-4 text-sm leading-snug">
+              <p className="mb-4 max-w-80 text-sm leading-snug">
                 Descubre recetas deliciosas e inspiración culinaria para cada ocasión.
               </p>
               <div className="flex items-center space-x-4">
                 <ul className="flex gap-4">
-                  <li>
+                  <Link href={linksNetworks.Facebook} target="_blank">
                     <IconFacebook />
-                  </li>
-                  <li>
+                  </Link>
+                  <Link href={linksNetworks.Instagram} target="_blank">
                     <IconInstagram />
-                  </li>
-                  <li>
-                    <IconX />
-                  </li>
-                  <li>
+                  </Link>
+                  <Link href={linksNetworks.Tiktok} target="_blank">
+                    <IconTiktok />
+                  </Link>
+                  <Link href={linksNetworks.Whatsapp} target="_blank">
                     <IconWhatsapp />
-                  </li>
-                  <li>
+                  </Link>
+                  <Link href={linksNetworks.Youtube} target="_blank">
                     <IconYoutube />
-                  </li>
+                  </Link>
                 </ul>
               </div>
             </div>
@@ -108,7 +112,7 @@ const Footer = () => {
                 </p>
               </div>
               <div className="text-center text-sm">
-                &copy; 2024 Sonqu. Todos los derechos reservados.
+                &copy; 2025 Sonqu. Todos los derechos reservados.
               </div>
             </div>
           </div>
