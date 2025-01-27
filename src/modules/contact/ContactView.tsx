@@ -16,12 +16,10 @@ export const ContactView = () => {
       <div className="container">
         <div className="relative grid grid-cols-1 pb-6 pt-14">
           <div className="flex flex-col items-center justify-center gap-11">
-            <div
-              className={cn(ContactStyles.maxWidth, 'flex w-full items-center gap-4 ps-9 md:ps-5')}
-            >
+            <div className={cn(ContactStyles.maxWidth, 'w-full items-center gap-4 ps-9 md:ps-5')}>
               {/* <LeftArrow className={cn(ContactStyles.leftArrow)} /> */}
               <ButtonPrevius />
-              <h1 className="mt-1 font-jallaOne text-5xl uppercase md:text-7xl">Contacto</h1>
+              <h1 className="ml-7 mt-10 font-jallaOne text-5xl uppercase md:text-7xl">Contacto</h1>
             </div>
             <ContactDescription />
             <div className={cn(ContactStyles.maxWidth)}>

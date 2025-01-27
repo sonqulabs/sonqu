@@ -123,7 +123,9 @@ const ListCategoriesGroup = ({ listFood, getCateries, handleGroup }) => {
               checked={getCateries().some((category) => category == itemData.name)}
               onCheckedChange={(check) => handleGroup(check, itemData.name)}
             />
-            <label htmlFor={itemData.name}>{itemData.name}</label>
+            <label className="cursor-pointer" htmlFor={itemData.name}>
+              {itemData.name}
+            </label>
           </div>
         ))}
         {/* <RadioGroup defaultValue="default" onValueChange={(value) => handleGroup(value)}>
