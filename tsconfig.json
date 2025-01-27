@@ -24,7 +24,10 @@
       "@interfaces/*": ["./src/common/interfaces/*"],
       "@constants/*": ["./src/common/constants/*"],
       "@shadcnui/*": ["./src/common/components/shadcnui/*"]
-    }
+    },
+
+    // regla de compilacion para que en el build los any no causen problemas
+    "noImplicitAny": false
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

@@ -23,42 +23,44 @@
   filter: drop-shadow(1px -3px 3px #00000011);
 }
 
-.carouselShadow {
-  position: relative;
-}
-
-.carouselShadow::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 100%;
-  background-color: #e4e3e3;
-  box-shadow: 10px 0 20px 20px rgba(228, 227, 227, 1);
-  z-index: 10;
-  pointer-events: none;
-  margin-left: -20px;
-}
-.carouselShadow::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 10px;
-  height: 100%;
-  background-color: #e4e3e3;
-  box-shadow: -10px 0 20px 20px rgba(228, 227, 227, 1);
-  z-index: 10;
-  pointer-events: none;
-  margin-right: -20px;
-}
 @media (max-width: 1200px) {
   .image {
     background-position: right bottom;
   }
   .imageTips {
     background-position: right top;
+  }
+}
+@media (min-width: 1024px) {
+  .carouselShadow {
+    position: relative;
+  }
+
+  .carouselShadow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background-color: #e4e3e3;
+    box-shadow: 10px 0 20px 20px rgba(228, 227, 227, 1);
+    z-index: 10;
+    pointer-events: none;
+    margin-left: -10px;
+  }
+  .carouselShadow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background-color: #e4e3e3;
+    box-shadow: -10px 0 20px 20px rgba(228, 227, 227, 1);
+    z-index: 10;
+    pointer-events: none;
+    margin-right: -10px;
   }
 }
 @media (max-width: 1024px) {
@@ -89,5 +91,23 @@
 }
 
 .homeTipsBackgroundCard {
-  background: #424141b5;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+}
+
+@media (max-width: 500px) {
+
+  .homeHeightTips {
+    height: 730px;
+  }
+
+  .wrapCards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .homeTipsBackgroundCard {
+    max-width: 65%;
+  }
 }
