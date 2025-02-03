@@ -25,12 +25,12 @@ export const funMetaData = ({
     ),
     keywords: ['recetas', 'comida', 'peruana', 'cocina', 'perú', 'platos', 'gastronomía'],
     title: {
-      default: title,
+      default: decodeURIComponent(title),
       template: `%s - Sonqu`
     },
     description,
     openGraph: {
-      title: `${title} - ¡Las mejores recetas de la gastronomía peruana!`,
+      title: `${decodeURIComponent(title)} - ¡Las mejores recetas de la gastronomía peruana!`,
       description,
       images: ['/fondo-hero.png'],
       url: `${process.env.APP_URL || process.env.VERCEL_URL}/`,

@@ -1,12 +1,11 @@
+import { TopSeparator } from '@/common/components/customize/TopSeparator'
 import { Suspense } from 'react'
-import FilterSelector from './components/FilterSelector'
+import Filters from './components/Filters'
 import Search from './components/Search'
 import SearchResult from './components/SearchResults'
+import SearchResultsSkeleton from './components/SearchResultsSkeleton'
 import SearchTags from './components/SearchTags'
 import IconAdjustmentsHorizontal from './Icons/IconAdjustmentsHorizontal'
-import SearchResultsSkeleton from './components/SearchResultsSkeleton'
-import Filters from './components/Filters'
-import { TopSeparator } from '@/common/components/customize/TopSeparator'
 
 type Props = {
   searchParams: { query?: string; categories?: string; difficulty?: string; page?: string }
@@ -29,9 +28,9 @@ const SearchView = ({ searchParams }: Props) => {
 
         <div className="flex flex-col gap-8 md:flex-row">
           <div className="">
-            <button className="mb-5 flex items-center gap-3 rounded-lg text-xl font-bold uppercase text-black">
+            <div className="mb-5 flex items-center gap-3 rounded-lg text-xl font-bold uppercase text-black">
               <IconAdjustmentsHorizontal /> Filtros
-            </button>
+            </div>
             <Filters />
           </div>
 

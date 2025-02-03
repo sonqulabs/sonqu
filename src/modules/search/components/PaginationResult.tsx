@@ -2,33 +2,18 @@
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious
 } from '@/common/components/shadcnui/pagination'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import useSearchParamPage from '../hooks/useSearchParamPage'
 
 const PaginationResult = ({ meta }) => {
   // console.log(meta)
+  const { urlPage } = useSearchParamPage()
+
   const pages = Array.from({ length: meta?.lastPage }, (_, index) => index + 1)
-
-  const searchParams = useSearchParams()
-  const pathname = usePathname()
-  const { replace } = useRouter()
-
-  const addPage = (data) => {
-    const params = new URLSearchParams(searchParams)
-    params.set('page', data.toString())
-    replace(`${pathname}?${params.toString()}`, { scroll: false })
-  }
-
-  const urlPage = (data) => {
-    const params = new URLSearchParams(searchParams)
-    params.set('page', data.toString())
-    return `${pathname}?${params.toString()}`
-  }
 
   return (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">

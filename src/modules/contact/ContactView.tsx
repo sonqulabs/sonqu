@@ -1,18 +1,18 @@
-import { TopSeparator } from '@/common/components/customize/TopSeparator'
-import ContactStyles from './style/contact.module.css'
-import { cn } from '@/lib/utils'
-import { LeftArrow } from '@/common/components/icons/solid/LeftArrow'
-import { ContactDescription } from './components/ContactDescription'
-import { SocialNetworks } from './components/SocialNetworks'
-import { Screenshots } from './components/Screenshots'
 import { ButtonPrevius } from '@/common/components/customize/ButtonPrevius'
+import { TopSeparator } from '@/common/components/customize/TopSeparator'
+import { cn } from '@/lib/utils'
+import { ContactDescription } from './components/ContactDescription'
+import { Screenshots } from './components/Screenshots'
+import { SocialNetworks } from './components/SocialNetworks'
+import ContactStyles from './style/contact.module.css'
 
 export const ContactView = () => {
   return (
     <section className="relative">
       <div className="wrapper flex-1">
-        <TopSeparator className={cn(ContactStyles.imgTop, 'w-full object-cover')} />
+        <TopSeparator />
       </div>
+
       <div className="container">
         <div className="relative grid grid-cols-1 pb-6 pt-14">
           <div className="flex flex-col items-center justify-center gap-11">

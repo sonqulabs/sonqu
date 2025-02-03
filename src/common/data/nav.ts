@@ -45,11 +45,11 @@ export function getMenuList(pathname: string): Nav[] {
       href: '/nosotros',
       active: pathname === '/nosotros'
     },
-    {
-      label: 'Tienda',
-      href: '/productos',
-      active: pathname === '/productos'
-    },
+    // {
+    //   label: 'Tienda',
+    //   href: '/productos',
+    //   active: pathname === '/productos'
+    // },
     {
       label: 'Contacto',
       href: '/contacto',

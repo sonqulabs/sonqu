@@ -8,20 +8,6 @@ import { getImageRecipe } from '@/common/helpers/getImageRecipe'
 const SearchResult = async ({ searchParams }) => {
   const recipes = await searchMatchesRecipe(searchParams)
 
-  // enum SIZES {
-  //   SMALL = 'small',
-  //   MEDIUM = 'medium',
-  //   LARGE = 'large'
-  // }
-  // const getImageRecipe = (name, size: SIZES) => {
-  //   const cluod_name = 'dpnhvrzyc'
-  //   const codigo = 'v1737383049'
-  //   //res.cloudinary.com/dpnhvrzyc/image/upload/v1737383049/thumbnails/small/cl1cb28273b-0f21-4fd7-a1ba-bd375efbff33.webp
-  //   return `https://res.cloudinary.com/${cluod_name}/image/upload/${codigo}/thumbnails/${size}/${name}.webp`
-  // }
-  // const getImageRecipe = (name, size: SIZES) => {
-  //   return `https://res.cloudinary.com/dc05tenjs/image/upload/v1732720929/thumbnails/${size}/${name}.webp`
-  // }
   return (
     <>
       <PaginationResult meta={recipes.meta} />
@@ -30,7 +16,7 @@ const SearchResult = async ({ searchParams }) => {
         {recipes.data?.length
           ? recipes.data.map((item, i) => (
               <Link
-                href={'search/recipe/' + item.id}
+                href={'search/recipe/' + item.title}
                 className={cn(
                   'flex flex-col overflow-hidden rounded-3xl bg-white shadow-md transition-shadow duration-150 hover:shadow-2xl lg:flex-row'
                 )}

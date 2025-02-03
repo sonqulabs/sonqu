@@ -1,9 +1,11 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import useSearchParamPage from './useSearchParamPage'
 
 const useSearchParamCategories = () => {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const { replace } = useRouter()
+  const { checkParamPage } = useSearchParamPage()
 
   const getParamCategories = (paramCategories: string) => {
     if (!paramCategories) return []
@@ -18,6 +20,7 @@ const useSearchParamCategories = () => {
 
   const addParamCategories = (valor: string) => {
     const params = new URLSearchParams(searchParams)
+    checkParamPage(params)
     const paramCategories = params.get('categories') || ''
 
     const re = getParamCategories(paramCategories)
@@ -32,6 +35,7 @@ const useSearchParamCategories = () => {
 
   const deleteParamCategories = (name: string) => {
     const params = new URLSearchParams(searchParams)
+    checkParamPage(params)
     const paramCategories = params.get('categories') || ''
     const re = getParamCategories(paramCategories)
 
