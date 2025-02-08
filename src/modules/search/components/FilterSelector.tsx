@@ -110,25 +110,27 @@ const FilterSelector = ({ data: listFood }) => {
 }
 
 const ListCategoriesGroup = ({ listFood, getCateries, handleGroup }) => {
-  return listFood.map((item, i) => (
-    <div className="" key={i}>
-      <h3 className="mb-2 font-semibold uppercase">{item?.name}</h3>
-      <div className="ml-2 flex flex-col gap-1">
-        {item?.Category?.map((itemData, i) => (
-          <div className="flex items-center space-x-2" key={i}>
-            <Checkbox
-              // key={i}
-              // value={itemData.name}
-              id={itemData.name}
-              checked={getCateries().some((category) => category == itemData.name)}
-              onCheckedChange={(check) => handleGroup(check, itemData.name)}
-            />
-            <label className="cursor-pointer" htmlFor={itemData.name}>
-              {itemData.name}
-            </label>
-          </div>
-        ))}
-        {/* <RadioGroup defaultValue="default" onValueChange={(value) => handleGroup(value)}>
+  return listFood.map(
+    (item) =>
+      item?.Category?.length > 0 && (
+        <div className="" key={item?.name}>
+          <h3 className="mb-2 font-semibold uppercase">{item?.name}</h3>
+          <div className="ml-2 flex flex-col gap-1">
+            {item?.Category?.map((itemData, i) => (
+              <div className="flex items-center space-x-2" key={i}>
+                <Checkbox
+                  // key={i}
+                  // value={itemData.name}
+                  id={itemData.name}
+                  checked={getCateries().some((category) => category == itemData.name)}
+                  onCheckedChange={(check) => handleGroup(check, itemData.name)}
+                />
+                <label className="cursor-pointer" htmlFor={itemData.name}>
+                  {itemData.name}
+                </label>
+              </div>
+            ))}
+            {/* <RadioGroup defaultValue="default" onValueChange={(value) => handleGroup(value)}>
         {item.data.map((itemData, i) => (
           <div className="flex items-center space-x-2" key={i}>
             <RadioGroupItem value={itemData} id={itemData} />
@@ -136,9 +138,10 @@ const ListCategoriesGroup = ({ listFood, getCateries, handleGroup }) => {
           </div>
         ))}
       </RadioGroup> */}
-      </div>
-    </div>
-  ))
+          </div>
+        </div>
+      )
+  )
 }
 
 export default FilterSelector
