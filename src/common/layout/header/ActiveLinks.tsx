@@ -1,13 +1,18 @@
+'use client'
 import { Nav } from '@/common/interfaces/nav'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { usePathname, useSearchParams } from 'next/navigation'
 
 export const ActiveLinks = ({ label, href, active, submenus }: Nav) => {
   const [submenuOpen, setSubmenuOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement | null>(null)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   const handleMouseEnter = () => {
     clearTimeout(timeoutRef.current!)
@@ -21,6 +26,14 @@ export const ActiveLinks = ({ label, href, active, submenus }: Nav) => {
       }
     }, 200) // Un pequeño retraso para permitir al usuario moverse
   }
+
+  useEffect(() => {
+    setSubmenuOpen(false) // Cierra el submenú cuando cambia la ruta
+    return () => {
+      setSubmenuOpen(false)
+      clearTimeout(timeoutRef.current!)
+    }
+  }, [pathname, searchParams.toString()])
 
   return (
     <div

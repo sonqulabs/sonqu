@@ -48,9 +48,9 @@ const SearchResultsSkeleton = () => {
           <div
             key={i}
             role="status"
-            className="flex animate-pulse flex-col overflow-hidden rounded-3xl bg-white md:flex md:items-center lg:flex-row"
+            className="flex animate-pulse flex-col overflow-hidden rounded-3xl bg-white md:flex md:items-center lg:h-[230px] lg:flex-row"
           >
-            <div className="flex h-full min-h-52 w-full flex-1 items-center justify-center bg-gray-300 object-cover dark:bg-gray-700 lg:w-0">
+            <div className="flex h-[230px] w-full flex-1 items-center justify-center bg-gray-300 object-cover dark:bg-gray-700 lg:h-[230px] lg:w-0">
               <svg
                 className="h-10 w-10 text-gray-200 dark:text-gray-600"
                 aria-hidden="true"
