@@ -5,20 +5,20 @@ import StyleFooter from '../../styles/footer.module.css'
 import IconFacebook from './iconsSocialMedia/IconFacebook'
 import IconInstagram from './iconsSocialMedia/IconInstagram'
 import IconWhatsapp from './iconsSocialMedia/IconWhatsapp'
-import IconX from './iconsSocialMedia/IconX'
-import IconYoutube from './iconsSocialMedia/IconYoutube'
+// import IconX from './iconsSocialMedia/IconX'
 import { contactInfo, footerSections } from '@/common/data/footer'
+import { linksNetworks } from '@/modules/contact/data/Networks'
 import Link from 'next/link'
-import { getNetworks, linksNetworks } from '@/modules/contact/data/Networks'
 import IconTiktok from './iconsSocialMedia/IconTiktok'
+import IconYoutube from './iconsSocialMedia/IconYoutube'
 
-const socialNet = getNetworks()
+// const socialNet = getNetworks()
 
 const Footer = () => {
   const iconComponents = { Mail, Phone, MapPin }
 
   return (
-    <footer className="text-white">
+    <footer className="mt-10 text-white lg:mt-20">
       <div className="wrapper relative z-[-1]">
         <Image
           src="/footer.png"

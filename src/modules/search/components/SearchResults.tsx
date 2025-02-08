@@ -18,7 +18,7 @@ const SearchResult = async ({ searchParams }) => {
               <Link
                 href={'search/recipe/' + item.title}
                 className={cn(
-                  'flex flex-col overflow-hidden rounded-3xl bg-white shadow-md transition-shadow duration-150 hover:shadow-2xl lg:flex-row'
+                  'flex flex-col overflow-hidden rounded-3xl bg-white shadow-md transition-shadow duration-150 hover:shadow-2xl lg:h-[230px] lg:flex-row'
                 )}
                 key={i}
               >
@@ -26,7 +26,7 @@ const SearchResult = async ({ searchParams }) => {
                   src={getImageRecipe(item.imageUrl, 'medium')}
                   height={100}
                   width={100}
-                  className="w-full flex-1 object-cover lg:w-0"
+                  className="h-[230px] w-full object-cover lg:h-auto lg:w-0 lg:flex-1"
                   alt="fondo hero"
                 />
                 <div className="relative w-full px-4 py-8 lg:max-w-[60%]">
