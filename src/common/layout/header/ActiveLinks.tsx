@@ -2,9 +2,10 @@
 import { Nav } from '@/common/interfaces/nav'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, Suspense } from 'react'
 import { ChevronDown } from 'lucide-react'
-import { usePathname, useSearchParams } from 'next/navigation'
+// import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 export const ActiveLinks = ({ label, href, active, submenus }: Nav) => {
   const [submenuOpen, setSubmenuOpen] = useState(false)
@@ -13,6 +14,7 @@ export const ActiveLinks = ({ label, href, active, submenus }: Nav) => {
 
   const pathname = usePathname()
   const searchParams = useSearchParams()
+  const searchParamsString = searchParams.toString()
 
   const handleMouseEnter = () => {
     clearTimeout(timeoutRef.current!)
@@ -33,7 +35,7 @@ export const ActiveLinks = ({ label, href, active, submenus }: Nav) => {
       setSubmenuOpen(false)
       clearTimeout(timeoutRef.current!)
     }
-  }, [pathname, searchParams.toString()])
+  }, [pathname, searchParamsString])
 
   return (
     <div
