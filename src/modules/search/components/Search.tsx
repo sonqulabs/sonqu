@@ -1,13 +1,16 @@
 'use client'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import useSearchParamPage from '../hooks/useSearchParamPage'
 
 const Search = () => {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const { replace } = useRouter()
+  const { checkParamPage } = useSearchParamPage()
 
   const handleSearch = (term: string) => {
     const params = new URLSearchParams(searchParams)
+    checkParamPage(params)
 
     if (term) {
       params.set('query', term)
