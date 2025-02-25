@@ -1,20 +1,31 @@
 'use client'
 import { getMenuList } from '@/common/data/nav'
 
+import { getCategories } from '@/modules/search/services/searchService'
 import { usePathname } from 'next/navigation'
+import { Suspense, useEffect, useState } from 'react'
 import { ActiveLinks } from './ActiveLinks'
-import { Suspense } from 'react'
+import { SubMenuRecetas } from './SubMenuRecetas'
 
 export const NavLinks = () => {
   const pathname = usePathname()
   const menuList = getMenuList(pathname)
+  const [listFood, setListFood] = useState<{ name: string }[]>([])
+  useEffect(() => {
+    const getCG = async () => {
+      setListFood(await getCategories())
+    }
+    getCG()
+  }, [])
+  // console.log(listFood)
+
   return (
-    <div className="hidden lg:block">
-      <div className="flex items-center gap-10">
+    <div className="hidden h-full lg:block">
+      <div className="flex h-full items-center gap-10">
         {menuList.map((link) => {
           return (
             <Suspense key={link.label} fallback={null}>
-              <ActiveLinks {...link} />
+              <ActiveLinks {...link} SubMenu={() => <SubMenuRecetas listFood={listFood} />} />
             </Suspense>
           )
         })}

@@ -9,4 +9,5 @@ export type Nav = {
   href: string
   active: boolean
   submenus?: Submenu[] | null
+  SubMenu?: React.ComponentType
 }

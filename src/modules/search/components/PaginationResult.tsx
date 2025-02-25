@@ -2,6 +2,7 @@
 import {
   Pagination,
   PaginationContent,
+  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -13,37 +14,85 @@ const PaginationResult = ({ meta }) => {
   // console.log(meta)
   const { urlPage } = useSearchParamPage()
 
-  const pages = Array.from({ length: meta?.lastPage }, (_, index) => index + 1)
+  // let pages: any = Array.from({ length: meta?.lastPage }, (_, index) => index + 1)
+  // let pages: any = []
+
+  const getPaginationRange = (totalPages: number, currentPage: number) => {
+    const visiblePages = 3 // Número de páginas visibles además de la primera y la última.
+    const range: (number | string)[] = []
+
+    if (totalPages <= visiblePages + 2) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1)
+    }
+
+    range.push(1) // Primera página siempre visible
+
+    if (currentPage > 3) {
+      range.push('...') // Agrega puntos si hay más de una página oculta al inicio
+    }
+
+    const start = Math.max(2, currentPage - 1)
+    const end = Math.min(totalPages - 1, currentPage + 1)
+
+    for (let i = start; i <= end; i++) {
+      range.push(i)
+    }
+
+    if (currentPage < totalPages - 2) {
+      range.push('...') // Agrega puntos si hay más de una página oculta al final
+    }
+
+    range.push(totalPages) // Última página siempre visible
+
+    return range
+  }
+
+  const pages = getPaginationRange(meta?.lastPage || 1, meta?.currentPage)
 
   return (
-    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-      <div className="hidden sm:block"></div>
+    <div className="grid grid-cols-1 gap-3 xl:grid-cols-3">
+      <div className="hidden xl:block"></div>
       <Pagination>
         <PaginationContent>
-          {meta.prev != null && (
+          {meta.prev != null ? (
             <PaginationItem>
               <PaginationPrevious
                 href={urlPage(meta.prev)}
                 // onClick={() => addPage(meta.prev)}
               />
             </PaginationItem>
+          ) : (
+            <PaginationItem className="invisible">
+              <PaginationPrevious />
+            </PaginationItem>
           )}
           {pages.map((item, i) => {
             return (
               <PaginationItem key={i}>
-                <PaginationLink
-                  href={urlPage(item)}
-                  // href="#"
-                  // onClick={() => addPage(item)}
-                  isActive={item == meta.currentPage}
-                >
-                  {item}
-                </PaginationLink>
+                {typeof item === 'number' ? (
+                  <PaginationLink href={urlPage(item)} isActive={item === meta.currentPage}>
+                    {item}
+                  </PaginationLink>
+                ) : (
+                  <PaginationEllipsis />
+
+                  // <span className="px-2">...</span> // Muestra los puntos suspensivos
+                )}
               </PaginationItem>
+              // <PaginationItem key={i}>
+              //   <PaginationLink
+              //     href={urlPage(item)}
+              //     // href="#"
+              //     // onClick={() => addPage(item)}
+              //     isActive={item == meta.currentPage}
+              //   >
+              //     {item}
+              //   </PaginationLink>
+              // </PaginationItem>
             )
           })}
 
-          {meta.next != null && (
+          {meta.next != null ? (
             <PaginationItem>
               <PaginationNext
                 href={urlPage(meta.next)}
@@ -51,11 +100,17 @@ const PaginationResult = ({ meta }) => {
                 // onClick={() => addPage(meta.next)}
               />
             </PaginationItem>
+          ) : (
+            <PaginationItem className="invisible">
+              <PaginationNext />
+            </PaginationItem>
           )}
         </PaginationContent>
       </Pagination>
-      <div className="flex items-center justify-center text-sm font-medium sm:justify-end">
-        <div className="rounded-full bg-white px-4 py-2">Recetas encontradas : {meta.total}</div>
+      <div className="flex items-center justify-center text-sm font-medium xl:justify-end">
+        <div className="rounded-full bg-white px-4 py-2 text-xs">
+          Recetas encontradas : {meta.total}
+        </div>
       </div>
     </div>
   )

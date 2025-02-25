@@ -18,11 +18,11 @@ const SearchView = ({ searchParams }: Props) => {
         <TopSeparator />
       </div>
       <div className="container font-poppins">
-        <div className="mb-14 mt-6 flex flex-col items-center">
+        <div className="mb-10 mt-0 flex flex-col items-center">
           <h1 className="mb-2 text-center font-jallaOne text-6xl uppercase">
             ¿Que recetas buscas?
           </h1>
-          <h2 className="mb-8 font-fingerPaint text-3xl text-sonqu-black-300">Te ayudamos</h2>
+          <h2 className="mb-11 font-fingerPaint text-3xl text-sonqu-black-300">Te ayudamos</h2>
           <Search />
         </div>
 

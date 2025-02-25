@@ -14,7 +14,7 @@ const YoutubeLite = ({ url }) => {
   return (
     <LiteYouTubeEmbed
       id={getYouTubeID(url)}
-      wrapperClass="yt-lite rounded-lg"
+      wrapperClass="yt-lite rounded-lg border border-[#000000cc] shadow-md"
       title="What’s new in Material Design for the web (Chrome Dev Summit 2019)"
     />
   )

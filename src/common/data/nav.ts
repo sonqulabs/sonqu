@@ -8,10 +8,11 @@ export function getMenuList(pathname: string): Nav[] {
       active: pathname === '/'
     },
     {
-      href: '#',
-      // href: '/recetas',
+      // href: '#',
+      href: '/search',
       label: 'Recetas',
       active: pathname.includes('/recetas'),
+      // SubMenu: SubMenuRecetas,
       submenus: [
         {
           href: '/catalog/sube-baja',

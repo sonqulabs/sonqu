@@ -16,15 +16,15 @@ const SearchTags = () => {
         .map((item, i) => {
           return (
             <span
-              className="flex cursor-pointer items-center rounded-3xl bg-slate-400 px-3 py-1 text-white"
+              className="flex cursor-pointer items-center rounded-3xl bg-[#000000cc] px-3 py-1 text-xs text-white"
               key={i}
               onClick={() => deleteParamCategories(item)}
             >
               {item}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width={20}
-                height={20}
+                width={18}
+                height={18}
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
