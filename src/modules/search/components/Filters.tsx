@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
-import FilterSelector from './FilterSelector'
 import { getAllCategoriesGroup } from '../services/searchService'
-import DifficultRadioGroup from './DifficultRadioGroup/DifficultRadioGroup'
+import FilterSelector from './FilterSelector'
+// import DifficultRadioGroup from './DifficultRadioGroup/DifficultRadioGroup'
 
 const Filters = () => {
   const [listFood, setListFood] = useState([])
@@ -15,7 +15,7 @@ const Filters = () => {
   }, [])
   return (
     <div className="flex flex-col gap-3">
-      <DifficultRadioGroup />
+      {/* <DifficultRadioGroup /> */}
       <FilterSelector data={listFood} />
     </div>
   )

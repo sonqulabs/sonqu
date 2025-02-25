@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import { NavLinks } from './NavLinks'
-import SearchNav from './Search'
 import Link from 'next/link'
 import MenuMobile from './MenuMobile'
+import { NavLinks } from './NavLinks'
+import SearchNav from './Search'
 
 export const Header = () => {
   return (
@@ -21,7 +21,7 @@ export const Header = () => {
           </Link>
           <SearchNav />
         </div>
-        <div className="flex items-center gap-2 lg:gap-6">
+        <div className="flex h-full items-center gap-2 lg:gap-6">
           <NavLinks />
           <MenuMobile />
         </div>

@@ -32,25 +32,26 @@ const Search = () => {
   const searchDebounce = debounce(handleSearch, 500)
 
   return (
-    <div className="flex w-full max-w-96 gap-1 rounded-lg bg-white p-2 shadow-md">
+    <div className="flex w-full max-w-96 gap-1 rounded-lg border border-[#3a3a3a11] bg-[#fdfdfddc] p-2.5 shadow-md">
       <input
         autoFocus={true}
         onChange={(event) => searchDebounce(event.target.value)}
         type="text"
-        className="flex-1 border-r border-gray-400 px-1 outline-none"
+        // placeholder="ejemplo: pizza, pasta, etc."
+        className="flex-1 bg-transparent px-1 outline-none"
         defaultValue={searchParams.get('query')?.toString()}
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width={24}
-        height={24}
+        width={20}
+        height={20}
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="icon icon-tabler icons-tabler-outline icon-tabler-search opacity-40"
+        className="icon icon-tabler icons-tabler-outline icon-tabler-search m-auto opacity-40"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
