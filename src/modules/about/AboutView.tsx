@@ -4,6 +4,9 @@ import { cn } from '@/lib/utils'
 import { TopSeparator } from '@/common/components/customize/TopSeparator'
 import { LinkSonqu } from '@/common/components/customize/ButtonSonqu'
 import { ButtonPrevius } from '@/common/components/customize/ButtonPrevius'
+import TeamSection from './components/TeamSection'
+import { Instagram, Youtube } from 'lucide-react'
+import { LogoTiktok } from '@/common/components/icons/solid/LogoTiktok'
 
 const AboutView = () => {
   return (
@@ -11,10 +14,10 @@ const AboutView = () => {
       <div className="wrapper">
         <TopSeparator />
       </div>
-      <div className="container flex flex-col gap-6 pb-14">
+      <div className="container flex flex-col gap-6">
         <ButtonPrevius />
-        <div className="relative grid grid-cols-1 gap-10 lg:grid-cols-2">
-          <div className="order-2 aspect-square w-full max-w-[500px] drop-shadow-md lg:order-1 lg:justify-self-end">
+        <div className="relative mb-10 mt-4 grid grid-cols-1 gap-10 lg:grid-cols-2">
+          <div className="order-2 aspect-square w-full max-w-[500px] drop-shadow-md lg:order-2 lg:justify-self-start">
             <Image
               src="/about.png"
               className="w-full object-cover"
@@ -23,7 +26,7 @@ const AboutView = () => {
               height={300}
             />
           </div>
-          <div className="order-1 flex flex-col gap-4 lg:order-2">
+          <div className="order-1 flex flex-col gap-4 lg:order-1">
             <div>
               <h1 className="font-jallaOne text-5xl font-medium uppercase md:text-7xl">Nosotros</h1>
               <h2 className="font-fingerPaint text-xl text-sonqu-black-300 md:text-3xl">
@@ -49,6 +52,27 @@ const AboutView = () => {
             <LinkSonqu href="#" name="ver recetas" className="text-sm md:!text-base" />
           </div>
         </div>
+
+        <section className="w-full rounded-3xl bg-red-600 py-4 text-white">
+          <div className="w-full px-4">
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+              <a href="#" className="flex items-center gap-2 transition-colors hover:text-white/80">
+                <Instagram className="h-6 w-6" />
+                <span className="font-medium">250k seguidores</span>
+              </a>
+              <a href="#" className="flex items-center gap-2 transition-colors hover:text-white/80">
+                <Youtube className="h-6 w-6" />
+                <span className="font-medium">500k suscriptores</span>
+              </a>
+              <a href="#" className="flex items-center gap-2 transition-colors hover:text-white/80">
+                <LogoTiktok className="h-6 w-6" />
+                <span className="font-medium">1M seguidores</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <TeamSection />
       </div>
     </section>
   )

@@ -16,7 +16,13 @@ export const HomeCategoryRecipes = () => {
   const menuCategorias = CategoryDishes()
 
   return (
-    <section>
+    <section className="flex flex-col items-center gap-10">
+      {/* <div className="container flex w-full flex-col items-center justify-center gap-1 text-center">
+        <h2 className="pl-10 font-poppins text-lg font-bold uppercase sm:text-3xl">
+          Nuestras Categorías
+        </h2>
+        <p className="text-center">Explora nuestra varidad...</p>
+      </div> */}
       <div className="container pb-6 pt-0 max-lg:px-0">
         <Carousel
           opts={{

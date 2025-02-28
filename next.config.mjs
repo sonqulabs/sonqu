@@ -11,6 +11,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'freepik.es'
+      },
+      {
+        protocol: 'https',
         hostname: 'stimpulsacdnprod.blob.core.windows.net'
       }
     ],

@@ -8,13 +8,13 @@ export const ItemCarousel = ({ name, image, path }: Props) => {
   return (
     <Link
       href={`/categoria/${path}`}
-      className="flex aspect-square flex-col items-center gap-2 text-center font-poppins text-sm font-medium uppercase lg:text-base"
+      className="group relative flex aspect-square flex-col items-center gap-2 text-center font-poppins text-sm font-medium lg:text-base"
     >
-      <div className="h-full w-full overflow-hidden rounded-3xl">
+      <div className="h-full w-full overflow-hidden rounded-[30px]">
         <Image
           src={initialImage}
           alt={name}
-          className="w-full object-cover transition-transform duration-300 hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
           width="200"
           height="200"
           placeholder="blur"
@@ -22,7 +22,10 @@ export const ItemCarousel = ({ name, image, path }: Props) => {
           onError={handleError}
         />
       </div>
-      {name}
+      <div className="absolute inset-0 rounded-[30px] bg-black/30"></div>
+      <div className="absolute z-20 flex h-full w-full items-center justify-center text-white group-hover:underline group-hover:underline-offset-8">
+        {name}
+      </div>
     </Link>
   )
 }

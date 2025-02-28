@@ -23,6 +23,19 @@
   filter: drop-shadow(1px -3px 3px #00000011);
 }
 
+@keyframes dots {
+  0% {
+    background-position:
+      0 0,
+      4px 4px;
+  }
+  100% {
+    background-position:
+      8px 0,
+      12px 4px;
+  }
+}
+
 @media (max-width: 1200px) {
   .image {
     background-position: right bottom;
@@ -97,7 +110,6 @@
 }
 
 @media (max-width: 500px) {
-
   .homeHeightTips {
     height: 730px;
   }
