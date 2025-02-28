@@ -7,6 +7,12 @@ export function getMenuList(pathname: string): Nav[] {
       href: '/',
       active: pathname === '/'
     },
+
+    {
+      label: 'Nosotros',
+      href: '/nosotros',
+      active: pathname === '/nosotros'
+    },
     {
       // href: '#',
       href: '/search',
@@ -41,11 +47,6 @@ export function getMenuList(pathname: string): Nav[] {
           active: pathname.includes('/catalog/columpios')
         }
       ]
-    },
-    {
-      label: 'Nosotros',
-      href: '/nosotros',
-      active: pathname === '/nosotros'
     },
     // {
     //   label: 'Tienda',

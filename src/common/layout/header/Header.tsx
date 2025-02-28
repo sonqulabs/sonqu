@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-sonqu-white-400 drop-shadow-md">
       <div className="container flex h-14 items-center justify-between">
-        <div className="flex gap-7">
+        <div className="flex items-center gap-7">
           <Link href="/" className="my-auto">
             <Image
               src="/logoSonqu.png"

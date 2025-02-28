@@ -13,16 +13,14 @@ const HomeTips = () => {
           'container flex flex-col justify-center gap-3 px-4 xl:px-0'
         )}
       >
-        <h2 className="mb-1 pt-10 font-poppins text-lg font-bold uppercase text-white md:text-2xl">
-          Tips
-        </h2>
+        <h2 className="mb-1 pt-10 text-lg font-bold text-white md:text-3xl">Tips Sonqu</h2>
 
-        <div className={cn(HomeStyles.wrapCards, "flex w-full justify-between gap-4")}>
+        <div className={cn(HomeStyles.wrapCards, 'flex w-full justify-between gap-4')}>
           {dataTips.map((item, i) => (
             <div
               className={cn(
                 HomeStyles.homeTipsBackgroundCard,
-                'flex flex-1 flex-col items-center overflow-hidden rounded-3xl lg:flex-row max-w-[45%]'
+                'flex w-full flex-1 flex-col items-center overflow-hidden rounded-3xl lg:flex-row'
               )}
               key={i}
             >
@@ -35,13 +33,11 @@ const HomeTips = () => {
                   width={200}
                 />
               </div>
-              <div className="flex flex-col px-4 py-4 text-white lg:py-6 lg:px-6">
+              <div className="flex flex-col px-4 py-4 text-white lg:px-6 lg:py-6">
                 <h3 className="mb-2 line-clamp-1 text-base md:text-lg lg:text-xl">{item.title}</h3>
                 <p className="mb-2 line-clamp-3 text-justify text-xs sm:line-clamp-4 sm:text-sm">
                   {item.description}
                 </p>
-
-                <button className="self-end italic opacity-50 hover:underline text-sm">Ver más</button>
               </div>
             </div>
           ))}

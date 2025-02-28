@@ -15,14 +15,14 @@ export const CardDishes = ({ image, name, description, path }: Dishes) => {
         />
       </Link>
 
-      <div className="flex flex-col justify-start gap-1 bg-white px-6 py-4">
-        <h2 className="line-clamp-1 text-lg font-semibold leading-tight md:text-xl">{name}</h2>
-        <p className="mb-2 line-clamp-2 h-8 text-xs leading-tight md:h-10 md:text-sm">
+      <div className="flex items-center justify-between gap-1 bg-white px-6 py-3">
+        <h2 className="line-clamp-1 text-base font-medium leading-tight">{name}</h2>
+        {/* <p className="mb-2 line-clamp-2 h-8 text-xs leading-tight md:h-10 md:text-sm">
           {description}
-        </p>
+        </p> */}
         <Link
           href={`/recetas/${path}`}
-          className="w-fit self-end whitespace-nowrap rounded-lg bg-sonqu-orange-400 px-3.5 py-1 text-xs font-light uppercase text-white md:rounded-xl md:px-6 md:py-1.5 md:text-sm"
+          className="hidden w-fit self-end whitespace-nowrap rounded-lg bg-sonqu-orange-400 px-3.5 py-1 text-xs font-light uppercase text-white md:block md:rounded-xl md:px-6 md:py-1.5 md:text-sm"
         >
           Ver Receta
         </Link>

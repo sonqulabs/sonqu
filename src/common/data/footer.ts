@@ -16,15 +16,6 @@ export const footerSections = [
       { name: 'Sushi Roll', href: '/recetas/sushi-roll' },
       { name: 'Ver más', href: '/recetas/tacos-al-pastor' }
     ]
-  },
-  {
-    title: 'Tips',
-    items: [
-      { name: 'cocciones', href: '/recetas/pasta-carbonara' },
-      { name: 'cortess', href: '/recetas/ensalada-cesar' },
-      { name: 'Sushi Roll', href: '/recetas/sushi-roll' },
-      { name: 'Ver más', href: '/recetas/tacos-al-pastor' }
-    ]
   }
 ]
 

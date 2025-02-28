@@ -18,8 +18,8 @@ const Footer = () => {
   const iconComponents = { Mail, Phone, MapPin }
 
   return (
-    <footer className="mt-10 text-white lg:mt-20">
-      <div className="wrapper relative z-[-1]">
+    <footer className="text-white">
+      {/* <div className="wrapper relative z-[-1]">
         <Image
           src="/footer.png"
           alt="footer image"
@@ -27,8 +27,8 @@ const Footer = () => {
           width={700}
           height={200}
         />
-      </div>
-      <div className={cn(StyleFooter.image, 'bg-sonqu-red-300 px-4 py-12')}>
+      </div> */}
+      <div className={cn('bg-gradient-to-r from-[#d31008] to-[#db5932] px-4 py-12')}>
         <div className="container">
           <div className="mb-12 flex flex-col gap-8 lg:flex-row lg:gap-16">
             <div className="max-w-md">
@@ -103,7 +103,7 @@ const Footer = () => {
           <div className="border-t border-red-400 pt-8">
             <div className="flex flex-col items-center justify-between gap-4 lg:flex-row">
               <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
-                <button className="flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-sonqu-yellow-300 px-3 py-3 text-sm font-bold text-sonqu-red-300 transition-colors hover:bg-yellow-300 lg:w-auto lg:gap-4 lg:px-5 lg:text-base">
+                <button className="flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-sonqu-yellow-300 px-3 py-3 text-sm font-semibold text-[#d31008] transition-colors hover:bg-yellow-300 lg:w-auto lg:px-5 lg:text-base">
                   <Upload className="size-5" />
                   Sube tu receta
                 </button>
