@@ -1,16 +1,19 @@
-import { Star } from 'lucide-react'
 import { Suspense } from 'react'
 import { RecipesPopular } from './components/RecipesPopular'
+import Link from 'next/link'
 
 export const HomeDishesPopular = () => {
   return (
-    <section className="container mb-8 mt-10 px-4 xl:px-0">
-      <h1 className="mb-4 flex items-center gap-2 font-poppins text-lg font-bold uppercase md:text-2xl">
-        PLATOS POPULARES <Star className="size-6 fill-yellow-400 text-yellow-400" />
-      </h1>
-      <Suspense fallback={<h1>cargandoooooooo...</h1>}>
-        <RecipesPopular />
-      </Suspense>
+    <section className="container mb-16 mt-16 px-4 xl:px-0">
+      <div className="flex items-center justify-between">
+        <h1 className="mb-4 flex items-center gap-2 text-lg font-bold md:text-3xl">
+          Nuevas Recetas
+        </h1>
+        <Link href="/search" className="hover:underline">
+          Ver todo
+        </Link>
+      </div>
+      <RecipesPopular />
     </section>
   )
 }
