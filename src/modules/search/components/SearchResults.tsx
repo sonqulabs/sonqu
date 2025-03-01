@@ -23,7 +23,7 @@ const SearchResult = async ({ searchParams }) => {
               <Link
                 href={'search/recipe/' + item.title}
                 className={cn(
-                  'flex flex-col overflow-hidden rounded-2xl bg-white shadow-md transition-shadow duration-150 hover:shadow-2xl lg:h-[230px] lg:flex-row'
+                  'flex flex-col overflow-hidden rounded-2xl border border-[#0707072d] bg-white shadow-md transition-shadow duration-150 hover:shadow-2xl lg:h-[230px] lg:flex-row'
                 )}
                 key={i}
               >

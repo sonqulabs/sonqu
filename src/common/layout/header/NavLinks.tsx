@@ -10,13 +10,7 @@ import { SubMenuRecetas } from './SubMenuRecetas'
 export const NavLinks = () => {
   const pathname = usePathname()
   const menuList = getMenuList(pathname)
-  const [listFood, setListFood] = useState<{ name: string }[]>([])
-  useEffect(() => {
-    const getCG = async () => {
-      setListFood(await getCategories())
-    }
-    getCG()
-  }, [])
+
   // console.log(listFood)
 
   return (
@@ -25,7 +19,7 @@ export const NavLinks = () => {
         {menuList.map((link) => {
           return (
             <Suspense key={link.label} fallback={null}>
-              <ActiveLinks {...link} SubMenu={() => <SubMenuRecetas listFood={listFood} />} />
+              <ActiveLinks {...link} SubMenu={() => <SubMenuRecetas />} />
             </Suspense>
           )
         })}

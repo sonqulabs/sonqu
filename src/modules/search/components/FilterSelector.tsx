@@ -2,15 +2,38 @@
 import { Button } from '@/common/components/shadcnui/button'
 import { Checkbox } from '@/common/components/shadcnui/checkbox'
 import { Tags } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useSearchParamCategories from '../hooks/useSearchParamCategories'
 import FilterSelectorSkeleton from './FilterSelectorSkeleton'
+
+const useIsMobile = (breakpoint = 768) => {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < breakpoint)
+    }
+
+    handleResize()
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [breakpoint])
+
+  return isMobile
+}
 
 const FilterSelector = ({ data: listFood }) => {
   const { addParamCategories, deleteParamCategories, getCateries } = useSearchParamCategories()
 
   const [isOpen, setIsOpen] = useState(true)
   const toggleFilter = () => setIsOpen(!isOpen)
+
+  const isMobile = useIsMobile()
+
+  useEffect(() => {
+    setIsOpen(!isMobile)
+  }, [isMobile])
 
   const handleGroup = async (check, value) => {
     // console.log({ value, check })
@@ -35,7 +58,7 @@ const FilterSelector = ({ data: listFood }) => {
         />
       </div> */}
 
-      <div className="h-fit w-full overflow-hidden rounded-lg border bg-background shadow-md md:w-64">
+      <div className="h-fit w-full overflow-hidden rounded-lg border border-[#0707072d] bg-background shadow-md md:w-64">
         <Button
           onClick={toggleFilter}
           variant="ghost"

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, useRef } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { useMenuStore } from '@/context/menuMobile'
+import { SubMenuRecetasMobile } from './SubMenuRecetasMobile'
 
 export const ActiveLinksMobile = ({ label, href, active, submenus }: Nav) => {
   const [submenuOpen, setSubmenuOpen] = useState(false)
@@ -15,10 +16,7 @@ export const ActiveLinksMobile = ({ label, href, active, submenus }: Nav) => {
   }
 
   return (
-    <div
-      className="relative flex w-full flex-col border border-b-gray-300 border-l-gray-300 border-t-gray-300 last:border-b-0"
-      ref={containerRef}
-    >
+    <div className="relative flex w-full flex-col" ref={containerRef}>
       {!submenus ? (
         <Link
           href={href}
@@ -35,44 +33,28 @@ export const ActiveLinksMobile = ({ label, href, active, submenus }: Nav) => {
         </Link>
       ) : (
         <>
-          <div className="flex w-full items-center justify-between">
+          <div className="flex w-full items-center justify-between" onClick={handleToggleSubmenu}>
             <Link
-              href={href}
+              href="#"
+              // href={href}
               className={cn(
                 'flex flex-1 items-center py-1 pl-4 font-poppins text-xs font-semibold uppercase leading-loose text-black',
                 {
                   'text-sonqu-red-300': active
                 }
               )}
-              onClick={closeMenu}
+              // onClick={closeMenu}
             >
               {label}
             </Link>
             <ChevronDown
-              onClick={handleToggleSubmenu}
-              className={cn('size-6 border-l-2 transition-transform duration-200', {
+              className={cn('size-6 transition-transform duration-200', {
                 'rotate-180': submenuOpen
               })}
             />
           </div>
 
-          {submenuOpen && (
-            <ul className="overflow-hidden bg-sonqu-white-400 shadow-sm">
-              {submenus?.map(({ href, label }) => (
-                <li key={label} className="w-full whitespace-nowrap">
-                  <Link
-                    href={href}
-                    className={cn(
-                      'block w-full py-2 pl-6 text-[11px] font-medium uppercase leading-none text-gray-700 transition-colors hover:bg-sonqu-red-300 hover:text-white focus:bg-accent focus:text-white'
-                    )}
-                    onClick={closeMenu}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
+          {submenuOpen && <SubMenuRecetasMobile closeMenu={closeMenu} />}
         </>
       )}
     </div>
