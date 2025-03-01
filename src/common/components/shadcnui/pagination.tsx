@@ -23,7 +23,7 @@ const PaginationContent = React.forwardRef<HTMLUListElement, React.ComponentProp
 PaginationContent.displayName = 'PaginationContent'
 
 const PaginationItem = React.forwardRef<HTMLLIElement, React.ComponentProps<'li'>>(
-  ({ className, ...props }, ref) => <li ref={ref} className={cn('', className)} {...props} />
+  ({ className, ...props }, ref) => <li ref={ref} className={cn(className, '')} {...props} />
 )
 PaginationItem.displayName = 'PaginationItem'
 
@@ -39,11 +39,17 @@ const PaginationLink = ({ className, isActive, size = 'icon', ...props }: Pagina
     aria-current={isActive ? 'page' : undefined}
     className={cn(
       buttonVariants({
-        variant: isActive ? 'outline' : 'ghost',
+        variant: isActive ? 'default' : 'outline',
+        // variant: 'default',
         size
       }),
       className,
-      'text-xs'
+      // 'text-xs text-white'
+
+      isActive ? 'border border-[#07070704] bg-[#373738]' : 'border border-[#0707072d] bg-white'
+      // isActive
+      //   ? 'border border-[#07070704] bg-[#373738] !text-white'
+      //   : 'border border-[#0707072d] bg-white text-black'
     )}
     {...props}
   ></Link>

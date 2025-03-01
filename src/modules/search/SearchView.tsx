@@ -13,16 +13,18 @@ type Props = {
 
 const SearchView = ({ searchParams }: Props) => {
   return (
-    <div>
+    <div className="mb-10">
       <div className="wrapper flex-1">
         <TopSeparator />
       </div>
       <div className="container font-poppins">
         <div className="mb-10 mt-0 flex flex-col items-center">
-          <h1 className="mb-2 text-center font-jallaOne text-6xl uppercase">
+          <h1 className="mb-4 text-center font-fingerPaint text-5xl uppercase">
             ¿Que recetas buscas?
           </h1>
-          <h2 className="mb-11 font-fingerPaint text-3xl text-sonqu-black-300">Te ayudamos</h2>
+          <h2 className="mb-11 font-fingerPaint text-3xl uppercase text-sonqu-black-300">
+            Te ayudamos
+          </h2>
           <Search />
         </div>
 
