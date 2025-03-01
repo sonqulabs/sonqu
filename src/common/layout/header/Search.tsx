@@ -8,7 +8,7 @@ const SearchNav = () => {
       href={'/search'}
       className={cn(
         StylesButton.shadowSearch,
-        'flex h-8 w-auto items-center justify-start whitespace-nowrap rounded-xl border border-[#44444415] bg-[#00000009] px-4 text-xs text-gray-500/80 hover:bg-white/5'
+        'mr-5 hidden w-80 items-center justify-start rounded-md border border-[#44444415] bg-[#8b89894d] px-2.5 py-2.5 text-xs text-gray-100 hover:bg-white/5 lg:flex'
       )}
     >
       <SearchIcon className="h-4 w-4 sm:mr-2" aria-hidden="true" />

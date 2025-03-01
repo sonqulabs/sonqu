@@ -50,27 +50,37 @@ const PaginationResult = ({ meta }) => {
   const pages = getPaginationRange(meta?.lastPage || 1, meta?.currentPage)
 
   return (
-    <div className="grid grid-cols-1 gap-3 xl:grid-cols-3">
-      <div className="hidden xl:block"></div>
-      <Pagination>
+    <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
+      {/* <div className="hidden xl:block"></div> */}
+      <div className="flex items-center justify-center text-sm font-medium xl:justify-start">
+        <div className="rounded-full border border-[#0707072d] bg-white px-4 py-2 text-xs">
+          Recetas encontradas : {meta.total}
+        </div>
+      </div>
+      <Pagination className="flex justify-center xl:justify-end">
         <PaginationContent>
           {meta.prev != null ? (
             <PaginationItem>
               <PaginationPrevious
+                size={'sm'}
                 href={urlPage(meta.prev)}
                 // onClick={() => addPage(meta.prev)}
               />
             </PaginationItem>
           ) : (
             <PaginationItem className="invisible">
-              <PaginationPrevious />
+              <PaginationPrevious size={'sm'} />
             </PaginationItem>
           )}
           {pages.map((item, i) => {
             return (
               <PaginationItem key={i}>
                 {typeof item === 'number' ? (
-                  <PaginationLink href={urlPage(item)} isActive={item === meta.currentPage}>
+                  <PaginationLink
+                    size={'sm'}
+                    href={urlPage(item)}
+                    isActive={item === meta.currentPage}
+                  >
                     {item}
                   </PaginationLink>
                 ) : (
@@ -96,22 +106,18 @@ const PaginationResult = ({ meta }) => {
             <PaginationItem>
               <PaginationNext
                 href={urlPage(meta.next)}
+                size={'sm'}
                 // href="#"
                 // onClick={() => addPage(meta.next)}
               />
             </PaginationItem>
           ) : (
             <PaginationItem className="invisible">
-              <PaginationNext />
+              <PaginationNext size={'sm'} />
             </PaginationItem>
           )}
         </PaginationContent>
       </Pagination>
-      <div className="flex items-center justify-center text-sm font-medium xl:justify-end">
-        <div className="rounded-full bg-white px-4 py-2 text-xs">
-          Recetas encontradas : {meta.total}
-        </div>
-      </div>
     </div>
   )
 }

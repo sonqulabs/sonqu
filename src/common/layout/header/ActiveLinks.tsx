@@ -64,9 +64,9 @@ export const ActiveLinks = ({
         <Link
           href={href}
           className={cn(
-            'flex h-full items-center font-poppins text-base font-medium leading-tight text-gray-600 transition-colors',
+            'flex h-full items-center font-fingerPaint text-sm font-medium uppercase leading-tight tracking-wide text-gray-100 transition-colors',
             {
-              'text-sonqu-red-300': active,
+              'text-sonqu-orange-400': active,
               'hover:text-sonqu-red-300': !active
             }
           )}
@@ -78,9 +78,11 @@ export const ActiveLinks = ({
           <Link
             href={href}
             className={cn(
-              'inline-flex h-full items-center font-poppins text-base font-medium leading-tight text-gray-600 transition-colors',
+              'inline-flex h-full items-center font-fingerPaint text-sm font-medium uppercase leading-tight tracking-wide text-gray-100 transition-colors',
+              // 'inline-flex h-full items-center font-poppins text-sm font-medium uppercase leading-tight tracking-wide text-gray-600 transition-colors',
               {
-                'text-sonqu-red-300': active
+                'text-sonqu-orange-400': active
+                // 'text-sonqu-red-300': active
               }
             )}
           >

@@ -1,8 +1,11 @@
-import { ArrowRight, Tags } from 'lucide-react'
+import { useCategoriesStore } from '@/context/useCategoriesStore'
+import { ArrowRight, Circle, Tags } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const SubMenuRecetas = ({ listFood }) => {
+export const SubMenuRecetas = () => {
+  const { categories } = useCategoriesStore()
+
   function getCategoryGradient(number: number) {
     const gradients = [
       'from-pink-500 to-rose-500',
@@ -25,17 +28,20 @@ export const SubMenuRecetas = ({ listFood }) => {
         <div className="p-6">
           <h2 className="flex items-center gap-2 text-lg font-semibold uppercase text-white">
             <Tags />
-            <span className="">Categorias</span>
+            <span className="font-fingerPaint">Categorias</span>
           </h2>
-          <div className="mt-6 grid w-fit grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
-            {/* <div className="mt-2 grid w-fit grid-cols-3 gap-x-16 text-sm"> */}
-            {listFood.map((category, i) => {
+          <div
+            className="mt-6 grid w-fit gap-3"
+            style={{ gridTemplateColumns: 'repeat(3, minmax(150px, 200px))' }}
+          >
+            {/* <div className="mt-6 grid w-fit grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4"> */}
+            {categories.map((category, i) => {
               const gradient = getCategoryGradient(i)
               return (
                 <Link
                   key={category.name}
                   href={`/search?categories=${category.name}`}
-                  className="group relative isolate overflow-hidden rounded-xl bg-white/15 transition-all hover:bg-white/20"
+                  className="group relative isolate flex items-center overflow-hidden rounded-xl bg-white/15 transition-all hover:bg-white/20"
                 >
                   {/* Fondo con gradiente */}
                   <div
@@ -43,14 +49,15 @@ export const SubMenuRecetas = ({ listFood }) => {
                   />
 
                   {/* Contenido */}
-                  <div className="relative z-10 flex items-center gap-3 p-3">
+                  <div className="relative z-10 flex w-full items-center gap-3 p-3">
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 transition-transform group-hover:scale-110">
                       {/* <Icon className="h-4 w-4 text-white" /> */}
-                      {i + 1}
+                      {/* {i + 1} */}
+                      <Circle className="h-3 w-3" />
                     </div>
                     <div className="flex flex-1 items-center justify-between gap-1">
-                      <span className="text-sm font-medium text-white">{category.name}</span>
-                      <ArrowRight className="h-4 w-4 text-white/70 transition-transform group-hover:translate-x-1" />
+                      <span className="w-fit text-sm text-white">{category.name}</span>
+                      <ArrowRight className="h-4 w-4 flex-shrink-0 text-white/70 transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
 
