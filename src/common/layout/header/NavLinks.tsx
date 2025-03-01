@@ -1,9 +1,8 @@
 'use client'
 import { getMenuList } from '@/common/data/nav'
 
-import { getCategories } from '@/modules/search/services/searchService'
 import { usePathname } from 'next/navigation'
-import { Suspense, useEffect, useState } from 'react'
+import { Suspense } from 'react'
 import { ActiveLinks } from './ActiveLinks'
 import { SubMenuRecetas } from './SubMenuRecetas'
 

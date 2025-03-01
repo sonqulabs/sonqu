@@ -1,3 +1,4 @@
+'use client'
 import { Nav } from '@/common/interfaces/nav'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'

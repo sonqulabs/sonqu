@@ -3,8 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import MenuMobile from './MenuMobile'
 import { NavLinks } from './NavLinks'
-import SearchNav from './Search'
-import { useEffect, useState } from 'react'
+// import SearchNav from './Search'
+import { Suspense, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { useCategoriesStore } from '@/context/useCategoriesStore'
@@ -61,7 +61,9 @@ export const Header = () => {
             />
           </Link>
           {/* <SearchNav /> */}
-          <Search model={1} />
+          <Suspense fallback={<div>loading...</div>}>
+            <Search model={1} />
+          </Suspense>
         </div>
         <div className="flex h-full items-center gap-2 lg:gap-6">
           <NavLinks />

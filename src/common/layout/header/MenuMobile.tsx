@@ -1,67 +1,11 @@
 'use client'
-import { MenuIcon } from '@/common/components/icons/solid/MenuIcon'
-import { cn } from '@/lib/utils'
-import { Popover, PopoverContent, PopoverTrigger } from '@shadcnui/popover'
-import { NavLinksMobile } from './NavLinksMobile'
 import { useMenuStore } from '@/context/menuMobile'
+import { NavLinksMobile } from './NavLinksMobile'
 
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger
-} from '@/common/components/shadcnui/sheet'
 import { Button } from '@/common/components/shadcnui/button'
-import { ChevronDown, Menu } from 'lucide-react'
-import Link from 'next/link'
-import { useState } from 'react'
-import { Input } from '@/common/components/shadcnui/input'
+import { Sheet, SheetContent, SheetTrigger } from '@/common/components/shadcnui/sheet'
 import Search from '@/modules/search/components/Search'
-
-function NavLinks({ mobile }: { mobile?: boolean }) {
-  const [activeItem, setActiveItem] = useState<string | null>(null)
-
-  const items = [
-    { label: 'INICIO', href: '/' },
-    { label: 'RECETAS', href: '/recetas', hasDropdown: true },
-    { label: 'NOSOTROS', href: '/nosotros' },
-    { label: 'CONTACTO', href: '/contacto' }
-  ]
-
-  return items.map((item) => (
-    <div key={item.label} className={cn('relative', mobile && 'w-full')}>
-      {item.hasDropdown ? (
-        <button
-          onClick={() => setActiveItem(activeItem === item.label ? null : item.label)}
-          className={cn(
-            'flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary',
-            mobile && 'w-full justify-between'
-          )}
-        >
-          {item.label}
-          <ChevronDown
-            className={cn(
-              'h-4 w-4 transition-transform',
-              activeItem === item.label && 'rotate-180'
-            )}
-          />
-        </button>
-      ) : (
-        <Link
-          href={item.href}
-          className={cn(
-            'text-sm font-medium transition-colors hover:text-primary',
-            mobile && 'block w-full'
-          )}
-        >
-          {item.label}
-        </Link>
-      )}
-    </div>
-  ))
-}
+import { Menu } from 'lucide-react'
 
 const MenuMobile = () => {
   const { isOpen, toggleMenu } = useMenuStore()
