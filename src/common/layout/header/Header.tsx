@@ -26,7 +26,7 @@ export const Header = () => {
         setScrolled(false)
       }
     }
-
+    handleScroll()
     getCategories()
 
     window.addEventListener('scroll', handleScroll)
@@ -62,7 +62,7 @@ export const Header = () => {
           </Link>
           {/* <SearchNav /> */}
           <Suspense fallback={<div>loading...</div>}>
-            <Search model={1} />
+            <Search searchAuto={true} model={1} />
           </Suspense>
         </div>
         <div className="flex h-full items-center gap-2 lg:gap-6">

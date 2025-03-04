@@ -27,14 +27,29 @@ const SearchResult = async ({ searchParams }) => {
                 )}
                 key={i}
               >
-                <Image
-                  src={getImageRecipe(item.imageUrl, 'medium')}
-                  height={100}
-                  width={100}
-                  className="h-[230px] w-full object-cover lg:h-auto lg:w-0 lg:flex-1"
-                  alt="fondo hero"
-                />
-                <div className="relative flex w-full flex-col justify-around gap-2 px-5 py-5 lg:max-w-[60%]">
+                <div className="relative h-[230px] w-full object-cover lg:h-auto lg:w-0 lg:flex-1">
+                  <Image
+                    src={getImageRecipe(item.imageUrl, 'medium')}
+                    height={100}
+                    width={100}
+                    className="h-[230px] w-full object-cover"
+                    alt={item.title || 'imagen de receta'}
+                  />
+                  <div className="absolute bottom-1.5 left-1.5 z-0 flex flex-wrap items-center justify-center gap-1">
+                    {item.categories?.map(({ category }, i) => {
+                      return (
+                        <span
+                          className="flex cursor-pointer items-center rounded-3xl bg-[#ffffffc2] px-2 py-1 text-[11px] leading-[1.1] text-black"
+                          key={i}
+                        >
+                          {category?.name}
+                        </span>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                <div className="relative flex w-full flex-col justify-around gap-2 px-5 py-4 lg:max-w-[60%]">
                   <h3 className="text-center text-xl font-medium leading-none md:text-start">
                     {item.title}
                   </h3>

@@ -1,9 +1,9 @@
 'use client'
 import { Button } from '@/common/components/shadcnui/button'
 import { Checkbox } from '@/common/components/shadcnui/checkbox'
-import { Tags } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import useSearchParamCategories from '../hooks/useSearchParamCategories'
+import IconAdjustmentsHorizontal from '../Icons/IconAdjustmentsHorizontal'
 import FilterSelectorSkeleton from './FilterSelectorSkeleton'
 
 const useIsMobile = (breakpoint = 768) => {
@@ -50,14 +50,6 @@ const FilterSelector = ({ data: listFood }) => {
 
   return (
     <>
-      {/* <div className="hidden min-w-48 flex-col gap-5 md:flex">
-        <ListCategoriesGroup
-          listFood={listFood}
-          getCateries={getCateries}
-          handleGroup={handleGroup}
-        />
-      </div> */}
-
       <div className="h-fit w-full overflow-hidden rounded-lg border border-[#0707072d] bg-background shadow-md md:w-64">
         <Button
           onClick={toggleFilter}
@@ -65,8 +57,9 @@ const FilterSelector = ({ data: listFood }) => {
           className="flex h-fit w-full items-center justify-between p-3"
         >
           <span className="flex items-center gap-2 text-base">
-            <Tags />
-            Categorias
+            {/* <Tags />
+            Categorias */}
+            <IconAdjustmentsHorizontal /> Filtros
           </span>
           {isOpen ? (
             <svg

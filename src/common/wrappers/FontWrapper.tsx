@@ -1,22 +1,22 @@
 import { cn } from '@/lib/utils'
-import { Inter, Manrope, Fjalla_One, Finger_Paint, Poppins } from 'next/font/google'
+import { Finger_Paint, Fjalla_One, Poppins } from 'next/font/google'
 import { ReactNode } from 'react'
 import Footer from '../layout/footer/Footer'
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter'
-})
+// const inter = Inter({
+//   subsets: ['latin'],
+//   variable: '--font-inter'
+// })
 const poppins = Poppins({
   subsets: ['latin'],
   variable: '--font-poppins',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
 })
 
-const manrope = Manrope({
-  subsets: ['latin'],
-  variable: '--font-manrope'
-})
+// const manrope = Manrope({
+//   subsets: ['latin'],
+//   variable: '--font-manrope'
+// })
 const fjallaOne = Fjalla_One({
   subsets: ['latin'],
   variable: '--font-fjalla-one',
@@ -32,8 +32,8 @@ const FontWrapper = ({ children }: FontWrapperProps) => {
   return (
     <body
       className={cn(
-        inter.variable,
-        manrope.variable,
+        // inter.variable,
+        // manrope.variable,
         fjallaOne.variable,
         fingerPaint.variable,
         poppins.variable,

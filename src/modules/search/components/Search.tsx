@@ -1,14 +1,14 @@
 'use client'
 import { Input } from '@/common/components/shadcnui/input'
 import { useMenuStore } from '@/context/menuMobile'
+import { useQueryStore } from '@/context/useQueryStore'
+import { cn } from '@/lib/utils'
 import { SearchIcon } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 import useSearchParamPage from '../hooks/useSearchParamPage'
-import { cn } from '@/lib/utils'
-import { useState } from 'react'
-import { useQueryStore } from '@/context/useQueryStore'
 
-const Search = ({ model }: { model?: number }) => {
+const Search = ({ model, searchAuto }: { model?: number; searchAuto?: boolean }) => {
   const searchParams = useSearchParams()
   // const pathname = usePathname()
   const { replace } = useRouter()
@@ -19,6 +19,7 @@ const Search = ({ model }: { model?: number }) => {
   const { closeMenu } = useMenuStore()
 
   const handleSearch = (term: string) => {
+    console.log(term)
     const params = new URLSearchParams(searchParams)
     checkParamPage(params)
 
@@ -31,7 +32,6 @@ const Search = ({ model }: { model?: number }) => {
     replace(`${'/search'}?${params.toString()}`, {
       scroll: false
     })
-    closeMenu()
   }
 
   function debounce(func, delay) {
@@ -44,11 +44,31 @@ const Search = ({ model }: { model?: number }) => {
 
   const searchDebounce = (value) => {
     setQuery(value)
-    debounce(handleSearch, 500)(value)
+    if (searchAuto) {
+      debounce(handleSearch, 500)(value)
+    }
   }
 
+  const submit = (e, query) => {
+    e.preventDefault()
+    closeMenu()
+    handleSearch(query)
+  }
+
+  const handleSend = () => {
+    closeMenu()
+    handleSearch(query)
+  }
+
+  useEffect(() => {
+    setQuery(searchParams.get('query')?.toString() || '')
+  }, [])
+
   return (
-    <div className={cn('relative mx-auto w-full max-w-96', model == 1 && 'hidden lg:flex')}>
+    <form
+      onSubmit={(e) => submit(e, query)}
+      className={cn('relative mx-auto w-full max-w-96', model == 1 && 'hidden lg:flex')}
+    >
       <Input
         type="search"
         placeholder="Buscar recetas..."
@@ -63,8 +83,11 @@ const Search = ({ model }: { model?: number }) => {
         value={query}
         // defaultValue={searchParams.get('query')?.toString()}
       />
-      <SearchIcon className="absolute right-4 top-1/2 h-6 w-6 -translate-y-1/2 text-gray-400" />
-    </div>
+      <SearchIcon
+        onClick={handleSend}
+        className="absolute right-4 top-1/2 h-6 w-6 -translate-y-1/2 cursor-pointer text-gray-400"
+      />
+    </form>
   )
 }
 
