@@ -9,7 +9,7 @@ const useSearchParamCategories = () => {
 
   const getParamCategories = (paramCategories: string) => {
     if (!paramCategories) return []
-    return paramCategories.split(',')
+    return paramCategories.split('|')
   }
   const getCateries = () => {
     const params = new URLSearchParams(searchParams)
@@ -29,7 +29,7 @@ const useSearchParamCategories = () => {
     if (re.some((item) => item == valor)) return
     re.push(valor)
 
-    params.set('categories', re.toString())
+    params.set('categories', re.join('|'))
     replace(`${pathname}?${params.toString()}`, { scroll: false })
   }
 
