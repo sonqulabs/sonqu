@@ -7,16 +7,16 @@ const SearchTags = () => {
   const searchParams = useSearchParams()
 
   return (
-    <div className="flex items-center gap-2 md:mb-5">
-      <div className="md:h-8"></div>
+    <div className="mt-5 flex flex-wrap items-center justify-center gap-1">
+      {/* <div className="">Categorias :</div> */}
       {searchParams
         .get('categories')
         ?.toString()
-        .split(',')
+        .split('|')
         .map((item, i) => {
           return (
             <span
-              className="flex cursor-pointer items-center rounded-3xl bg-[#000000cc] px-3 py-1 text-xs text-white"
+              className="flex cursor-pointer items-center rounded-3xl bg-[#000000cc] px-2 py-0.5 text-[0.6875rem] text-white shadow-lg"
               key={i}
               onClick={() => deleteParamCategories(item)}
             >
