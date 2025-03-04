@@ -44,7 +44,7 @@ const useSearchParamCategories = () => {
     if (data.length == 0) {
       params.delete('categories')
     } else {
-      params.set('categories', data.toString())
+      params.set('categories', data.join('|'))
     }
 
     replace(`${pathname}?${params.toString()}`, { scroll: false })
