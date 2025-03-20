@@ -6,8 +6,8 @@
 // type SIZESS = keyof typeof SIZES
 type SIZES = 'small' | 'medium' | 'large'
 
-const CNY_CLOUD_NAME = process.env.CNY_CLOUD_NAME
-const CNY_CODE = process.env.CNY_CODE
+const CNY_CLOUD_NAME = process.env.NEXT_PUBLIC_CNY_CLOUD_NAME
+const CNY_CODE = process.env.NEXT_PUBLIC_CNY_CODE
 
 export const getImageRecipe = (name: string, size: SIZES) => {
   // console.log(size)

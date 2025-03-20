@@ -19,7 +19,7 @@ const Search = ({ model, searchAuto }: { model?: number; searchAuto?: boolean })
   const { closeMenu } = useMenuStore()
 
   const handleSearch = (term: string) => {
-    console.log(term)
+    // console.log(term)
     const params = new URLSearchParams(searchParams)
     checkParamPage(params)
 

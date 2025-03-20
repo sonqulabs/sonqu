@@ -1,10 +1,18 @@
 import { getImageRecipe } from '@/common/helpers/getImageRecipe'
-import { cn } from '@/lib/utils'
+import { capitalizeFirstLetter, cn } from '@/lib/utils'
 import { CalendarDays, CircleUser, Users } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { searchMatchesRecipe } from '../services/searchService'
 import PaginationResult from './PaginationResult'
+import ToggleFavorites from './ToggleFavorites'
+import GetIconCategory from './GetIconCategory'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from '@/common/components/shadcnui/tooltip'
 
 const SearchResult = async ({ searchParams }) => {
   const recipes = await searchMatchesRecipe(searchParams)
@@ -35,15 +43,29 @@ const SearchResult = async ({ searchParams }) => {
                     className="h-[230px] w-full object-cover"
                     alt={item.title || 'imagen de receta'}
                   />
-                  <div className="absolute bottom-1.5 left-1.5 z-0 flex flex-wrap items-center justify-center gap-1">
+
+                  <ToggleFavorites recipeId={item.id} />
+
+                  <div className="absolute bottom-1.5 left-1.5 z-0 flex w-full flex-wrap items-center justify-center gap-1">
                     {item.categories?.map(({ category }, i) => {
                       return (
-                        <span
-                          className="flex cursor-pointer items-center rounded-3xl bg-[#ffffffc2] px-2 py-1 text-[11px] leading-[1.1] text-black"
-                          key={i}
-                        >
-                          {category?.name}
-                        </span>
+                        <TooltipProvider key={i} delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger className="flex cursor-pointer items-center rounded-3xl bg-white/65 p-2 px-2 py-1 text-center text-[11px] leading-[1.1] text-gray-900 shadow-md backdrop-blur-sm transition-colors hover:bg-white">
+                              <GetIconCategory categoryName={category?.name} />
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              {/* <p>Add to library</p> */}
+                              {capitalizeFirstLetter(category?.name)}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                        // {/* <span
+                        //   className="inline-flex h-3.5 w-3.5 items-center justify-center"
+                        //   dangerouslySetInnerHTML={{ __html: category?.icon }}
+                        // ></span> */}
+
+                        // {/* {capitalizeFirstLetter(category?.name)} */}
                       )
                     })}
                   </div>
