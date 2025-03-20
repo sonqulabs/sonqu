@@ -50,10 +50,19 @@ const useSearchParamCategories = () => {
     replace(`${pathname}?${params.toString()}`, { scroll: false })
   }
 
+  const setParamCategories = (valor: string) => {
+    const params = new URLSearchParams(searchParams)
+    checkParamPage(params)
+
+    params.set('categories', valor)
+    replace(`${pathname}?${params.toString()}`, { scroll: false })
+  }
+
   return {
     getCateries,
     addParamCategories,
-    deleteParamCategories
+    deleteParamCategories,
+    setParamCategories
   }
 }
 
