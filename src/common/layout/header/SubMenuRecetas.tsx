@@ -51,9 +51,11 @@ export const SubMenuRecetas = () => {
                   {/* Contenido */}
                   <div className="relative z-10 flex w-full items-center gap-3 p-3">
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 transition-transform group-hover:scale-110">
-                      {/* <Icon className="h-4 w-4 text-white" /> */}
-                      {/* {i + 1} */}
-                      <Circle className="h-3 w-3" />
+                      <div
+                        className="flex h-5 w-5 items-center justify-center"
+                        dangerouslySetInnerHTML={{ __html: category.icon }}
+                      ></div>
+                      {/* <Circle className="h-3 w-3" /> */}
                     </div>
                     <div className="flex flex-1 items-center justify-between gap-1">
                       <span className="w-fit text-sm text-white">{category.name}</span>

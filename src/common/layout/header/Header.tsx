@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { useCategoriesStore } from '@/context/useCategoriesStore'
 import Search from '@/modules/search/components/Search'
+import SearchS from '@/modules/search/components/SearchS/SearchS'
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -62,7 +63,8 @@ export const Header = () => {
           </Link>
           {/* <SearchNav /> */}
           <Suspense fallback={<div>loading...</div>}>
-            <Search searchAuto={true} model={1} />
+            {/* <Search searchAuto={true} model={1} /> */}
+            <SearchS model={1} />
           </Suspense>
         </div>
         <div className="flex h-full items-center gap-2 lg:gap-6">

@@ -1,8 +1,9 @@
+import { Category } from '@/modules/search/components/SearchS/types/search-types'
 import { getCategories } from '@/modules/search/services/searchService'
 import { create } from 'zustand'
 
 interface Categories {
-  categories: { name: string }[]
+  categories: Category[]
   getCategories: () => void
 }
 

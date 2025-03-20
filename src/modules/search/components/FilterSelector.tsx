@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import useSearchParamCategories from '../hooks/useSearchParamCategories'
 import IconAdjustmentsHorizontal from '../Icons/IconAdjustmentsHorizontal'
 import FilterSelectorSkeleton from './FilterSelectorSkeleton'
+import { capitalizeFirstLetter, cn } from '@/lib/utils'
 
 const useIsMobile = (breakpoint = 768) => {
   const [isMobile, setIsMobile] = useState(false)
@@ -50,16 +51,17 @@ const FilterSelector = ({ data: listFood }) => {
 
   return (
     <>
-      <div className="h-fit w-full overflow-hidden rounded-lg border border-[#0707072d] bg-background shadow-md md:w-64">
+      <div className="h-fit w-full overflow-hidden rounded-lg border border-[#0707072d] bg-background text-gray-900 shadow-md md:w-64">
         <Button
           onClick={toggleFilter}
           variant="ghost"
-          className="flex h-fit w-full items-center justify-between p-3"
+          className={cn(
+            'flex h-fit w-full items-center justify-between p-3',
+            isOpen && 'rounded-b-none border-b border-[#0707070c]'
+          )}
         >
           <span className="flex items-center gap-2 text-base">
-            {/* <Tags />
-            Categorias */}
-            <IconAdjustmentsHorizontal /> Filtros
+            <IconAdjustmentsHorizontal /> FILTROS
           </span>
           {isOpen ? (
             <svg
@@ -111,11 +113,11 @@ const FilterSelector = ({ data: listFood }) => {
 
 const ListCategoriesGroup = ({ listFood, getCateries, handleGroup }) => {
   return listFood.map(
-    (item) =>
+    (item, i) =>
       item?.Category?.length > 0 && (
-        <div className="" key={item?.name}>
-          <h3 className="mb-2 font-semibold uppercase">{item?.name}</h3>
-          <div className="ml-2 flex flex-col gap-1">
+        <div className="" key={item?.name + i}>
+          {item?.name && <h3 className="mb-2 font-semibold uppercase">{item?.name}</h3>}
+          <div className={cn('ml-2 flex flex-col gap-1.5', !item.name && 'ml-0')}>
             {item?.Category?.map((itemData, i) => (
               <div className="flex items-center space-x-2" key={i}>
                 <Checkbox
@@ -125,19 +127,19 @@ const ListCategoriesGroup = ({ listFood, getCateries, handleGroup }) => {
                   checked={getCateries().some((category) => category == itemData.name)}
                   onCheckedChange={(check) => handleGroup(check, itemData.name)}
                 />
-                <label className="cursor-pointer" htmlFor={itemData.name}>
-                  {itemData.name}
+                <label
+                  className="flex cursor-pointer items-center gap-1 text-[15px]"
+                  htmlFor={itemData.name}
+                >
+                  {/* {itemData.name} */}
+                  <span
+                    className="inline-flex h-4 w-4 items-center justify-center"
+                    dangerouslySetInnerHTML={{ __html: itemData.icon }}
+                  ></span>
+                  {capitalizeFirstLetter(itemData.name)}
                 </label>
               </div>
             ))}
-            {/* <RadioGroup defaultValue="default" onValueChange={(value) => handleGroup(value)}>
-        {item.data.map((itemData, i) => (
-          <div className="flex items-center space-x-2" key={i}>
-            <RadioGroupItem value={itemData} id={itemData} />
-            <label htmlFor={itemData}>{itemData}</label>
-          </div>
-        ))}
-      </RadioGroup> */}
           </div>
         </div>
       )
