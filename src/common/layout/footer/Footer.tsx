@@ -28,7 +28,7 @@ const Footer = () => {
           height={200}
         />
       </div> */}
-      <div className={cn('bg-gradient-to-r from-[#d31008] to-[#db5932] px-4 py-12')}>
+      <div className={cn('bg-[#CE0146] px-4 py-12')}>
         <div className="container">
           <div className="mb-12 flex flex-col gap-8 lg:flex-row lg:gap-16">
             <div className="max-w-md">

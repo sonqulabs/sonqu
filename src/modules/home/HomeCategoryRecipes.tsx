@@ -11,19 +11,25 @@ import Autoscroll from 'embla-carousel-auto-scroll'
 import StyleCarousel from './style/home.module.css'
 import { cn } from '@/lib/utils'
 import { ItemCarousel } from './components/ItemCarousel'
+import HomeStyles from './style/home.module.css'
 
 export const HomeCategoryRecipes = () => {
   const menuCategorias = CategoryDishes()
 
   return (
-    <section className="flex flex-col items-center gap-10">
-      {/* <div className="container flex w-full flex-col items-center justify-center gap-1 text-center">
+    <section
+      className={cn(
+        HomeStyles.fondoCategory,
+        'wrapper relative flex flex-col items-center gap-10 py-28'
+      )}
+    >
+      <div className="container flex w-full flex-col items-center justify-center gap-1 text-center">
         <h2 className="pl-10 font-poppins text-lg font-bold uppercase sm:text-3xl">
-          Nuestras Categorías
+          ¡Nuestras Categorías!
         </h2>
-        <p className="text-center">Explora nuestra varidad...</p>
-      </div> */}
-      <div className="container pb-6 pt-0 max-lg:px-0">
+        {/* <p className="text-center">Explora nuestra varidad...</p> */}
+      </div>
+      <div className="container max-lg:px-0">
         <Carousel
           opts={{
             loop: true,
