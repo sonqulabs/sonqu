@@ -1,8 +1,9 @@
+import { HomeAbout } from './HomeAbout'
 import { HomeCategoryRecipes } from './HomeCategoryRecipes'
-import { HomeDishesPopular } from './HomeDishesPopular'
+// import { HomeDishesPopular } from './HomeDishesPopular'
 import HomeHero from './HomeHero'
 import { HomeMarcas } from './HomeMarcas'
-import HomeTips from './HomeTips'
+// import HomeTips from './HomeTips'
 
 const HomeView = () => {
   return (
@@ -10,7 +11,8 @@ const HomeView = () => {
       <HomeHero />
 
       <HomeCategoryRecipes />
-      <HomeTips />
+      <HomeAbout />
+      {/* <HomeTips /> */}
       {/* <HomeDishesPopular /> */}
       <HomeMarcas />
     </main>

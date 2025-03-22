@@ -47,13 +47,13 @@ export const Header = () => {
   }
 
   return (
-    <header className={cn('fixed left-0 right-0 top-0 z-40 drop-shadow-md', navbarBgClass())}>
+    <header className={cn('sticky top-0 z-40 bg-black drop-shadow-md')}>
       {/* <header className="sticky top-0 z-40 bg-sonqu-white-400 drop-shadow-md"> */}
       <div className="container flex h-14 items-center justify-between">
         <div className="flex items-center gap-7">
           <Link href="/" className="my-auto">
             <Image
-              src="/logoSonqu.png"
+              src="/logo.png"
               alt="logo de sonqu"
               className="h-auto w-24 object-contain"
               width="100"
