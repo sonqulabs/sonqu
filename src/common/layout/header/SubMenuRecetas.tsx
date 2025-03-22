@@ -32,7 +32,7 @@ export const SubMenuRecetas = () => {
           </h2>
           <div
             className="mt-6 grid w-fit gap-3"
-            style={{ gridTemplateColumns: 'repeat(3, minmax(150px, 200px))' }}
+            style={{ gridTemplateColumns: 'repeat(4, minmax(150px, 200px))' }}
           >
             {/* <div className="mt-6 grid w-fit grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4"> */}
             {categories.map((category, i) => {
@@ -50,7 +50,7 @@ export const SubMenuRecetas = () => {
 
                   {/* Contenido */}
                   <div className="relative z-10 flex w-full items-center gap-3 p-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 transition-transform group-hover:scale-110">
+                    <div className="flex items-center justify-center rounded-lg bg-white/10">
                       <div
                         className="flex h-5 w-5 items-center justify-center"
                         dangerouslySetInnerHTML={{ __html: category.icon }}
@@ -58,7 +58,7 @@ export const SubMenuRecetas = () => {
                       {/* <Circle className="h-3 w-3" /> */}
                     </div>
                     <div className="flex flex-1 items-center justify-between gap-1">
-                      <span className="w-fit text-sm text-white">{category.name}</span>
+                      <span className="line-clamp-1 w-fit text-sm text-white">{category.name}</span>
                       <ArrowRight className="h-4 w-4 flex-shrink-0 text-white/70 transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
