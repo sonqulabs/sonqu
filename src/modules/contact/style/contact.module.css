@@ -1,49 +1,58 @@
 .imgTop {
-    height: 150px;
-    object-position: bottom;
+  height: 150px;
+  object-position: bottom;
+}
+
+.fondoContactTop {
+  background-image: url('/contact/fondoTopContact.webp');
+  background-size: 100% 125%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  width: 100%;
+  height: 75vh;
 }
 
 .leftArrow {
-    position: absolute;
-    top: -50%;
-    left: -60px;
-    width: 56px;
-    height: 138px;
+  position: absolute;
+  top: -50%;
+  left: -60px;
+  width: 56px;
+  height: 138px;
 }
 
 .socialNetworks::after {
-    content: '';
-    width: 100%;
-    height: 1px;
-    background-color: #646161B2;
-    transform: translateY(25px);
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #646161b2;
+  transform: translateY(25px);
 }
 
 .maxWidth {
-    max-width: 1055px;
+  max-width: 1055px;
 }
 
 .social:hover span {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 @media (max-width: 1050px) {
-    .wrapScreenShots {
-        justify-content: center;
-    }
+  .wrapScreenShots {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 780px) {
-    .leftArrow {
-        top: -10px;
-        left: 0;
-        width: 28px;
-        height: 69px;
-    }
+  .leftArrow {
+    top: -10px;
+    left: 0;
+    width: 28px;
+    height: 69px;
+  }
 }
 
 @media (max-width: 390px) {
-    .socialNetworks {
-        flex-direction: column;
-    }
+  .socialNetworks {
+    flex-direction: column;
+  }
 }

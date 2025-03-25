@@ -50,14 +50,14 @@ export const Header = () => {
     <header className={cn('sticky top-0 z-40 bg-black drop-shadow-md')}>
       {/* <header className="sticky top-0 z-40 bg-sonqu-white-400 drop-shadow-md"> */}
       <div className="container flex h-14 items-center justify-between">
-        <div className="flex items-center gap-7">
-          <Link href="/" className="my-auto">
+        <div className="flex w-full items-center gap-7">
+          <Link href="/" className="w-full max-w-[80px]">
             <Image
               src="/logo.png"
               alt="logo de sonqu"
-              className="h-auto w-24 object-contain"
+              className="w-full object-cover"
               width="100"
-              height="40"
+              height="60"
               priority
             />
           </Link>
@@ -67,7 +67,7 @@ export const Header = () => {
             <SearchS model={1} />
           </Suspense>
         </div>
-        <div className="flex h-full items-center gap-2 lg:gap-6">
+        <div className="flex h-full w-full items-center justify-end gap-2 lg:gap-6">
           <NavLinks />
           <MenuMobile />
         </div>
