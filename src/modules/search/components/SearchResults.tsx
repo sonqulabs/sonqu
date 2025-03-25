@@ -43,15 +43,18 @@ const SearchResult = async ({ searchParams }) => {
                     className="h-[230px] w-full object-cover"
                     alt={item.title || 'imagen de receta'}
                   />
-
+                  <div
+                    className="absolute left-0 top-0 h-full w-full bg-[#ffffff70]"
+                    style={{ background: 'linear-gradient(transparent 70% ,#0a0a0a70)' }}
+                  ></div>
                   <ToggleFavorites recipeId={item.id} />
 
-                  <div className="absolute bottom-1.5 left-1.5 z-0 flex w-full flex-wrap items-center justify-center gap-1">
-                    {item.categories?.map(({ category }, i) => {
+                  <div className="absolute bottom-2 left-1.5 z-0 flex w-full flex-wrap items-center justify-center gap-1">
+                    {item.categories?.map((category, i) => {
                       return (
                         <TooltipProvider key={i} delayDuration={100}>
                           <Tooltip>
-                            <TooltipTrigger className="flex cursor-pointer items-center rounded-3xl bg-white/65 p-2 px-2 py-1 text-center text-[11px] leading-[1.1] text-gray-900 shadow-md backdrop-blur-sm transition-colors hover:bg-white">
+                            <TooltipTrigger className="flex items-center rounded-3xl bg-white/60 px-2 py-1 text-center text-gray-900 shadow-md backdrop-blur-sm transition-all hover:scale-105 hover:bg-white">
                               <GetIconCategory categoryName={category?.name} />
                             </TooltipTrigger>
                             <TooltipContent>

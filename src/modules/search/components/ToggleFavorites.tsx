@@ -13,8 +13,9 @@ const ToggleFavorites = ({ recipeId, size }: { recipeId: number; size?: 'small' 
     <button
       onClick={(e) => toggleFavorite(recipeId.toString(), e)}
       className={cn(
-        'absolute right-3 top-3 rounded-full bg-white/60 p-2 shadow-md backdrop-blur-sm transition-colors hover:bg-white',
-        size === 'small' && 'right-1 top-1 p-1.5'
+        'absolute rounded-full border bg-white/70 p-2 backdrop-blur-sm transition-colors hover:bg-white',
+        isFavorite ? 'border-red-500/50' : 'border-gray-800/15',
+        size === 'small' ? 'left-1 top-1 p-1.5' : 'left-3 top-3'
       )}
       aria-label={isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}
     >
