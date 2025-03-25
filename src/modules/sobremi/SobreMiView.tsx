@@ -23,14 +23,14 @@ export const SobreMiView = () => {
         />
         <div className="relative order-1 flex max-w-[500px] flex-col gap-6 lg:order-1">
           <Image
-            src="/adornobottom.webp"
+            src="/adornoBottom.webp"
             alt="adorno de sonqu"
             className="absolute -left-10 -top-20 block object-cover lg:-left-20 lg:hidden xl:block"
             width={100}
             height={100}
           />
           <Image
-            src="/adornotop.webp"
+            src="/adornoTop.webp"
             alt="adorno de sonqu"
             className="absolute -bottom-20 -right-10 object-cover lg:-right-20"
             width={100}

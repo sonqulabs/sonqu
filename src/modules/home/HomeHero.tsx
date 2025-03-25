@@ -22,14 +22,14 @@ const HomeHero = () => {
       >
         <div className="relative flex flex-col px-2 text-center sm:text-start">
           <Image
-            src="/adornobottom.webp"
+            src="/adornoBottom.webp"
             alt="adorno de sonqu"
             className="absolute -top-20 left-0 z-20 object-cover md:-left-20"
             width={100}
             height={100}
           />
           <Image
-            src="/adornotop.webp"
+            src="/adornoTop.webp"
             alt="adorno de sonqu"
             className="absolute -bottom-16 right-0 z-20 object-cover md:-right-16 lg:hidden min-[1900px]:block"
             width={100}
