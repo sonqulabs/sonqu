@@ -367,7 +367,7 @@ const SearchS = ({ model }: { model?: number }) => {
                                     <div className="h-4 w-4">
                                       <CircleUser className="h-full w-full" />
                                     </div>
-                                    {result?.user?.username}
+                                    {result?.username}
                                   </div>
                                   <div className="flex items-center gap-1">
                                     <div className="h-3.5 w-3.5">

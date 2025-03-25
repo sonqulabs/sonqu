@@ -39,9 +39,9 @@ export type TypeSearchQueryRecipe = {
   description: string
   imageUrl: string
   servings: number
-  user: {
-    username: string
-  }
+  // user: {
+  username: string
+  // }
 }
 export const searchQueryRecipe = async (searchParam: {
   query?: string

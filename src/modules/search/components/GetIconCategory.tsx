@@ -9,7 +9,7 @@ const GetIconCategory = ({ categoryName }) => {
 
   return (
     <span
-      className="inline-flex h-4 w-4 items-center justify-center"
+      className="inline-flex h-[18px] w-[18px] items-center justify-center"
       dangerouslySetInnerHTML={{ __html: getIcon(categoryName) }}
     ></span>
   )
