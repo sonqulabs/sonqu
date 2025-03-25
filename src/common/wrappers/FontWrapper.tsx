@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { Finger_Paint, Fjalla_One, Poppins } from 'next/font/google'
+import { Finger_Paint, Fjalla_One, Poppins, Montserrat } from 'next/font/google'
 import { ReactNode } from 'react'
 import Footer from '../layout/footer/Footer'
 
@@ -10,6 +10,11 @@ import Footer from '../layout/footer/Footer'
 const poppins = Poppins({
   subsets: ['latin'],
   variable: '--font-poppins',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+})
+const monserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-monserrat',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
 })
 
@@ -37,6 +42,7 @@ const FontWrapper = ({ children }: FontWrapperProps) => {
         fjallaOne.variable,
         fingerPaint.variable,
         poppins.variable,
+        monserrat.variable,
         'flex min-h-screen flex-col bg-sonqu-white-400 font-poppins antialiased'
       )}
     >

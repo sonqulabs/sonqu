@@ -2,16 +2,32 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { Carousel, CarouselContent, CarouselItem } from '@/common/components/shadcnui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
 
 export function HomeMarcas() {
+  const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }))
+
+  const Marcas = [
+    {
+      image: '/quality.png'
+    },
+    {
+      image: '/ajinomoto.png'
+    },
+    {
+      image: '/quality.png'
+    }
+  ]
+
   return (
     <div className="space-y-8">
-      <div className="relative flex items-center overflow-hidden bg-[#1A1A19] py-20">
+      <div className="relative flex items-center overflow-hidden bg-[#1A1A19] px-4 py-20">
         <div className="absolute inset-0 bg-black/60"></div>
-        <div className="container mx-auto grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="container mx-auto grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-4">
           {/* Left Column - Text */}
           <div className="relative z-10 flex w-full flex-col justify-center">
-            <h2 className="mb-4 text-4xl font-bold tracking-tight text-white md:text-5xl">
+            <h2 className="mb-4 font-monserrat text-4xl font-bold tracking-tight text-white md:text-5xl">
               Marcas Aliadas
               <br /> De Sonqu
             </h2>
@@ -20,44 +36,21 @@ export function HomeMarcas() {
             </p>
           </div>
 
-          {/* Right Column - Cards */}
-          <div className="grid w-full grid-cols-1 items-center gap-4 md:grid-cols-3">
-            {/* Card 1 */}
-            <div className="group relative overflow-hidden rounded-full">
-              <Image
-                src="/quality.png"
-                alt="Cocina Gourmet"
-                width={300}
-                height={300}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              {/* <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-4">
-              <h3 className="text-xl font-bold">Cocina Gourmet</h3>
-            </div> */}
-            </div>
-
-            {/* Card 2 */}
-            <div className="group relative overflow-hidden rounded-full">
-              <Image
-                src="/ajinomoto.png"
-                alt="Postres Artesanales"
-                width={300}
-                height={300}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-
-            {/* Card 3 */}
-            <div className="group relative overflow-hidden rounded-full">
-              <Image
-                src="/quality.png"
-                alt="Bebidas Exclusivas"
-                width={300}
-                height={300}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-          </div>
+          <Carousel plugins={[plugin.current]} className="w-full">
+            <CarouselContent>
+              {Marcas.map((marca, index) => (
+                <CarouselItem key={index} className="basis-1/2 sm:basis-1/3">
+                  <Image
+                    src={marca.image}
+                    alt="colaboracion de sonqu"
+                    width={300}
+                    height={300}
+                    className="h-full w-full rounded-full object-cover"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </div>
     </div>

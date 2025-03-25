@@ -10,18 +10,32 @@ const HomeHero = () => {
       <Image
         src="/inicio/ericHero.webp"
         alt="foto del chef sonqu"
-        className="absolute bottom-0 right-[250px] z-10 w-full max-w-[700px]"
+        className="absolute bottom-0 z-10 hidden w-full max-w-[300px] lg:right-[20px] lg:block lg:max-w-[700px] xl:right-[calc(10vw+10px)] xl:max-w-[700px] 2xl:right-[calc(10vw+70px)]"
         width={500}
         height={500}
       />
       <div
         className={cn(
           HomeStyles.homeHero,
-          'container flex items-center justify-center px-0 pb-32 sm:justify-start sm:pl-10 md:pl-24 xl:pr-40'
+          'container flex items-center justify-center px-0 pb-20 lg:justify-start lg:pb-32 lg:pl-24'
         )}
       >
-        <div className="flex flex-col text-center sm:text-start">
-          <div className="flex items-center justify-center gap-4 pb-3 text-black md:justify-start">
+        <div className="relative flex flex-col px-2 text-center sm:text-start">
+          <Image
+            src="/adornobottom.webp"
+            alt="adorno de sonqu"
+            className="absolute -top-20 left-0 z-20 object-cover md:-left-20"
+            width={100}
+            height={100}
+          />
+          <Image
+            src="/adornotop.webp"
+            alt="adorno de sonqu"
+            className="absolute -bottom-16 right-0 z-20 object-cover md:-right-16 lg:hidden min-[1900px]:block"
+            width={100}
+            height={100}
+          />
+          <div className="flex items-center justify-center gap-4 pb-3 text-black lg:justify-start">
             <a href="#" className="flex items-center gap-2 transition-colors">
               <Youtube className="size-6" />
               <span className="text-sm font-medium">500k </span>
@@ -46,18 +60,18 @@ const HomeHero = () => {
               <span className="text-sm font-medium">1M </span>
             </a>
           </div>
-          <h1 className="font-jallaOne text-6xl uppercase text-black sm:text-7xl">
+          <h1 className="mb-4 text-center font-monserrat text-[45px] font-bold uppercase leading-none text-black sm:text-[60px] lg:text-start lg:text-6xl xl:text-7xl">
             Las Mejores <span className="block"> Recetas</span>
           </h1>
-          <h2 className="mb-4 font-fingerPaint text-5xl uppercase text-[#646161]">
+          <h2 className="mb-4 text-center font-fingerPaint text-[25px] leading-none text-[#646161] sm:text-[30px] lg:text-start lg:text-[45px] xl:text-[55px]">
             En un solo lugar
           </h2>
-          <p className="font mx-auto mb-3 max-w-96 font-medium text-black sm:mx-0">
+          <p className="mx-auto mb-6 max-w-[500px] text-center font-monserrat text-base font-medium text-black sm:mx-0 lg:text-start lg:text-[20px]">
             En SONQU encontrarás las mejores recetas de la gastronomía peruana. Te enseñaremos paso
             a paso cómo preparar los mejores platos peruanos.
           </p>
 
-          <button className="mx-auto w-fit rounded-xl bg-[#CE0146] px-10 py-3 text-white sm:mx-0">
+          <button className="mx-auto w-fit rounded-xl bg-[#CE0146] px-10 py-3 text-white lg:mx-0">
             VER RECETAS
           </button>
         </div>

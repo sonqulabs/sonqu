@@ -2,6 +2,15 @@
   height: calc(100vh - 56px);
 }
 
+.fondoShareRecipe {
+  background-image: url('/inicio/fondoShareRecipe.webp');
+  background-size: 100% 120%;
+  background-repeat: no-repeat;
+  background-position: left center;
+  width: 100%;
+  height: calc(100vh - 56px);
+}
+
 .fondoCategory {
   background-image: url('/inicio/fondoCategory.webp');
   background-size: fill;
@@ -13,11 +22,11 @@
 
 .fondoAbout {
   background-image: url('/inicio/fondo-about.webp');
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: 100% 100%;
+  background-position: center;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 56px);
 }
 
 .image {
@@ -45,13 +54,19 @@
 
 @media (max-width: 1200px) {
   .image {
-    background-position: right bottom;
+    background-position: bottom;
+    background-size: cover;
   }
   .imageTips {
     background-position: right top;
   }
 }
 @media (min-width: 1024px) {
+  .fondoShareRecipe {
+    background-size: cover;
+
+    background-position: left top;
+  }
   .carouselShadow {
     position: relative;
   }
@@ -85,7 +100,7 @@
 }
 @media (max-width: 1024px) {
   .image {
-    background-position: right bottom;
+    background-position: bottom;
   }
   .homeHeightTips {
     height: 580px;
@@ -93,40 +108,46 @@
   .imageTips {
     background-position: right top;
   }
+  .fondoAbout {
+    background-size: cover;
+    background-position: center;
+  }
+  .fondoShareRecipe {
+    background-size: cover;
+    background-position: left;
+    height: 70vh;
+  }
 }
 
 @media (max-width: 768px) {
   .image {
-    background-position: 75% bottom;
+    background-position: bottom;
   }
   .homeHero {
     height: 700px;
   }
-  .homeHeightTips {
-    height: 500px;
+  .fondoCategory {
+    background-size: cover;
   }
-  .imageTips {
-    background-position: 75% top;
+  .fondoShareRecipe {
+    background-size: cover;
+    background-position: left;
+    height: 70vh;
   }
-}
-
-.homeTipsBackgroundCard {
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.75);
 }
 
 @media (max-width: 500px) {
   .homeHeightTips {
     height: 730px;
   }
+  .fondoShareRecipe {
+    background-size: cover;
+    background-position: left;
+    height: 70vh;
+  }
 
   .wrapCards {
     flex-direction: column;
     align-items: center;
-  }
-
-  .homeTipsBackgroundCard {
-    max-width: 65%;
   }
 }
