@@ -20,11 +20,11 @@ export const HomeCategoryRecipes = () => {
     <section
       className={cn(
         HomeStyles.fondoCategory,
-        'wrapper relative flex flex-col items-center gap-10 py-28'
+        'wrapper relative flex flex-col items-center gap-10 py-16 sm:py-20 lg:py-28'
       )}
     >
       <div className="container flex w-full flex-col items-center justify-center gap-1 text-center">
-        <h2 className="pl-10 font-poppins text-lg font-bold uppercase sm:text-3xl">
+        <h2 className="font-monserrat text-[25px] font-bold uppercase leading-tight sm:text-[35px] md:text-[40px]">
           ¡Nuestras Categorías!
         </h2>
         {/* <p className="text-center">Explora nuestra varidad...</p> */}

@@ -14,6 +14,11 @@ export function getMenuList(pathname: string): Nav[] {
       active: pathname === '/nosotros'
     },
     {
+      label: 'Sobre Mi',
+      href: '/sobre-mi',
+      active: pathname === '/sobre-mi'
+    },
+    {
       // href: '#',
       href: '/search',
       label: 'Recetas',

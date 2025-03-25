@@ -5,6 +5,14 @@
   width: 40px;
   height: 100px;
 }
+.fondoAboutTop {
+  background-image: url('/about/fondoAboutTop.webp');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: left center;
+  width: 100%;
+  height: calc(100vh - 56px);
+}
 
 .description {
   max-width: 47.625rem;
@@ -17,6 +25,12 @@
     left: 25px;
   }
 } */
+
+@media (max-width: 1200px) {
+  .fondoAboutTop {
+    background-size: cover;
+  }
+}
 
 @media (max-width: 950px) {
   .leftArrow {

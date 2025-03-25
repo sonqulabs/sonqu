@@ -1,35 +1,25 @@
 import { ButtonPrevius } from '@/common/components/customize/ButtonPrevius'
-import { TopSeparator } from '@/common/components/customize/TopSeparator'
 import { cn } from '@/lib/utils'
 import { ContactDescription } from './components/ContactDescription'
-import { Screenshots } from './components/Screenshots'
 import { SocialNetworks } from './components/SocialNetworks'
 import ContactStyles from './style/contact.module.css'
+import ContactForm from './components/ContactForm'
+import Image from 'next/image'
 
 export const ContactView = () => {
   return (
     <section className="relative">
-      <div className="wrapper flex-1">
-        <TopSeparator />
-      </div>
-
-      <div className="container">
-        <div className="relative grid grid-cols-1 pb-6">
-          <div className="flex flex-col items-center justify-center gap-11">
-            <div className={cn(ContactStyles.maxWidth, 'w-full items-center gap-4 ps-9 md:ps-5')}>
-              {/* <LeftArrow className={cn(ContactStyles.leftArrow)} /> */}
-              <ButtonPrevius />
-              <h1 className="mt-10 text-center font-jallaOne text-5xl uppercase md:text-7xl">
-                Contacto
-              </h1>
-            </div>
-            <ContactDescription />
-            <div className={cn(ContactStyles.maxWidth)}>
-              <SocialNetworks />
-              <Screenshots />
-            </div>
-          </div>
-        </div>
+      <div className={cn(ContactStyles.fondoContactTop, 'wrapper')}></div>
+      <div className="container flex h-full min-h-full w-full items-center justify-center gap-10 py-10">
+        {/* <SocialNetworks /> */}
+        <Image
+          src="/contact/sonqu3.webp"
+          className="w-full max-w-[400px] object-cover"
+          alt=""
+          width={400}
+          height={400}
+        />
+        <ContactForm />
       </div>
     </section>
   )
