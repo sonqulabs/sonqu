@@ -24,6 +24,7 @@ import { SearchBar } from './SearchBar'
 const SearchS = ({ model }: { model?: number }) => {
   const [open, setOpen] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const searchParams = useSearchParams()
   const { replace } = useRouter()
@@ -160,26 +161,6 @@ const SearchS = ({ model }: { model?: number }) => {
     }
   }, [open])
 
-  // const handleSearch = (value: string) => {
-  //   setInputValue(value)
-
-  //   // Si el valor no está vacío y es diferente a las búsquedas recientes, lo agregamos
-  //   if (
-  //     value.trim() &&
-  //     !recentSearches.some((s) => s.query.toLowerCase() === value.toLowerCase())
-  //   ) {
-  //     const newSearch: RecentSearch = {
-  //       query: value,
-  //       timestamp: Date.now()
-  //     }
-
-  //     // Limitamos a 5 búsquedas recientes
-  //     setRecentSearches([newSearch, ...recentSearches].slice(0, 5))
-  //   }
-
-  //   setShowRecents(false)
-  // }
-
   const selectRecentSearch = (query: string) => {
     // setInputValue(query)
     setQuery(query)
@@ -188,54 +169,6 @@ const SearchS = ({ model }: { model?: number }) => {
     setShowRecents(false)
     setOpen(false)
   }
-
-  // const updateRecentSearch = (query: string) => {
-  //   // Actualizamos el timestamp de esta búsqueda
-  //   setRecentSearches([
-  //     { query, timestamp: Date.now() },
-  //     ...recentSearches.filter((s) => s.query !== query)
-  //   ])
-  // }
-
-  // const removeRecentSearch = (query: string, e: React.MouseEvent) => {
-  //   e.stopPropagation()
-  //   setRecentSearches(recentSearches.filter((s) => s.query !== query))
-  // }
-
-  // const clearAllRecentSearches = () => {
-  //   setRecentSearches([])
-  // }
-
-  // const toggleFavorite = (recipeId: string, e: React.MouseEvent) => {
-  //   e.stopPropagation()
-  //   setFavorites(
-  //     favorites.includes(recipeId)
-  //       ? favorites.filter((id) => id !== recipeId)
-  //       : [...favorites, recipeId]
-  //   )
-  // }
-
-  // Filtrar recetas basadas en la búsqueda y categoría
-  // const getRecipesToShow = () => {
-  //   let filteredRecipes = Object.values(recipeData).flat()
-
-  //   // Filtrar por categoría si hay una seleccionada
-  //   if (selectedCategory) {
-  //     filteredRecipes = recipeData[selectedCategory as keyof typeof recipeData] || []
-  //   }
-
-  //   // Filtrar por texto de búsqueda
-  //   if (inputValue.trim()) {
-  //     const searchTerm = inputValue.toLowerCase()
-  //     filteredRecipes = filteredRecipes.filter(
-  //       (recipe) =>
-  //         recipe.name.toLowerCase().includes(searchTerm) ||
-  //         recipe.description.toLowerCase().includes(searchTerm)
-  //     )
-  //   }
-
-  //   return filteredRecipes
-  // }
 
   const selectCategoriaUrl = searchParams
     .get('categories')
@@ -279,12 +212,19 @@ const SearchS = ({ model }: { model?: number }) => {
 
     <div
       className={cn(
-        'w-full overflow-visible transition-all',
-        open ? 'max-w-[500px]' : 'max-w-[400px]'
+        'w-full max-w-[300px] overflow-visible transition-all',
+        model == 1 ? 'max-w-[300px]' : 'max-w-[370px]',
+        open && model != 1 && 'max-w-[500px]'
       )}
       ref={containerRef}
+      onMouseLeave={(e) => {
+        inputRef.current?.blur()
+        setOpen(false)
+      }}
+      // onMouseEnter={() => setOpen(true)}
     >
       <SearchBar
+        ref={inputRef}
         value={query}
         onChange={(e) => searchDebounce(e?.target?.value)}
         onSearch={(e) => submit(e, query)}
@@ -294,20 +234,22 @@ const SearchS = ({ model }: { model?: number }) => {
           setShowRecents(true)
         }}
         onCleanQuery={() => setQuery('')}
-        onBlur={() => {
-          // El cierre se maneja con el clic fuera para evitar problemas con los clics en elementos del dropdown
-        }}
+        // onBlur={() => {
+        //   // El cierre se maneja con el clic fuera para evitar problemas con los clics en elementos del dropdown
+        // }}
       />
 
       {open && (
         <div className="relative mx-auto max-w-[500px]" ref={dropdownRef}>
           <div
             className={cn(
-              'absolute left-0 right-0 top-3 z-10 max-h-[500px] w-full overflow-auto rounded-xl border border-t-0 bg-white shadow-lg',
+              'absolute left-0 right-0 top-0 z-10 max-h-[500px] w-full overflow-auto',
               model == 1 && 'w-[550px]'
             )}
           >
-            {/* {showRecents ? (
+            <div className="h-3"></div>
+            <div className={cn('rounded-xl border border-t-0 bg-white shadow-lg')}>
+              {/* {showRecents ? (
               <RecentSearches
                 searches={recentSearches}
                 onSelect={selectRecentSearch}
@@ -315,86 +257,78 @@ const SearchS = ({ model }: { model?: number }) => {
                 onClearAll={clearAllRecentSearches}
               />
             ) : ( */}
-            <>
-              {loader ? (
-                <div className="flex justify-center py-7">
-                  <Loader2 className="animate-spin" />
-                </div>
-              ) : !hasQuery ? (
-                <>
-                  <CategoryFilters />
-                  <RecentSearches
-                    searches={recentSearches}
-                    onSelect={selectRecentSearch}
-                    onRemove={removeRecentSearch}
-                    onClearAll={clearAllRecentSearches}
-                  />
-                </>
-              ) : resultsSearch && resultsSearch.length == 0 ? (
-                <div className="p-4">no results</div>
-              ) : (
-                <>
-                  <CategoryFilters />
-                  {resultsSearch.length != 0 && (
-                    <div className="p-2">
-                      {resultsSearch?.map((result, i) => {
-                        return (
-                          <Link
-                            href={'search/recipe/' + result?.title}
-                            className="m-1 inline-block cursor-pointer overflow-hidden rounded-lg transition-colors hover:bg-gray-100"
-                            key={i}
-                          >
-                            <div className="flex w-full items-start p-0">
-                              <div className="relative h-24 w-24 flex-shrink-0">
-                                <Image
-                                  src={getImageRecipe(result?.imageUrl, 'medium')}
-                                  alt={result?.title}
-                                  width={96}
-                                  height={96}
-                                  className="h-full w-full object-cover"
-                                />
-                                <ToggleFavorites recipeId={result.id} size="small" />
-                              </div>
-                              <div className="flex-1 p-3">
-                                <div className="flex items-start justify-between">
-                                  <h3 className="font-medium text-gray-900">{result?.title}</h3>
+              <>
+                {loader ? (
+                  <div className="flex justify-center py-7">
+                    <Loader2 className="animate-spin" />
+                  </div>
+                ) : !hasQuery ? (
+                  <>
+                    {/* <CategoryFilters /> */}
+                    <RecentSearches
+                      searches={recentSearches}
+                      onSelect={selectRecentSearch}
+                      onRemove={removeRecentSearch}
+                      onClearAll={clearAllRecentSearches}
+                    />
+                  </>
+                ) : resultsSearch && resultsSearch.length == 0 ? (
+                  <div className="p-4">no results</div>
+                ) : (
+                  <>
+                    {/* <CategoryFilters /> */}
+                    {resultsSearch.length != 0 && (
+                      <div className="p-2">
+                        {resultsSearch?.map((result, i) => {
+                          return (
+                            <Link
+                              href={'search/recipe/' + result?.title}
+                              className="m-1 inline-block cursor-pointer overflow-hidden rounded-lg transition-colors hover:bg-gray-100"
+                              key={i}
+                            >
+                              <div className="flex w-full items-start p-0">
+                                <div className="relative h-24 w-24 flex-shrink-0">
+                                  <Image
+                                    src={getImageRecipe(result?.imageUrl, 'medium')}
+                                    alt={result?.title}
+                                    width={96}
+                                    height={96}
+                                    className="h-full w-full object-cover"
+                                  />
+                                  <ToggleFavorites recipeId={result.id} size="small" />
                                 </div>
-                                <p className="mb-2 line-clamp-1 text-sm text-gray-600">
-                                  {result?.description}
-                                </p>
-                                <div className="flex items-center gap-3 text-xs text-gray-500">
-                                  <div className="flex items-center gap-1">
-                                    <div className="h-4 w-4">
-                                      <CircleUser className="h-full w-full" />
-                                    </div>
-                                    {result?.username}
+                                <div className="flex-1 p-3">
+                                  <div className="flex items-start justify-between">
+                                    <h3 className="font-medium text-gray-900">{result?.title}</h3>
                                   </div>
-                                  <div className="flex items-center gap-1">
-                                    <div className="h-3.5 w-3.5">
-                                      <Users className="h-full w-full" />
+                                  <p className="mb-2 line-clamp-1 text-sm text-gray-600">
+                                    {result?.description}
+                                  </p>
+                                  <div className="flex items-center gap-3 text-xs text-gray-500">
+                                    <div className="flex items-center gap-1">
+                                      <div className="h-4 w-4">
+                                        <CircleUser className="h-full w-full" />
+                                      </div>
+                                      {result?.username}
                                     </div>
-                                    {result?.servings}
+                                    <div className="flex items-center gap-1">
+                                      <div className="h-3.5 w-3.5">
+                                        <Users className="h-full w-full" />
+                                      </div>
+                                      {result?.servings}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </Link>
-                        )
-                      })}
-                    </div>
-                  )}
-                </>
-              )}
-              {/* {recipesToShow.length === 0 ? (
-                    <EmptyResults />
-                  ) : (
-                    <>
-                      <CategoryFilters selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} />
-                      <RecipeList recipes={recipesToShow} favorites={favorites} onToggleFavorite={toggleFavorite} />
-                    </>
-                  )} */}
-            </>
-            {/* )} */}
+                            </Link>
+                          )
+                        })}
+                      </div>
+                    )}
+                  </>
+                )}
+              </>
+            </div>
           </div>
         </div>
       )}
