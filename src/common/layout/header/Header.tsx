@@ -4,37 +4,32 @@ import Link from 'next/link'
 import MenuMobile from './MenuMobile'
 import { NavLinks } from './NavLinks'
 // import SearchNav from './Search'
-import { Suspense, useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
-import { useCategoriesStore } from '@/context/useCategoriesStore'
-import Search from '@/modules/search/components/Search'
 import SearchS from '@/modules/search/components/SearchS/SearchS'
+import { usePathname } from 'next/navigation'
+import { Suspense, useState } from 'react'
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
   const isHomePage = pathname === '/'
 
-  const { getCategories } = useCategoriesStore()
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const offset = window.scrollY
+  //     if (offset > 50) {
+  //       setScrolled(true)
+  //     } else {
+  //       setScrolled(false)
+  //     }
+  //   }
+  //   handleScroll()
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY
-      if (offset > 50) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
-    handleScroll()
-    getCategories()
-
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+  //   window.addEventListener('scroll', handleScroll)
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll)
+  //   }
+  // }, [])
 
   const navbarBgClass = () => {
     if (scrolled) {

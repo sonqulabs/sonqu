@@ -4,6 +4,7 @@ import { FontWrapper } from '@/common/wrappers'
 import { Header } from '@/common/layout/header/Header'
 import funMetaData from '@/common/helpers/funMetaData'
 import HydrateGlobal from './HydrateGlobal'
+import DataFetcher from './DataFetcher'
 
 // export const metadata: Metadata = {
 //   title: 'Sonqu',
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="es">
       <FontWrapper>
         <HydrateGlobal />
+        <DataFetcher />
         <Header />
         {children}
       </FontWrapper>
