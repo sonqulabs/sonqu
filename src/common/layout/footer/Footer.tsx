@@ -1,7 +1,6 @@
 import { cn } from '@/lib/utils'
 import { Mail, MapPin, Phone, Upload } from 'lucide-react'
 import Image from 'next/image'
-import StyleFooter from '../../styles/footer.module.css'
 import IconFacebook from './iconsSocialMedia/IconFacebook'
 import IconInstagram from './iconsSocialMedia/IconInstagram'
 import IconWhatsapp from './iconsSocialMedia/IconWhatsapp'
@@ -103,10 +102,13 @@ const Footer = () => {
           <div className="border-t border-red-400 pt-8">
             <div className="flex flex-col items-center justify-between gap-4 lg:flex-row">
               <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
-                <button className="flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-sonqu-yellow-300 px-3 py-3 text-sm font-semibold text-[#d31008] transition-colors hover:bg-yellow-300 lg:w-auto lg:px-5 lg:text-base">
+                <Link
+                  href="/subir-receta"
+                  className="flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-sonqu-yellow-300 px-3 py-3 text-sm font-semibold text-[#d31008] transition-colors hover:bg-yellow-300 lg:w-auto lg:px-5 lg:text-base"
+                >
                   <Upload className="size-5" />
                   Sube tu receta
-                </button>
+                </Link>
                 <p className="w-full whitespace-nowrap text-sm font-medium lg:text-base">
                   Total de recetas: <span className="text-yellow-300">1,234</span>
                 </p>

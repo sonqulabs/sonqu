@@ -31,19 +31,17 @@ export const HomeAbout = () => {
               )}
             >
               <span className="mb-3 block">
-                En SONQU encontrarás las mejores recetas de la gastronomía peruana. Nuestra labor es
-                mostrarte los secretos de la gastronomía del Perú, para ello, nos hemos encargado de
-                recolectar las mejores recetas de comida peruana de distintos libros reconocidos y
-                también de los secretos de gran chefs.
+                Hoy, somos una de las comunidades gastronómicas más grandes en redes sociales, con
+                más de 2 millones de seguidores en Facebook, Instagram, YouTube y TikTok.
               </span>
               <span className="hidden lg:block">
-                En esta página encontrarás a detalle cada paso para que cocines tu plato favorito y
-                aprendas el arte culinario de la gastronomía peruana. Te enseñaremos paso a paso
-                cómo preparar los mejores platos peruanos. Nosotros somo SONQU.
+                Enseñamos a cocinar de forma fácil y práctica, con ingredientes que puedan conseguir
+                en cualquier lugar, para que todos puedan disfrutar del auténtico sabor peruano sin
+                complicaciones.
               </span>
             </p>
             <LinkSonqu
-              href="#"
+              href="/nosotros"
               name="CONOCER MÁS"
               className="!bg-[#A1C517] text-sm md:!text-base"
             />
