@@ -13,8 +13,12 @@ import IconYoutube from './iconsSocialMedia/IconYoutube'
 
 // const socialNet = getNetworks()
 
-const Footer = () => {
+const Footer = async () => {
   const iconComponents = { Mail, Phone, MapPin }
+  const API_URL = process.env.NEXT_PUBLIC_API_URL
+
+  const countRecipesRes = await fetch(`${API_URL}/public/count-recipes`)
+  const countRecipes = await countRecipesRes.json()
 
   return (
     <footer className="text-white">
@@ -110,7 +114,7 @@ const Footer = () => {
                   Sube tu receta
                 </Link>
                 <p className="w-full whitespace-nowrap text-sm font-medium lg:text-base">
-                  Total de recetas: <span className="text-yellow-300">1,234</span>
+                  Total de recetas: <span className="text-yellow-300">{countRecipes?.count}</span>
                 </p>
               </div>
               <div className="text-center text-sm">
