@@ -50,14 +50,12 @@ export const SobreMiView = () => {
             )}
           >
             <span className="mb-3 block">
-              Eric Layme, el corazón y la mente detrás de Sonqu. Nacido en la selva peruana, crecí
-              rodeado de sabores vibrantes y ingredientes únicos que han marcado mi pasión por la
-              cocina. A través de Sonqu, mi canal de YouTube, comparto recetas nutritivas y llenas
-              de sabor, inspiradas en la riqueza de nuestra gastronomía amazónica y en la
-              importancia de una alimentación equilibrada.
+              Soy cocinero peruano con más de 15 años de experiencia en el mundo gastronómico,
+              fundador del canal Sonqu y apasionado por la cocina tradicional. Emprendedor y
+              subcampeón del Segundo Torneo Nacional de Fuegos y Parrillas en la categoría Cilindro.
             </span>
-            Mi objetivo es que cada plato no solo deleite el paladar, sino que también nutra el
-            cuerpo y el alma. ¡Bienvenidos a mi mundo culinario!
+            Disfruto compartiendo mi conocimiento, enseñando a cocinar y contribuyendo con labores
+            sociales, llevando el sabor y la tradición a más personas.
           </p>
         </div>
       </div>
@@ -82,22 +80,17 @@ export const SobreMiView = () => {
             <div className="px-8">
               <h2 className="mb-4 font-monserrat text-5xl font-bold md:text-[50px]">Sobre mí...</h2>
               <p className="font-monserrat">
-                Soy cocinero peruano con más de 15 años de experiencia en el mundo gastronómico,
-                fundador del canal Sonqu y apasionado por la cocina tradicional. Emprendedor y
-                subcampeón del Segundo Torneo Nacional de Fuegos y Parrillas en la categoría
-                Cilindro. Disfruto compartiendo mi conocimiento, enseñando a cocinar y contribuyendo
-                con labores sociales, llevando el sabor y la tradición a más personas.
+                Creador de contenido gastronómico con más de 15 años de experiencia en la cocina
+                peruana. Fundador del canal Sonqu, con una comunidad de más de 2 millones de
+                seguidores, y apasionado por la cocina tradicional de mi país.
               </p>
             </div>
           </div>
           <p className="px-8 font-monserrat lg:px-0">
-            Cocinero peruano y creador de contenido gastronómico con más de 15 años de experiencia
-            en la cocina peruana. Fundador del canal Sonqu, con una comunidad de más de 2 millones
-            de seguidores, y apasionado por la cocina tradicional de mi país. Emprendedor y
-            subcampeón del Segundo Torneo Nacional de Fuegos y Parrillas en la categoría Cilindro.
-            Disfruto compartiendo mi conocimiento, enseñando a cocinar y contribuyendo con labores
-            sociales, llevando el sabor, la tradición y las costumbres del Perú a nuevos horizontes
-            y a todos quienes disfrutan de lo que hago.
+            Emprendedor y subcampeón del Segundo Torneo Nacional de Fuegos y Parrillas en la
+            categoría Cilindro. Disfruto compartiendo mi conocimiento, enseñando a cocinar y
+            contribuyendo con labores sociales, llevando el sabor, la tradición y las costumbres del
+            Perú a nuevos horizontes y a todos quienes disfrutan de lo que hago.
           </p>
         </div>
         <Image

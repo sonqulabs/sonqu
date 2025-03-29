@@ -1,7 +1,7 @@
 import { HomeAbout } from './HomeAbout'
 import { HomeCategoryRecipes } from './HomeCategoryRecipes'
 import HomeHero from './HomeHero'
-import { HomeMarcas } from './HomeMarcas'
+// import { HomeMarcas } from './HomeMarcas'
 import { HomeShareRecipe } from './HomeShareRecipe'
 
 const HomeView = () => {
@@ -12,7 +12,7 @@ const HomeView = () => {
       <HomeCategoryRecipes />
       <HomeAbout />
       <HomeShareRecipe />
-      <HomeMarcas />
+      {/* <HomeMarcas /> */}
     </main>
   )
 }

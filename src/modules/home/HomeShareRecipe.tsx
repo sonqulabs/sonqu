@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils'
 import React from 'react'
 import HomeStyles from './style/home.module.css'
+import Link from 'next/link'
 
 export const HomeShareRecipe = () => {
   return (
@@ -16,9 +17,12 @@ export const HomeShareRecipe = () => {
               Comparte tu receta favorita y forma parte de nuestra comunidad de amantes de la buena
               comida. ¡Juntos hacemos la cocina más divertida! 🍽️👨‍🍳
             </p>
-            <button className="rounded-lg bg-[#ED7203] px-8 py-1.5 text-sm text-white">
+            <Link
+              href="/subir-receta"
+              className="rounded-lg bg-[#ED7203] px-8 py-1.5 text-sm text-white"
+            >
               SUBIR RECETA
-            </button>
+            </Link>
           </div>
         </div>
       </div>
