@@ -8,9 +8,11 @@ import Image from 'next/image'
 
 export const ContactView = () => {
   return (
-    <section className="relative">
-      <div className={cn(ContactStyles.fondoContactTop, 'wrapper')}></div>
-      <div className="container flex h-full min-h-full w-full items-center justify-center gap-10 py-10">
+    <section className="relative lg:pt-10">
+      <div
+        className={cn(ContactStyles.fondoContactTop, 'wrapper lg:max-w-[950px] lg:rounded-3xl')}
+      ></div>
+      <div className="container flex h-full min-h-full w-full flex-col items-center justify-center gap-10 py-10 lg:flex-row">
         {/* <SocialNetworks /> */}
         <Image
           src="/contact/sonqu3.webp"

@@ -2,6 +2,7 @@ import { Instagram, Youtube } from 'lucide-react'
 import HomeStyles from './style/home.module.css'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
+import Link from 'next/link'
 // import { LogoTiktok } from '@/common/components/icons/solid/LogoTiktok'
 
 const HomeHero = () => {
@@ -71,9 +72,12 @@ const HomeHero = () => {
             a paso cómo preparar los mejores platos peruanos.
           </p>
 
-          <button className="mx-auto w-fit rounded-xl bg-[#CE0146] px-10 py-3 text-white lg:mx-0">
+          <Link
+            href="/search"
+            className="mx-auto w-fit rounded-xl bg-[#CE0146] px-10 py-3 text-white lg:mx-0"
+          >
             VER RECETAS
-          </button>
+          </Link>
         </div>
       </div>
       <div

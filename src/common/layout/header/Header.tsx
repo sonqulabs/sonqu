@@ -14,33 +14,6 @@ export const Header = () => {
   const pathname = usePathname()
   const isHomePage = pathname === '/'
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const offset = window.scrollY
-  //     if (offset > 50) {
-  //       setScrolled(true)
-  //     } else {
-  //       setScrolled(false)
-  //     }
-  //   }
-  //   handleScroll()
-
-  //   window.addEventListener('scroll', handleScroll)
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll)
-  //   }
-  // }, [])
-
-  const navbarBgClass = () => {
-    if (scrolled) {
-      return 'bg-primary/70 backdrop-blur-md'
-    } else if (isHomePage) {
-      return 'bg-transparent'
-    } else {
-      return 'bg-primary/40 backdrop-blur-sm'
-    }
-  }
-
   return (
     <header className={cn('sticky top-0 z-40 bg-black drop-shadow-md')}>
       {/* <header className="sticky top-0 z-40 bg-sonqu-white-400 drop-shadow-md"> */}
@@ -62,8 +35,9 @@ export const Header = () => {
             <SearchS model={1} />
           </Suspense>
         </div>
-        <div className="flex h-full w-full items-center justify-end gap-2 lg:gap-6">
+        <div className="flex h-full w-full items-center justify-end">
           <NavLinks />
+
           <MenuMobile />
         </div>
       </div>
