@@ -190,7 +190,13 @@ const SearchS = ({ model }: { model?: number }) => {
 
   if (!isHydrated)
     return (
-      <div className="w-full max-w-[400px] overflow-visible transition-all">
+      <div
+        className={cn(
+          'w-full max-w-[300px] overflow-visible transition-all',
+          model == 1 ? 'max-w-[300px]' : 'max-w-[370px]',
+          open && model != 1 && 'max-w-[500px]'
+        )}
+      >
         <div className={cn('relative mx-auto w-full', model == 1 && 'hidden lg:flex')}>
           <Input
             type="search"
@@ -247,8 +253,8 @@ const SearchS = ({ model }: { model?: number }) => {
               model == 1 && 'w-[550px]'
             )}
           >
-            <div className="h-3"></div>
-            <div className={cn('rounded-xl border border-t-0 bg-white shadow-lg')}>
+            <div className={cn('h-3', model == 1 && 'h-4')}></div>
+            <div className="rounded-xl border border-t-0 bg-white shadow-lg">
               {/* {showRecents ? (
               <RecentSearches
                 searches={recentSearches}
@@ -295,7 +301,7 @@ const SearchS = ({ model }: { model?: number }) => {
                                     height={96}
                                     className="h-full w-full object-cover"
                                   />
-                                  <ToggleFavorites recipeId={result.id} size="small" />
+                                  {/* <ToggleFavorites recipeId={result.id} size="small" /> */}
                                 </div>
                                 <div className="flex-1 p-3">
                                   <div className="flex items-start justify-between">
