@@ -26,7 +26,7 @@ export const SubMenuRecetas = () => {
     <>
       <div className="mx-auto flex max-w-7xl gap-6">
         <div className="p-6">
-          <h2 className="flex items-center gap-2 text-lg font-semibold uppercase text-white">
+          <h2 className="flex items-center gap-2 text-lg font-semibold uppercase">
             <Tags />
             <span className="font-fingerPaint">Categorias</span>
           </h2>
@@ -41,7 +41,7 @@ export const SubMenuRecetas = () => {
                 <Link
                   key={category.name}
                   href={`/search?categories=${category.name}`}
-                  className="group relative isolate flex items-center overflow-hidden rounded-xl bg-white/15 transition-all hover:bg-white/20"
+                  className="group relative isolate flex items-center overflow-hidden rounded-xl bg-gray-500/10 transition-all hover:bg-white/20"
                 >
                   {/* Fondo con gradiente */}
                   <div
@@ -49,8 +49,8 @@ export const SubMenuRecetas = () => {
                   />
 
                   {/* Contenido */}
-                  <div className="relative z-10 flex w-full items-center gap-3 p-3">
-                    <div className="flex items-center justify-center rounded-lg bg-white/10">
+                  <div className="relative z-10 flex w-full items-center gap-3 p-3 group-hover:text-white">
+                    <div className="flex items-center justify-center rounded-lg bg-gray-500/15">
                       <div
                         className="flex h-5 w-5 items-center justify-center"
                         dangerouslySetInnerHTML={{ __html: category.icon }}
@@ -58,8 +58,8 @@ export const SubMenuRecetas = () => {
                       {/* <Circle className="h-3 w-3" /> */}
                     </div>
                     <div className="flex flex-1 items-center justify-between gap-1">
-                      <span className="line-clamp-1 w-fit text-sm text-white">{category.name}</span>
-                      <ArrowRight className="h-4 w-4 flex-shrink-0 text-white/70 transition-transform group-hover:translate-x-1" />
+                      <span className="line-clamp-1 w-fit text-sm">{category.name}</span>
+                      <ArrowRight className="text-gray/70 h-4 w-4 flex-shrink-0 transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
 
@@ -88,17 +88,17 @@ export const SubMenuRecetas = () => {
       </div>
 
       <div className="">
-        <div className="mx-auto max-w-7xl border-t border-white/20 px-5 py-6">
+        <div className="border-gray/20 mx-auto max-w-7xl border-t px-5 py-6">
           <div className="flex items-center justify-between">
-            <p className="text-sm text-white/70">¿Buscas algo específico?</p>
+            <p className="text-gray/70 text-sm">¿Buscas algo específico?</p>
             <Link
               href="/search"
               className="flex items-center gap-1 text-sm font-medium text-primary"
             >
-              <span className="text-white hover:text-white/70 hover:underline">
+              <span className="text-gray hover:text-gray/70 hover:underline">
                 Ver todas las recetas
               </span>
-              <ArrowRight className="h-4 w-4 text-white/70 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="text-gray/70 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>

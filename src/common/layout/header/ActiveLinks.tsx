@@ -96,7 +96,7 @@ export const ActiveLinks = ({
 
           {submenuOpen && (
             // submenuOpen
-            <div className="fixed left-0 top-[100%] w-full overflow-hidden bg-gradient-to-r from-[#d31008] to-[#db5932] text-white shadow-sm">
+            <div className="fixed left-0 top-[100%] w-full overflow-hidden bg-gradient-to-r from-[#fdfdfd] to-[#ffffff] shadow-sm">
               <SubMenu />
               {/* <div className="mx-auto max-w-7xl"> */}
 
