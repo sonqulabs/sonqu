@@ -6,5 +6,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function capitalizeFirstLetter(texto) {
-  return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase() || ''
+  return texto?.charAt(0).toUpperCase() + texto?.slice(1).toLowerCase() || ''
 }

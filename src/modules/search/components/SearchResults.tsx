@@ -50,27 +50,28 @@ const SearchResult = async ({ searchParams }) => {
                   <ToggleFavorites recipeId={item.id} />
 
                   <div className="absolute bottom-2 left-1.5 z-0 flex w-full flex-wrap items-center justify-center gap-1">
-                    {item.categories?.map((category, i) => {
-                      return (
-                        <TooltipProvider key={i} delayDuration={100}>
-                          <Tooltip>
-                            <TooltipTrigger className="flex items-center rounded-3xl bg-white/60 px-2 py-1 text-center text-gray-900 shadow-md backdrop-blur-sm transition-all hover:scale-105 hover:bg-white">
-                              <GetIconCategory categoryName={category?.name} />
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              {/* <p>Add to library</p> */}
-                              {capitalizeFirstLetter(category?.name)}
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                        // {/* <span
-                        //   className="inline-flex h-3.5 w-3.5 items-center justify-center"
-                        //   dangerouslySetInnerHTML={{ __html: category?.icon }}
-                        // ></span> */}
+                    {item.categories?.length > !0 &&
+                      item.categories?.map((category, i) => {
+                        return (
+                          <TooltipProvider key={i} delayDuration={100}>
+                            <Tooltip>
+                              <TooltipTrigger className="flex items-center rounded-3xl bg-white/60 px-2 py-1 text-center text-gray-900 shadow-md backdrop-blur-sm transition-all hover:scale-105 hover:bg-white">
+                                <GetIconCategory categoryName={category?.name} />
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                {/* <p>Add to library</p> */}
+                                {capitalizeFirstLetter(category?.name)}
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                          // {/* <span
+                          //   className="inline-flex h-3.5 w-3.5 items-center justify-center"
+                          //   dangerouslySetInnerHTML={{ __html: category?.icon }}
+                          // ></span> */}
 
-                        // {/* {capitalizeFirstLetter(category?.name)} */}
-                      )
-                    })}
+                          // {/* {capitalizeFirstLetter(category?.name)} */}
+                        )
+                      })}
                   </div>
                 </div>
 
