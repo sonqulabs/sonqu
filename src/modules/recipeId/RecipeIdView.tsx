@@ -30,7 +30,7 @@ const RecipeIdView = async ({ id }: Props) => {
             {recipe.categories?.map(({ category }, i) => {
               return (
                 <span
-                  className="flex cursor-pointer items-center gap-1 rounded-3xl bg-[#000000cc] px-2 py-0.5 text-[0.6875rem] text-white opacity-90 shadow-lg"
+                  className="flex items-center gap-1 rounded-3xl bg-[#000000cc] px-2 py-0.5 text-[0.6875rem] text-white opacity-90 shadow-lg"
                   key={i}
                 >
                   {capitalizeFirstLetter(category.name)}
@@ -111,13 +111,15 @@ const RecipeIdView = async ({ id }: Props) => {
           </TabsContent>
         </Tabs>
 
-        <div className="mt-11 flex flex-col justify-center rounded-xl border border-[#000000cc] bg-white px-4 py-4 shadow-md md:px-10 md:py-7">
-          <h2 className="mb-6 text-2xl font-medium underline decoration-[#3a3a3a5d] decoration-1 underline-offset-8">
-            <Youtube className="mr-2 inline-block" />
-            Vea el proceso en <span className="text-red-500">Youtube</span>
-          </h2>
-          <YoutubeLite url={recipe.videoUrl} />
-        </div>
+        {recipe?.videoUrl && (
+          <div className="mt-11 flex flex-col justify-center rounded-xl border border-[#000000cc] bg-white px-4 py-4 shadow-md md:px-10 md:py-7">
+            <h2 className="mb-6 text-2xl font-medium underline decoration-[#3a3a3a5d] decoration-1 underline-offset-8">
+              <Youtube className="mr-2 inline-block" />
+              Vea el proceso en <span className="text-red-500">Youtube</span>
+            </h2>
+            <YoutubeLite url={recipe.videoUrl} />
+          </div>
+        )}
       </div>
     </div>
   )
