@@ -3,8 +3,10 @@ import Image from 'next/image'
 import YoutubeLite from './components/YoutubeLite'
 import { getRecipeId } from './services/recipeId'
 
+import { TopSeparator2 } from '@/common/components/customize/TopSeparator2'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/common/components/shadcnui/tabs'
+import { capitalizeFirstLetter } from '@/lib/utils'
 import { CalendarDays, CircleUser, ListCheck, Users, UtensilsCrossed, Youtube } from 'lucide-react'
-import { TopSeparator } from '@/common/components/customize/TopSeparator'
 
 type Props = {
   id: string
@@ -21,15 +23,28 @@ const RecipeIdView = async ({ id }: Props) => {
 
   return (
     <div>
-      <div className="wrapper flex-1">
-        <TopSeparator />
-      </div>
-      <div className="container max-w-[850px] pb-10 pt-2 sm:pt-0">
-        <h1 className="mb-6 text-center text-3xl font-bold underline decoration-[#3a3a3a5d] decoration-1 underline-offset-8 md:text-start">
+      <TopSeparator2 />
+      <div className="container max-w-[850px] pb-10 pt-6 sm:pt-6">
+        {recipe.categories?.length > 0 && (
+          <div className="mb-12 flex items-center justify-center gap-2 px-10">
+            {recipe.categories?.map(({ category }, i) => {
+              return (
+                <span
+                  className="flex cursor-pointer items-center gap-1 rounded-3xl bg-[#000000cc] px-2 py-0.5 text-[0.6875rem] text-white opacity-90 shadow-lg"
+                  key={i}
+                >
+                  {capitalizeFirstLetter(category.name)}
+                </span>
+              )
+            })}
+          </div>
+        )}
+
+        <h1 className="mb-6 text-center text-3xl font-bold underline decoration-[#3a3a3a5d] decoration-1 underline-offset-8">
           {recipe.title}
         </h1>
 
-        <div className="mb-6 flex flex-wrap items-center justify-center gap-6 text-gray-600 md:justify-start md:px-10">
+        <div className="mb-6 flex flex-wrap items-center justify-center gap-6 text-gray-600 md:px-10">
           <div className="flex items-center gap-2 rounded-full border border-[#000000cc] bg-white px-3 py-1 text-gray-600">
             <CircleUser className="h-5 w-5" />
             <span> {recipe.user?.username || 'User'}</span>
@@ -42,10 +57,6 @@ const RecipeIdView = async ({ id }: Props) => {
             <Users className="h-5 w-5" />
             <span>Porciones: {recipe.servings}</span>
           </div>
-          {/* <div className="flex items-center gap-2 text-gray-600">
-          <BarChart2 className="w-5 h-5" />
-          <span>Dificultad: Media</span>
-        </div> */}
         </div>
 
         <div className="mb-6 flex flex-col items-center justify-center gap-6 md:flex-row md:px-10">
@@ -62,48 +73,47 @@ const RecipeIdView = async ({ id }: Props) => {
           <div className="">{recipe.description}</div>
         </div>
 
-        <div className="mb-6 flex items-center justify-center gap-2 md:justify-start md:px-10">
-          {/* <h2 className="text-2xl font-medium">Categorias:</h2> */}
-          {recipe.categories?.map(({ category }, i) => {
-            return (
-              <span
-                className="flex cursor-pointer items-center rounded-3xl bg-[#000000cc] px-3 py-1 text-xs text-white"
-                key={i}
-              >
-                {category.name}
-              </span>
-            )
-          })}
-        </div>
-
-        <div className="flex flex-col justify-center rounded-xl border border-[#000000cc] bg-white px-4 py-4 shadow-md md:px-10 md:py-7">
-          <div className="mb-11">
-            <h2 className="flex items-center gap-2 text-2xl font-semibold underline decoration-[#3a3a3a5d] decoration-1 underline-offset-8">
+        <Tabs defaultValue="ingredientes" className="">
+          <TabsList className="grid h-auto w-full grid-cols-1 text-3xl md:grid-cols-2">
+            <TabsTrigger
+              className="flex flex-1 items-center gap-2 text-xl font-medium"
+              value="ingredientes"
+            >
               <UtensilsCrossed /> Ingredientes
-            </h2>
-            {recipe.ingredients?.map((ingredient, i) => {
-              return (
-                <div
-                  className="mt-5 pl-0 md:pl-8"
-                  key={i}
-                  dangerouslySetInnerHTML={{ __html: ingredient.name }}
-                ></div>
-              )
-            })}
-          </div>
-          <div className="mb-11">
-            <h2 className="mb-2 flex items-center gap-2 text-2xl font-medium underline decoration-[#3a3a3a5d] decoration-1 underline-offset-8">
-              <ListCheck />
-              Instrucciones
-            </h2>
-            <div
-              className="mt-5 pl-0 md:pl-8"
-              dangerouslySetInnerHTML={{ __html: recipe?.instructions[0]?.description }}
-            ></div>
-          </div>
+            </TabsTrigger>
+            <TabsTrigger
+              className="flex flex-1 items-center gap-2 text-xl font-medium"
+              value="preparacion"
+            >
+              <ListCheck /> Preparación
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="ingredientes">
+            <div className="flex flex-col justify-center rounded-xl border border-[#000000cc] bg-white px-4 py-4 shadow-md md:px-10 md:py-9">
+              {recipe.ingredients?.map((ingredient, i) => {
+                return (
+                  <div
+                    className=""
+                    key={i}
+                    dangerouslySetInnerHTML={{ __html: ingredient.name }}
+                  ></div>
+                )
+              })}
+            </div>
+          </TabsContent>
+          <TabsContent value="preparacion">
+            <div className="flex flex-col justify-center rounded-xl border border-[#000000cc] bg-white px-4 py-4 shadow-md md:px-10 md:py-9">
+              <div
+                className=""
+                dangerouslySetInnerHTML={{ __html: recipe?.instructions[0]?.description }}
+              ></div>
+            </div>
+          </TabsContent>
+        </Tabs>
 
-          <h2 className="mb-6 flex items-center gap-2 text-2xl font-medium underline decoration-[#3a3a3a5d] decoration-1 underline-offset-8">
-            <Youtube />
+        <div className="mt-11 flex flex-col justify-center rounded-xl border border-[#000000cc] bg-white px-4 py-4 shadow-md md:px-10 md:py-7">
+          <h2 className="mb-6 text-2xl font-medium underline decoration-[#3a3a3a5d] decoration-1 underline-offset-8">
+            <Youtube className="mr-2 inline-block" />
             Vea el proceso en <span className="text-red-500">Youtube</span>
           </h2>
           <YoutubeLite url={recipe.videoUrl} />

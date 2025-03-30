@@ -7,7 +7,7 @@ export const ItemCarousel = ({ name, image, path }: Props) => {
 
   return (
     <Link
-      href={`/categoria/${path}`}
+      href={`/search${path}`}
       className="group relative flex aspect-square flex-col items-center gap-2 text-center font-poppins text-sm font-medium lg:text-base"
     >
       <div className="h-full w-full overflow-hidden rounded-[30px]">
