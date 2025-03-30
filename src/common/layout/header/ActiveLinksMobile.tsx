@@ -22,7 +22,7 @@ export const ActiveLinksMobile = ({ label, href, active, submenus }: Nav) => {
         <Link
           href={href}
           className={cn(
-            'w-full py-1 pl-4 font-poppins text-xs font-semibold uppercase leading-loose text-black transition-colors',
+            'w-full py-1 font-monserrat text-sm font-medium leading-loose text-black transition-colors',
             {
               'text-sonqu-red-300': active,
               'hover:text-sonqu-red-300': !active
@@ -39,7 +39,7 @@ export const ActiveLinksMobile = ({ label, href, active, submenus }: Nav) => {
               href="#"
               // href={href}
               className={cn(
-                'flex flex-1 items-center py-1 pl-4 font-poppins text-xs font-semibold uppercase leading-loose text-black',
+                'flex flex-1 items-center py-1 font-monserrat text-sm font-medium leading-loose text-black',
                 {
                   'text-sonqu-red-300': active
                 }

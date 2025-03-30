@@ -2,7 +2,6 @@
 import { useMenuStore } from '@/context/menuMobile'
 import { NavLinksMobile } from './NavLinksMobile'
 
-import { Button } from '@/common/components/shadcnui/button'
 import {
   Sheet,
   SheetContent,
@@ -10,28 +9,31 @@ import {
   SheetTitle,
   SheetTrigger
 } from '@/common/components/shadcnui/sheet'
-import Search from '@/modules/search/components/Search'
-import { Menu } from 'lucide-react'
+import { Menu, Search } from 'lucide-react'
+import Link from 'next/link'
 
 const MenuMobile = () => {
-  const { isOpen, toggleMenu } = useMenuStore()
-
+  const { isOpen, toggleMenu, closeMenu } = useMenuStore()
   return (
     <div className="flex flex-1 items-center justify-end lg:hidden">
       <Sheet open={isOpen} onOpenChange={toggleMenu}>
         <SheetTrigger asChild>
-          <Button variant="secondary" className="bg-transparent hover:bg-white/30" size="icon">
+          <button className="h-auto bg-transparent p-0 hover:bg-transparent">
             <Menu className="h-6 w-6 text-white" />
-          </Button>
+          </button>
         </SheetTrigger>
         <SheetContent side="right">
-          <SheetTitle>Menu</SheetTitle>
+          <SheetTitle className="mb-4 font-monserrat">Menu</SheetTitle>
           <SheetDescription hidden></SheetDescription>
-          <div className="mt-6 space-y-6">
-            <div className="space-y-2">
-              {/* <Input type="search" placeholder="¿Qué estás buscando?" className="w-full" /> */}
-              <Search searchAuto={false} />
-            </div>
+          <div className="space-y-6">
+            <Link
+              href="/search"
+              className="flex w-full items-center gap-4 rounded-xl border border-border/60 bg-card px-4 py-2 text-sm font-medium shadow-[0_2px_10px_-3px_rgba(0,0,0,0.07)]"
+              onClick={closeMenu}
+            >
+              <Search className="h-4 w-4" />
+              <span className="font-monserrat text-sm">Buscar recetas...</span>
+            </Link>
             <nav className="space-y-2">
               <NavLinksMobile />
               {/* <NavLinks mobile /> */}

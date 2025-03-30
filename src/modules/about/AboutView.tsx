@@ -15,6 +15,8 @@ import {
 } from 'lucide-react'
 import { LogoTiktok } from '@/common/components/icons/solid/LogoTiktok'
 import HomeStyles from './style/about.module.css'
+import Link from 'next/link'
+import IconTiktok from '@/common/layout/footer/iconsSocialMedia/IconTiktok'
 
 const AboutView = () => {
   return (
@@ -94,15 +96,34 @@ const AboutView = () => {
               SÍGUENOS EN
             </h4>
             <div className="w-full space-y-4">
-              <div className="flex w-full items-center justify-center gap-2 rounded-lg bg-black py-4 text-white">
+              <Link
+                href="https://www.facebook.com/Sonquoficial?locale=es_LA"
+                target="_blank"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-black py-4 text-white"
+              >
                 <Facebook /> Facebook
-              </div>
-              <div className="flex w-full items-center justify-center gap-2 rounded-lg bg-black py-4 text-white">
+              </Link>
+              <Link
+                href="https://www.youtube.com/c/SONQU"
+                target="_blank"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-black py-4 text-white"
+              >
                 <YoutubeIcon /> Youtube
-              </div>
-              <div className="flex w-full items-center justify-center gap-2 rounded-lg bg-black py-4 text-white">
+              </Link>
+              <Link
+                href="https://www.instagram.com/sonquoficial/"
+                target="_blank"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-black py-4 text-white"
+              >
                 <InstagramIcon /> Instagram
-              </div>
+              </Link>
+              <Link
+                href="https://www.tiktok.com/@sonquoficial"
+                target="_blank"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-black py-4 text-white"
+              >
+                <IconTiktok /> Tiktok
+              </Link>
             </div>
           </div>
         </div>
