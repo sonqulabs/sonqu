@@ -7,7 +7,7 @@ import { LogoYoutube } from '@/common/components/icons/solid/LogoYoutube'
 
 export const linksNetworks = {
   Facebook: 'https://www.facebook.com/Sonquoficial?locale=es_LA',
-  Instagram: 'https://www.instagram.com/sonqu.oficial/',
+  Instagram: 'https://www.instagram.com/sonquoficial/',
   Youtube: 'https://www.youtube.com/c/SONQU',
   Whatsapp: 'https://wa.me/51990938491',
   Tiktok: 'https://www.tiktok.com/@sonquoficial',
