@@ -96,8 +96,8 @@ const SearchResultsSkeleton = () => {
         </Pagination>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 py-6 sm:grid-cols-2">
-        {[0, 0, 0, 0, 0, 0].map((item, i) => (
+      <div className="grid grid-cols-1 gap-4 py-3 sm:grid-cols-2">
+        {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0].map((item, i) => (
           <div
             key={i}
             role="status"
