@@ -80,6 +80,7 @@ const PaginationResult = ({ meta }) => {
                     size={'sm'}
                     href={urlPage(item)}
                     isActive={item === meta.currentPage}
+                    className="w-9"
                   >
                     {item}
                   </PaginationLink>

@@ -30,7 +30,7 @@ const SearchView = ({ searchParams }: Props) => {
             <SearchTags />
           </div>
 
-          <div className="flex flex-col gap-8 md:flex-row">
+          <div className="flex flex-col gap-4 md:flex-row">
             <div className="">
               {/* <div className="mb-5 flex items-center gap-3 rounded-lg text-xl font-bold uppercase text-black">
               <IconAdjustmentsHorizontal /> Filtros

@@ -288,7 +288,7 @@ const SearchS = ({ model }: { model?: number }) => {
                         {resultsSearch?.map((result, i) => {
                           return (
                             <Link
-                              href={'search/recipe/' + result?.title}
+                              href={'/search/recipe/' + result?.title}
                               className="m-1 inline-block cursor-pointer overflow-hidden rounded-lg transition-colors hover:bg-gray-100"
                               key={i}
                             >

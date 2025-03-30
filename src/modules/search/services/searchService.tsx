@@ -26,7 +26,7 @@ export const getCategories = async () => {
 export const searchMatchesRecipe = async (searchParam: { query?: string; categories?: string }) => {
   const params = new URLSearchParams(searchParam)
   // console.log(params)
-  const result = await fetch(`${API_URL}/public/search/matches/?${params.toString()}`)
+  const result = await fetch(`${API_URL}/public/search/matches/?${params.toString()}&perPage=10`)
 
   const data = await result.json()
   // console.log(data)

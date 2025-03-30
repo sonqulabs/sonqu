@@ -25,7 +25,7 @@ const SearchResult = async ({ searchParams }) => {
     <>
       <PaginationResult meta={recipes.meta} />
 
-      <div className="grid grid-cols-1 gap-4 py-6 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 py-3 sm:grid-cols-2">
         {recipes.data?.length
           ? recipes.data.map((item, i) => (
               <Link
@@ -55,7 +55,7 @@ const SearchResult = async ({ searchParams }) => {
                         return (
                           <TooltipProvider key={i} delayDuration={100}>
                             <Tooltip>
-                              <TooltipTrigger className="flex items-center rounded-3xl bg-white/60 px-2 py-1 text-center text-gray-900 shadow-md backdrop-blur-sm transition-all hover:scale-105 hover:bg-white">
+                              <TooltipTrigger className="flex items-center rounded-3xl bg-white/80 px-2 py-1 text-center text-gray-900 shadow-md backdrop-blur-sm transition-all hover:scale-105 hover:bg-white">
                                 <GetIconCategory categoryName={category?.name} />
                               </TooltipTrigger>
                               <TooltipContent>
@@ -76,9 +76,7 @@ const SearchResult = async ({ searchParams }) => {
                 </div>
 
                 <div className="relative flex w-full flex-col justify-around gap-2 px-5 py-4 lg:max-w-[60%]">
-                  <h3 className="text-center text-xl font-medium leading-none md:text-start">
-                    {item.title}
-                  </h3>
+                  <h3 className="text-center text-lg font-medium leading-none">{item.title}</h3>
 
                   <p className="line-clamp-[5] text-balance text-sm">{item.description}</p>
 
