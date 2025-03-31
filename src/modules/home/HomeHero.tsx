@@ -11,7 +11,7 @@ const HomeHero = () => {
       <Image
         src="/inicio/ericHero.webp"
         alt="foto del chef sonqu"
-        className="absolute bottom-0 z-10 hidden w-full max-w-[300px] lg:right-[20px] lg:block lg:max-w-[700px] xl:right-[calc(10vw+10px)] xl:max-w-[700px] 2xl:right-[calc(10vw+70px)]"
+        className="absolute bottom-0 z-10 hidden max-h-[90vh] w-full max-w-[300px] object-cover object-top lg:right-[20px] lg:block lg:max-w-[700px] xl:right-[calc(10vw+10px)] xl:max-w-[700px] 2xl:right-[calc(10vw+70px)]"
         width={500}
         height={500}
       />
