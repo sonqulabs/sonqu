@@ -50,7 +50,7 @@ const SearchResult = async ({ searchParams }) => {
                   <ToggleFavorites recipeId={item.id} />
 
                   <div className="absolute bottom-2 left-1.5 z-0 flex w-full flex-wrap items-center justify-center gap-1">
-                    {item.categories?.length > !0 &&
+                    {item.categories?.length > 0 &&
                       item.categories?.map((category, i) => {
                         return (
                           <TooltipProvider key={i} delayDuration={100}>
@@ -80,18 +80,18 @@ const SearchResult = async ({ searchParams }) => {
 
                   <p className="line-clamp-[5] text-balance text-sm">{item.description}</p>
 
-                  <div className="mt-1 flex flex-row items-center justify-between gap-3 text-xs">
+                  <div className="mt-1 flex flex-row flex-wrap items-center justify-between gap-3 text-[11px]">
                     <div className="flex items-center text-gray-600">
-                      <CircleUser className="mr-2 h-4 w-4" />
+                      <CircleUser className="mr-1.5 h-4 w-4" />
 
                       <span>{item.user?.username}</span>
                     </div>
                     <div className="flex items-center text-gray-600">
-                      <CalendarDays className="mr-2 h-3.5 w-3.5" />
+                      <CalendarDays className="mr-1.5 h-3.5 w-3.5" />
                       <span>{formatDateToShort(item.createdAt)}</span>
                     </div>
                     <div className="flex items-center text-gray-600">
-                      <Users className="mr-2 h-3.5 w-3.5" />
+                      <Users className="mr-1.5 h-3.5 w-3.5" />
                       <span>{item.servings}</span>
                     </div>
                   </div>
