@@ -6,6 +6,7 @@ import useSearchParamCategories from '../hooks/useSearchParamCategories'
 import IconAdjustmentsHorizontal from '../Icons/IconAdjustmentsHorizontal'
 import FilterSelectorSkeleton from './FilterSelectorSkeleton'
 import { capitalizeFirstLetter, cn } from '@/lib/utils'
+import { ChevronRight, Filter } from 'lucide-react'
 
 const useIsMobile = (breakpoint = 768) => {
   const [isMobile, setIsMobile] = useState(false)
@@ -56,13 +57,18 @@ const FilterSelector = ({ data: listFood }) => {
           onClick={toggleFilter}
           variant="ghost"
           className={cn(
-            'flex h-fit w-full items-center justify-between p-3',
+            'flex h-fit w-full items-center justify-between p-3 py-3.5',
             isOpen && 'rounded-b-none border-b border-[#0707070c]'
           )}
         >
-          <span className="flex items-center gap-2 text-base">
+          {/* <span className="flex items-center gap-2 text-base">
             <IconAdjustmentsHorizontal /> FILTROS
-          </span>
+          </span> */}
+          <div className="flex items-center">
+            <Filter size={18} className="mr-2" />
+            <span className="font-medium">FILTROS</span>
+          </div>
+
           {isOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"

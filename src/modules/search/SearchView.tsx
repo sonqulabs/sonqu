@@ -17,11 +17,11 @@ const SearchView = ({ searchParams }: Props) => {
       <div className="mb-10">
         <TopSeparator2 className="mb-10" />
         <div className="container font-poppins">
-          <div className="mb-10 mt-0 flex flex-col items-center">
-            <h1 className="mb-2 text-center font-fingerPaint text-lg uppercase md:text-5xl">
+          <div className="mb-6 mt-0 flex flex-col items-center md:mb-14">
+            <h1 className="text-center font-monserrat text-2xl font-extrabold uppercase text-[#1f1f1f] md:text-5xl">
               ¿Que recetas buscas?
             </h1>
-            <h2 className="mb-10 font-fingerPaint text-lg uppercase text-sonqu-black-300 md:text-3xl">
+            <h2 className="mb-6 font-monserrat font-bold uppercase text-sonqu-black-300 md:text-3xl">
               Te ayudamos
             </h2>
             {/* <Search searchAuto={true} /> */}
@@ -30,7 +30,7 @@ const SearchView = ({ searchParams }: Props) => {
             <SearchTags />
           </div>
 
-          <div className="flex flex-col gap-4 md:flex-row">
+          <div className="flex flex-col gap-6 md:flex-row md:gap-4">
             <div className="">
               {/* <div className="mb-5 flex items-center gap-3 rounded-lg text-xl font-bold uppercase text-black">
               <IconAdjustmentsHorizontal /> Filtros

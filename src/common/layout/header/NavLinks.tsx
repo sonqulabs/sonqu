@@ -27,7 +27,7 @@ export const NavLinks = () => {
       </div>
       <Link
         href="/tienda"
-        className="group relative flex items-center gap-2 overflow-hidden rounded-xl bg-[#CE0146] px-3.5 py-1.5 font-medium text-white transition-all duration-300 hover:bg-[#CE0146] active:scale-95 active:bg-[#CE0146]"
+        className="group relative flex items-center gap-2 overflow-hidden rounded-lg bg-[#CE0146] px-3.5 py-1.5 font-medium text-white transition-all duration-300 hover:bg-[#CE0146] active:scale-95 active:bg-[#CE0146]"
       >
         <span className="absolute left-0 top-0 h-full w-full -translate-x-full transform bg-white opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-20"></span>
         <ShoppingBag className="h-4 w-4" />

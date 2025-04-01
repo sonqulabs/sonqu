@@ -11,8 +11,8 @@ export const footerSections = [
   {
     title: 'Tienda',
     items: [
-      { name: 'Café Chanchamayo', href: '#' },
-      { name: 'Panceta Natural', href: '#' }
+      { name: 'Café Chanchamayo', href: '/tienda/Caf%C3%A9%20Tostado' },
+      { name: 'Panceta Natural', href: '/tienda/Manteca%20de%20Cerdo%20Artesanal' }
     ]
   }
 ]

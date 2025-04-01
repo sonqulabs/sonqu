@@ -15,26 +15,28 @@ const SearchTags = () => {
   }
 
   return (
-    <div className="mt-5 flex flex-wrap items-center justify-center gap-1">
-      {/* <div className="">Categorias :</div> */}
-      {searchParams
-        .get('categories')
-        ?.toString()
-        .split('|')
-        .map((item, i) => {
-          return (
-            <span
-              className="flex cursor-pointer items-center gap-1 rounded-3xl bg-[#000000cc] px-2 py-0.5 text-[0.6875rem] text-white shadow-lg"
-              key={i}
-              onClick={() => deleteParamCategories(item)}
-            >
-              <span
-                className="inline-flex h-3.5 w-3.5 items-center justify-center"
-                dangerouslySetInnerHTML={{ __html: getIcon(item) }}
-              ></span>
-              {capitalizeFirstLetter(item)}
-              <X className="h-3.5 w-3.5" />
-              {/* <svg
+    <>
+      {searchParams?.get('categories') && searchParams.get('categories')!.length > 0 && (
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-1">
+          {/* <div className="">Categorias :</div> */}
+          {searchParams
+            .get('categories')
+            ?.toString()
+            .split('|')
+            .map((item, i) => {
+              return (
+                <span
+                  className="flex cursor-pointer items-center gap-1 rounded-3xl bg-[#000000cc] px-2 py-0.5 text-[0.6875rem] text-white shadow-lg"
+                  key={i}
+                  onClick={() => deleteParamCategories(item)}
+                >
+                  <span
+                    className="inline-flex h-3.5 w-3.5 items-center justify-center"
+                    dangerouslySetInnerHTML={{ __html: getIcon(item) }}
+                  ></span>
+                  {capitalizeFirstLetter(item)}
+                  <X className="h-3.5 w-3.5" />
+                  {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={18}
                 height={18}
@@ -50,12 +52,14 @@ const SearchTags = () => {
                 <path d="M18 6l-12 12" />
                 <path d="M6 6l12 12" />
               </svg> */}
-            </span>
-          )
-        })}
+                </span>
+              )
+            })}
 
-      {/* <span>Limpiar Todo</span> */}
-    </div>
+          {/* <span>Limpiar Todo</span> */}
+        </div>
+      )}
+    </>
   )
 }
 

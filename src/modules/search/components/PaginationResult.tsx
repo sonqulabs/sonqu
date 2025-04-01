@@ -50,13 +50,14 @@ const PaginationResult = ({ meta }) => {
   const pages = getPaginationRange(meta?.lastPage || 1, meta?.currentPage)
 
   return (
-    <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
+    <div className="grid grid-cols-1 gap-6 md:gap-3 xl:grid-cols-2">
       {/* <div className="hidden xl:block"></div> */}
       <div className="flex items-center justify-center text-sm font-medium xl:justify-start">
-        <div className="rounded-full border border-[#0707072d] bg-white px-4 py-2 text-xs">
+        <div className="rounded-full border border-[#0707072d] bg-white px-4 py-2 text-xs shadow-sm">
           Recetas encontradas : {meta.total}
         </div>
       </div>
+
       <Pagination className="flex justify-center xl:justify-end">
         <PaginationContent>
           {meta.prev != null ? (
@@ -68,7 +69,7 @@ const PaginationResult = ({ meta }) => {
               />
             </PaginationItem>
           ) : (
-            <PaginationItem className="invisible">
+            <PaginationItem className="opacity-35 md:invisible">
               <PaginationPrevious size={'sm'} />
             </PaginationItem>
           )}
@@ -113,7 +114,7 @@ const PaginationResult = ({ meta }) => {
               />
             </PaginationItem>
           ) : (
-            <PaginationItem className="invisible">
+            <PaginationItem className="opacity-35 md:invisible">
               <PaginationNext size={'sm'} />
             </PaginationItem>
           )}

@@ -2,22 +2,26 @@ import React from 'react'
 import AboutMeStyles from './style/aboutMe.module.css'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
+import { TopSeparator2 } from '@/common/components/customize/TopSeparator2'
 
 export const SobreMiView = () => {
   return (
     <div className="wrapper relative w-full bg-white">
-      <Image
+      {/* <Image
         src="/about-me/separator.webp"
         alt=""
-        className="w-full object-cover pb-16 lg:pb-0"
+        className="mb-16 aspect-[483/17] w-full object-cover lg:mb-0"
         width={900}
         height={200}
-      />
+      /> */}
+
+      <TopSeparator2 className="mb-16 lg:mb-0" />
+
       <div className="container flex flex-col-reverse items-center justify-center gap-20 px-8 py-16 lg:flex-row-reverse lg:gap-28 2xl:gap-40">
         <Image
           src="/about-me/sonqu-about-me.webp"
           alt=""
-          className="w-full max-w-[400px] object-cover"
+          className="aspect-[300/373] w-full max-w-[400px] object-cover"
           width={600}
           height={500}
         />
@@ -61,19 +65,13 @@ export const SobreMiView = () => {
       </div>
 
       <div className="w-full bg-[#E4E3E3]">
-        <Image
-          src="/about-me/separator.webp"
-          alt=""
-          className="w-full object-cover pt-2"
-          width={900}
-          height={200}
-        />
+        <TopSeparator2 className="pt-2" />
         <div className="mx-auto max-w-[900px] pb-16 pt-10">
           <div className="mb-8 flex flex-col-reverse items-center gap-10 lg:flex-row">
             <Image
               src="/about-me/sonqu2.webp"
               alt=""
-              className="w-full max-w-[400px] object-cover px-8 lg:px-0"
+              className="aspect-[45/58] w-full max-w-[400px] object-cover px-8 lg:px-0"
               width={600}
               height={500}
             />
