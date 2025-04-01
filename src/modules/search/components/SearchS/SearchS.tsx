@@ -202,10 +202,10 @@ const SearchS = ({ model }: { model?: number }) => {
             type="search"
             placeholder="Buscar recetas..."
             className={cn(
-              'w-full rounded-xl py-4 pl-12 pr-12 text-lg shadow-lg',
+              'w-full rounded-full border border-[#ffffff1a] py-4 pl-12 pr-12 text-base shadow-lg',
               model == 1
-                ? 'h-5 border border-[#44444415] bg-[#8b89894d] text-gray-100 shadow-none hover:bg-[#8b89894d] focus-visible:ring-0 focus-visible:ring-offset-0'
-                : 'bg-[#fdfdfddc]'
+                ? 'h-5 bg-[#8b898917] text-gray-100 shadow-none hover:bg-[#a09e9e17] focus-visible:ring-0 focus-visible:ring-offset-0'
+                : 'bg-[#fdfdfddc] py-6 md:py-5'
             )}
           />
           <SearchIcon className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer text-gray-400" />
@@ -292,8 +292,8 @@ const SearchS = ({ model }: { model?: number }) => {
                               className="m-1 inline-block cursor-pointer overflow-hidden rounded-lg transition-colors hover:bg-gray-100"
                               key={i}
                             >
-                              <div className="flex w-full items-start p-0">
-                                <div className="relative h-24 w-24 flex-shrink-0">
+                              <div className="flex h-[105px] w-full items-center p-0">
+                                <div className="relative h-full w-[103px]">
                                   <Image
                                     src={getImageRecipe(result?.imageUrl, 'medium')}
                                     alt={result?.title}
@@ -303,11 +303,13 @@ const SearchS = ({ model }: { model?: number }) => {
                                   />
                                   {/* <ToggleFavorites recipeId={result.id} size="small" /> */}
                                 </div>
-                                <div className="flex-1 p-3">
-                                  <div className="flex items-start justify-between">
-                                    <h3 className="font-medium text-gray-900">{result?.title}</h3>
+                                <div className="flex-1 px-3 py-0">
+                                  <div className="mb-1 flex items-start justify-between">
+                                    <h3 className="line-clamp-2 text-sm font-medium text-gray-900">
+                                      {result?.title}
+                                    </h3>
                                   </div>
-                                  <p className="mb-2 line-clamp-1 text-sm text-gray-600">
+                                  <p className="mb-2 line-clamp-2 text-sm text-gray-600">
                                     {result?.description}
                                   </p>
                                   <div className="flex items-center gap-3 text-xs text-gray-500">

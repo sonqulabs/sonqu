@@ -6,9 +6,9 @@ export const SubirRecetaView = () => {
   return (
     <div className="flex flex-col">
       <Image
-        src="/bannerSubirReceta.webp"
+        src="/sube-tu-receta.webp"
         alt="banner de subir receta"
-        className="h-[20vh] w-full object-cover object-top md:h-[30vh] lg:h-[50vh]"
+        className="h-[20vh] w-full object-cover md:h-[30vh] lg:h-[50vh]"
         width={900}
         height={400}
       />
