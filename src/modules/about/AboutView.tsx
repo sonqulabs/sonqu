@@ -67,15 +67,15 @@ const AboutView = () => {
           </div>
           <div className="flex h-[50px] w-full items-center justify-center gap-6 rounded-full bg-[#DE006A] text-white">
             <span className="flex items-center gap-2">
-              <InstagramIcon /> 250k <span className="hidden md:block"> Seguidores</span>
+              <InstagramIcon /> 19.9 K <span className="hidden md:block"> Seguidores</span>
             </span>
             <span className="flex items-center gap-2">
-              <YoutubeIcon /> 500k<span className="hidden md:block"> Seguidores</span>
+              <YoutubeIcon /> 200 K<span className="hidden md:block"> Seguidores</span>
             </span>
             <span className="flex items-center gap-2">
               {' '}
               <Facebook />
-              1M<span className="hidden md:block"> Seguidores</span>
+              1.1 K<span className="hidden md:block"> Seguidores</span>
             </span>
           </div>
         </div>

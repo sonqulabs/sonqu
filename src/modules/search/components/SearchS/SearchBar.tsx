@@ -48,10 +48,10 @@ export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
           type="search"
           placeholder="Buscar recetas..."
           className={cn(
-            'w-full rounded-xl py-4 pl-12 pr-12 text-lg shadow-lg',
+            'w-full rounded-full border border-[#ffffff1a] py-4 pl-12 pr-12 text-base shadow-lg',
             model == 1
-              ? 'h-5 border border-[#44444415] bg-[#8b89894d] text-gray-100 shadow-none hover:bg-[#8b89894d] focus-visible:ring-0 focus-visible:ring-offset-0'
-              : 'bg-[#fdfdfddc] py-5'
+              ? 'h-5 bg-[#8b898917] text-gray-100 shadow-none hover:bg-[#a09e9e18] focus-visible:ring-0 focus-visible:ring-offset-0'
+              : 'bg-[#fdfdfddc] py-6 md:py-5'
           )}
           value={value}
           // autoFocus={true}
