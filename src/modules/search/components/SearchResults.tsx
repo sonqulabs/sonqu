@@ -29,7 +29,7 @@ const SearchResult = async ({ searchParams }) => {
         {recipes.data?.length
           ? recipes.data.map((item, i) => (
               <Link
-                href={'search/recipe/' + item.title}
+                href={'recetas/' + item.title}
                 className={cn(
                   'flex flex-col overflow-hidden rounded-2xl border border-[#0707072d] bg-white shadow-md transition-shadow duration-150 hover:shadow-2xl lg:h-[230px] lg:flex-row'
                 )}
