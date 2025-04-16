@@ -15,7 +15,7 @@ export const funMetaData = ({
   description = 'En SONQU encontrarás las mejores recetas de la gastronomía peruana. Te enseñaremos paso a paso cómo preparar los mejores platos peruanos.'
 }: Props): Metadata => {
   return {
-    icons: '/favicon.ico',
+    icons: '/favicon.png',
     metadataBase: new URL(
       process.env.APP_URL
         ? `${process.env.APP_URL}`
@@ -32,7 +32,7 @@ export const funMetaData = ({
     openGraph: {
       title: `${decodeURIComponent(title)} - ¡Las mejores recetas de la gastronomía peruana!`,
       description,
-      images: ['/fondo-hero.png'],
+      images: ['/image-opengraph.png'],
       url: `${process.env.APP_URL || process.env.VERCEL_URL}/`,
       type: 'website'
     }
