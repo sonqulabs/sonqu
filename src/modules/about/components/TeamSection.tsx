@@ -3,6 +3,11 @@ import Image from 'next/image'
 import { Carousel, CarouselContent, CarouselItem } from '@/common/components/shadcnui/carousel'
 import React, { useState } from 'react'
 import Autoplay from 'embla-carousel-autoplay'
+import M1 from '@recursos/about/M1.webp'
+import M2 from '@recursos/about/M2.webp'
+import M3 from '@recursos/about/M3.webp'
+import M4 from '@recursos/about/M4.webp'
+import separator from '@recursos/about-me/separator.webp'
 
 // Componente ExpandableText sin useEffect, basado en una longitud de caracteres para determinar truncamiento
 interface ExpandableTextProps {
@@ -40,29 +45,29 @@ export default function TeamSection() {
     {
       name: 'Eric Raúl',
       role: 'Ceo',
-      image: '/about/M2.webp',
+      image: M2,
       bio: 'Cocinero peruano con más de 15 años de experiencia en el mundo gastronómico, fundador del canal Sonqu y apasionado por la cocina tradicional.'
     },
-
     {
       name: 'Cristhian Morales',
       role: 'Administrador y Financiero',
-      image: '/about/M1.webp',
+      image: M1,
       bio: 'Mi pasión es convertir visiones en realidades, inspirándome en cada decisión para transformar lo pequeño en grande.'
     },
     {
       name: 'Jitoshi Dominguez',
       role: 'Barista Senior',
-      image: '/about/M4.webp',
+      image: M4,
       bio: 'Especialista en postres peruanos, Ana combina técnicas tradicionales con toques modernos.'
     },
     {
       name: 'Edson Ames',
       role: 'Productor audiovisual ',
-      image: '/about/M3.webp',
+      image: M3,
       bio: 'Fusionamos la experiencia con lo especial y como productor audiovisual te llevare conocer de nuestros productos y su historia.'
     }
   ]
+
   const colors = ['bg-red-300', 'bg-blue-300', 'bg-green-300', 'bg-purple-300', 'bg-yellow-300']
 
   return (
@@ -83,9 +88,7 @@ export default function TeamSection() {
                     <Image
                       src={member.image || '/placeholder.svg'}
                       alt={member.name}
-                      width={300}
-                      height={300}
-                      className="h-full w-full scale-125 object-cover object-top pt-10"
+                      className="h-auto w-full max-w-[300px] scale-125 object-cover object-top pt-10"
                     />
                   </div>
                   <div className="text-center">
@@ -106,11 +109,9 @@ export default function TeamSection() {
           </CarouselContent>
         </Carousel>
         <Image
-          src="/about-me/separator.webp"
-          alt=""
-          className="w-full object-cover"
-          width={900}
-          height={200}
+          src={separator}
+          alt="separador de la pagina"
+          className="h-auto w-full object-cover"
         />
       </div>
     </section>

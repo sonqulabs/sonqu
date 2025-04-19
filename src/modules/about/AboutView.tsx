@@ -1,22 +1,12 @@
 import Image from 'next/image'
-import AboutStyles from './style/about.module.css'
 import { cn } from '@/lib/utils'
-import { TopSeparator } from '@/common/components/customize/TopSeparator'
-import { LinkSonqu } from '@/common/components/customize/ButtonSonqu'
-import { ButtonPrevius } from '@/common/components/customize/ButtonPrevius'
 import TeamSection from './components/TeamSection'
-import {
-  Facebook,
-  FacebookIcon,
-  Instagram,
-  InstagramIcon,
-  Youtube,
-  YoutubeIcon
-} from 'lucide-react'
-import { LogoTiktok } from '@/common/components/icons/solid/LogoTiktok'
+import { Facebook, InstagramIcon, YoutubeIcon } from 'lucide-react'
 import HomeStyles from './style/about.module.css'
 import Link from 'next/link'
 import IconTiktok from '@/common/layout/footer/iconsSocialMedia/IconTiktok'
+import aboutImage from '@recursos/about.png'
+import aboutCelular from '@recursos/about/celular.png'
 
 const AboutView = () => {
   return (
@@ -30,11 +20,9 @@ const AboutView = () => {
           <div className="relative flex w-full items-center justify-center gap-20 px-4">
             <div className="order-2 hidden aspect-square w-full max-w-[350px] drop-shadow-md lg:order-2 lg:block lg:justify-self-start">
               <Image
-                src="/about.png"
-                className="w-full rotate-[6deg] object-cover"
+                src={aboutImage}
+                className="h-auto w-auto rotate-[6deg] object-cover"
                 alt="imagen about"
-                width={300}
-                height={300}
               />
             </div>
             <div className="order-1 flex flex-col gap-6 lg:order-1">
@@ -85,11 +73,9 @@ const AboutView = () => {
         <div className="container flex w-full flex-col items-center justify-center gap-4 pb-8 pt-6 lg:flex-row lg:gap-10 lg:py-0">
           {' '}
           <Image
-            src="/about/celular.png"
+            src={aboutCelular}
             alt="Redes de sonqu en diseño celular"
-            className="-mb-14 w-full max-w-[400px] object-cover"
-            width={400}
-            height={400}
+            className="-mb-14 h-auto w-full max-w-[400px] object-cover"
           />
           <div className="flex w-full max-w-[400px] flex-col items-center justify-center">
             <h4 className="mb-6 text-center font-monserrat text-[30px] font-bold uppercase md:text-[35px]">
