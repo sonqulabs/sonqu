@@ -1,44 +1,34 @@
 import React from 'react'
-import AboutMeStyles from './style/aboutMe.module.css'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { TopSeparator2 } from '@/common/components/customize/TopSeparator2'
+import separator from '@recursos/about-me/separator.webp'
+import adornoBottom from '@recursos/adornoBottom.webp'
+import adornoTop from '@recursos/adornoTop.webp'
+import SonquAboutMe from '@recursos/about-me/sonqu-about-me.webp'
+import SonquAboutMe2 from '@recursos/about-me/sonqu2.webp'
 
 export const SobreMiView = () => {
   return (
     <div className="wrapper relative w-full bg-white">
-      {/* <Image
-        src="/about-me/separator.webp"
-        alt=""
-        className="mb-16 aspect-[483/17] w-full object-cover lg:mb-0"
-        width={900}
-        height={200}
-      /> */}
-
       <TopSeparator2 className="mb-16 lg:mb-0" />
 
       <div className="container flex flex-col-reverse items-center justify-center gap-20 px-8 py-16 lg:flex-row-reverse lg:gap-28 2xl:gap-40">
         <Image
-          src="/about-me/sonqu-about-me.webp"
-          alt=""
-          className="aspect-[300/373] w-full max-w-[400px] object-cover"
-          width={600}
-          height={500}
+          src={SonquAboutMe}
+          alt="imagen de sobre mi"
+          className="h-autow-full max-w-[400px] object-cover"
         />
         <div className="relative order-1 flex max-w-[500px] flex-col gap-6 lg:order-1">
           <Image
-            src="/adornoBottom.webp"
+            src={adornoBottom}
             alt="adorno de sonqu"
-            className="absolute -left-10 -top-20 block object-cover lg:-left-20 lg:hidden xl:block"
-            width={100}
-            height={100}
+            className="absolute -left-10 -top-20 block h-auto w-[100px] object-cover lg:-left-20 lg:hidden xl:block"
           />
           <Image
-            src="/adornoTop.webp"
+            src={adornoTop}
             alt="adorno de sonqu"
-            className="absolute -bottom-20 -right-10 object-cover lg:-right-20"
-            width={100}
-            height={100}
+            className="absolute -bottom-20 -right-10 h-auto w-[100px] object-cover lg:-right-20"
           />
           <div>
             <h2 className="lg::text-[50px] mb-2 text-center font-monserrat text-[40px] font-bold leading-none lg:mb-4 lg:text-start">
@@ -66,14 +56,12 @@ export const SobreMiView = () => {
 
       <div className="w-full bg-[#E4E3E3]">
         <TopSeparator2 className="pt-2" />
-        <div className="mx-auto max-w-[900px] pb-16 pt-10">
+        <div className="mx-auto max-w-[900px] pb-10 pt-10">
           <div className="mb-8 flex flex-col-reverse items-center gap-10 lg:flex-row">
             <Image
-              src="/about-me/sonqu2.webp"
-              alt=""
-              className="aspect-[45/58] w-full max-w-[400px] object-cover px-8 lg:px-0"
-              width={600}
-              height={500}
+              src={SonquAboutMe2}
+              alt="pagina de sobre mi"
+              className="h-auto w-[400px] object-cover px-8 lg:px-0"
             />
             <div className="px-8">
               <h2 className="mb-4 font-monserrat text-5xl font-bold md:text-[50px]">Sobre mí...</h2>
@@ -92,11 +80,9 @@ export const SobreMiView = () => {
           </p>
         </div>
         <Image
-          src="/about-me/separator.webp"
-          alt=""
-          className="w-full object-cover"
-          width={900}
-          height={200}
+          src={separator}
+          alt="separador de la pagina"
+          className="h-auto w-full object-cover"
         />
       </div>
     </div>

@@ -19,6 +19,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@recursos/*": ["./public/*"],
       "@wrappers": ["./src/common/wrappers/index"],
       "@styles/*": ["./src/styles/*"],
       "@interfaces/*": ["./src/common/interfaces/*"],

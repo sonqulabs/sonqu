@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 import SearchS from '@/modules/search/components/SearchS/SearchS'
 import { usePathname } from 'next/navigation'
 import { Suspense, useState } from 'react'
-
+import logoSonqu from '@recursos/logoSonqu.webp'
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
@@ -21,11 +21,9 @@ export const Header = () => {
         <div className="flex w-full items-center gap-7">
           <Link href="/" className="w-full max-w-[80px]">
             <Image
-              src="/logo.png"
+              src={logoSonqu}
               alt="logo de sonqu"
-              className="w-full object-cover"
-              width="100"
-              height="60"
+              className="h-auto w-[100px] object-cover"
               priority
             />
           </Link>

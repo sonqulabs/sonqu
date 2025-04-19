@@ -2,6 +2,7 @@ import { cn } from '@/lib/utils'
 import HomeStyles from './style/home.module.css'
 import Image from 'next/image'
 import { LinkSonqu } from '@/common/components/customize/ButtonSonqu'
+import aboutImage from '@recursos/about.png'
 export const HomeAbout = () => {
   return (
     <div className={cn(HomeStyles.fondoAbout, 'wrapper relative')}>
@@ -9,11 +10,9 @@ export const HomeAbout = () => {
         <div className="relative grid h-full w-full grid-cols-1 items-center justify-center gap-6 lg:grid-cols-2 lg:gap-20">
           <div className="order-2 aspect-square w-full max-w-[220px] justify-self-center drop-shadow-md lg:order-2 lg:max-w-[400px] lg:justify-self-end lg:pr-10 xl:max-w-[500px]">
             <Image
-              src="/about.png"
-              className="w-full object-cover lg:rotate-[10deg]"
+              src={aboutImage}
+              className="h-auto w-auto object-cover lg:rotate-[10deg]"
               alt="imagen about"
-              width={300}
-              height={300}
             />
           </div>
           <div className="order-1 flex flex-col items-center gap-4 lg:order-1 lg:items-start lg:gap-6">

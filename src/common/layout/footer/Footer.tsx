@@ -10,6 +10,7 @@ import { linksNetworks } from '@/modules/contact/data/Networks'
 import Link from 'next/link'
 import IconTiktok from './iconsSocialMedia/IconTiktok'
 import IconYoutube from './iconsSocialMedia/IconYoutube'
+import logoSonqu from '@recursos/logoSonqu.webp'
 
 // const socialNet = getNetworks()
 
@@ -22,20 +23,11 @@ const Footer = async () => {
 
   return (
     <footer className="text-white">
-      {/* <div className="wrapper relative z-[-1]">
-        <Image
-          src="/footer.png"
-          alt="footer image"
-          className="h-32 w-full object-cover"
-          width={700}
-          height={200}
-        />
-      </div> */}
       <div className={cn('bg-[#CE0146] px-4 py-12')}>
         <div className="container">
           <div className="mb-12 flex flex-col gap-8 lg:flex-row lg:gap-16">
             <div className="max-w-md">
-              <Image src="/logo.png" className="mb-2" height={150} width={140} alt="logo" />
+              <Image src={logoSonqu} className="mb-2 h-auto w-[150px] object-cover" alt="logo" />
               <p className="mb-4 max-w-80 text-sm leading-snug">
                 Descubre recetas deliciosas e inspiración culinaria para cada ocasión.
               </p>
