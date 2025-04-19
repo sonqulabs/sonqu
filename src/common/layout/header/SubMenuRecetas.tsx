@@ -1,6 +1,5 @@
 import { useCategoriesStore } from '@/context/useCategoriesStore'
-import { ArrowRight, Circle, Tags } from 'lucide-react'
-import Image from 'next/image'
+import { ArrowRight, Tags } from 'lucide-react'
 import Link from 'next/link'
 
 export const SubMenuRecetas = () => {
@@ -30,18 +29,14 @@ export const SubMenuRecetas = () => {
             <Tags />
             <span className="font-fingerPaint">Categorias</span>
           </h2>
-          <div
-            className="mt-6 grid w-fit gap-3"
-            style={{ gridTemplateColumns: 'repeat(4, minmax(150px, 200px))' }}
-          >
-            {/* <div className="mt-6 grid w-fit grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4"> */}
+          <div className="mt-6 flex w-fit flex-wrap gap-3">
             {categories.map((category, i) => {
               const gradient = getCategoryGradient(i)
               return (
                 <Link
                   key={category.name}
                   href={`/search?categories=${category.name}`}
-                  className="group relative isolate flex items-center overflow-hidden rounded-xl bg-gray-500/10 transition-all hover:bg-white/20"
+                  className="group relative isolate flex w-full max-w-[180px] items-center overflow-hidden rounded-xl bg-gray-500/10 transition-all hover:bg-white/20"
                 >
                   {/* Fondo con gradiente */}
                   <div
@@ -62,29 +57,19 @@ export const SubMenuRecetas = () => {
                       <ArrowRight className="text-gray/70 h-4 w-4 flex-shrink-0 transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
-
-                  {/* Decorative dots */}
-                  {/* <div className="absolute -right-1 -top-1 h-8 w-8 rotate-45 transform bg-white/5" />
-                  <div className="absolute -bottom-1 -left-1 h-8 w-8 rotate-45 transform bg-white/5" /> */}
                 </Link>
-                // <Link className=" " key={category.name} href={`/search?categories=${category.name}`}>
-                //   <div className="flex w-32 justify-between rounded-md px-2 py-1 hover:bg-muted/10">
-                //     <span> {category.name}</span>
-                //     <span className="text-[10px] text-muted/95">→</span>
-                //   </div>
-                // </Link>
               )
             })}
           </div>
         </div>
 
-        <Image
+        {/* <Image
           src="/ceviche1.png"
           className="m-auto aspect-square w-full max-w-72 p-6"
           width={100}
           height={100}
           alt=""
-        />
+        /> */}
       </div>
 
       <div className="">

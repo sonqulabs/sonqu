@@ -1,16 +1,15 @@
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
+import separator from '@recursos/about-me/separator.webp'
 
 export const TopSeparator2 = ({ className }: Props) => {
   return (
     // <div className="wrapper">
 
     <Image
-      src="/about-me/separator.webp"
-      alt=""
-      className={cn('aspect-[483/17] w-full object-cover', className)}
-      width={900}
-      height={200}
+      src={separator}
+      alt="separador de la pagina"
+      className={cn('h-auto w-full object-cover', className)}
     />
     // </div>
   )

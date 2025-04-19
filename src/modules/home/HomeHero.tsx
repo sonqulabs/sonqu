@@ -3,17 +3,20 @@ import HomeStyles from './style/home.module.css'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
+import adornoBottom from '@recursos/adornoBottom.webp'
+import adornoTop from '@recursos/adornoTop.webp'
+import EricHero from '@recursos/inicio/ericHero.webp'
+
 // import { LogoTiktok } from '@/common/components/icons/solid/LogoTiktok'
 
 const HomeHero = () => {
   return (
     <div className="wrapper relative">
       <Image
-        src="/inicio/ericHero.webp"
+        src={EricHero}
         alt="foto del chef sonqu"
-        className="absolute bottom-0 z-10 hidden max-h-[90vh] w-full max-w-[300px] object-cover object-top lg:right-[20px] lg:block lg:max-w-[700px] xl:right-[calc(10vw+10px)] xl:max-w-[700px] 2xl:right-[calc(10vw+70px)]"
-        width={500}
-        height={500}
+        className="absolute bottom-0 z-10 hidden h-auto max-h-[90vh] w-full max-w-[300px] object-cover object-top lg:right-[20px] lg:block lg:max-w-[700px] xl:right-[calc(10vw+10px)] xl:max-w-[700px] 2xl:right-[calc(10vw+70px)]"
+        priority
       />
       <div
         className={cn(
@@ -23,18 +26,14 @@ const HomeHero = () => {
       >
         <div className="relative flex flex-col px-2 text-center sm:text-start">
           <Image
-            src="/adornoBottom.webp"
+            src={adornoBottom}
             alt="adorno de sonqu"
-            className="absolute -top-20 left-0 z-20 object-cover md:-left-20"
-            width={100}
-            height={100}
+            className="absolute -top-20 left-0 z-20 h-auto w-[100px] object-cover md:-left-20"
           />
           <Image
-            src="/adornoTop.webp"
+            src={adornoTop}
             alt="adorno de sonqu"
-            className="absolute -bottom-16 right-0 z-20 object-cover md:-right-16 lg:hidden min-[1900px]:block"
-            width={100}
-            height={100}
+            className="absolute -bottom-16 right-0 z-20 h-auto w-[100px] object-cover md:-right-16 lg:hidden min-[1900px]:block"
           />
           <div className="mb-6 flex items-center justify-center gap-4 text-black lg:justify-start">
             <a href="#" className="flex items-center gap-2 transition-colors">
