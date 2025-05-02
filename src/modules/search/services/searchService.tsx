@@ -1,23 +1,5 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL
-export const searchService = () => {}
 
-// export const searchCategory = async (category: string) => {
-//   const result = await fetch(`${API_URL}/search/${category}`, {
-//     method: 'POST'
-//   })
-
-//   const data = await result.json()
-//   // console.log(data)
-//   return data
-// }
-
-// export const searchMatchesTitleRecipe = async (matches: string) => {
-//   const result = await fetch(`${API_URL}/search/matches/?query=${matches}`)
-
-//   const data = await result.json()
-//   // console.log(data)
-//   return data
-// }
 export const getCategories = async () => {
   const result = await fetch(`${API_URL}/public/category`)
   return await result.json()
@@ -57,6 +39,15 @@ export const searchQueryRecipe = async (searchParam: {
 
 export const getAllCategoriesGroup = async () => {
   const result = await fetch(`${API_URL}/public/category-group`)
+
+  const data = await result.json()
+  // console.log(data)
+  return data
+}
+
+// Obtener los titulos de las recetas para el sitemap
+export const getAllRecipeTitles = async (): Promise<{ title: string }[]> => {
+  const result = await fetch(`${API_URL}/public/all-recipe-titles`)
 
   const data = await result.json()
   // console.log(data)
