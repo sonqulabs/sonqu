@@ -1,11 +1,11 @@
 import { ChevronLeft, ChevronRight, Home } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
+import CardProduct from './components/cardProduct/CardProduct'
 import Product from './components/Product'
 import { mockProducts } from './data/dataTest'
-import CardProduct from './components/cardProduct/CardProduct'
-import Image from 'next/image'
 
-const ProductView = ({ productHandle }: { productHandle: string }) => {
+export const ProductView = ({ productHandle }: { productHandle: string }) => {
   // Productos relacionados
   const productosRelacionados = mockProducts
   // .filter(
@@ -63,5 +63,3 @@ const ProductView = ({ productHandle }: { productHandle: string }) => {
     </div>
   )
 }
-
-export default ProductView

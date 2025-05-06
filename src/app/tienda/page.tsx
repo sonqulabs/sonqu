@@ -1,15 +1,14 @@
 import { Metadata } from 'next'
 
-import { Suspense } from 'react'
-import { ArrowDown, ArrowUp, ShoppingBag } from 'lucide-react'
-import { Product } from '@/modules/tienda/type'
-import { mockProducts } from '@/modules/tienda/data/dataTest'
 import CardProduct from '@/modules/tienda/components/cardProduct/CardProduct'
+import { mockProducts } from '@/modules/tienda/data/dataTest'
+import { Product } from '@/modules/tienda/type'
 import Image from 'next/image'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
-  title: 'Store',
-  description: 'Explore all of our products.'
+  title: 'Tienda',
+  description: 'Explore todos nuestros productos.'
 }
 
 export default async function StorePage() {

@@ -1,4 +1,5 @@
 import { getAllRecipeTitles } from '@/modules/search/services/searchService'
+import { mockProducts } from '@/modules/tienda/data/dataTest'
 import { type MetadataRoute } from 'next'
 
 interface SitemapEntry {
@@ -11,7 +12,7 @@ interface SitemapEntry {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const recipeTitles = await getAllRecipeTitles()
   // const tips = await getTips()
-  // const productos = await getProductos()
+  const productos = mockProducts
 
   const APP_URL =
     process.env.APP_URL || process.env.VERCEL_URL || `http://localhost:${process.env.PORT || 3000}`
@@ -67,19 +68,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           priority: 0.7,
           changeFrequency: 'weekly'
         }) as SitemapEntry
-    )
+    ),
     // ...tips.map((t) => ({
     //   url: `${APP_URL}tips/${t.id}`,
     //   lastModified: now,
     //   priority: 0.6,
     //   changeFrequency: 'monthly',
     // })),
-    // ...productos.map((p) => ({
-    //   url: `${APP_URL}tienda/${p.handle}`,
-    //   lastModified: now,
-    //   priority: 0.6,
-    //   changeFrequency: 'monthly',
-    // })),
+    ...productos.map(
+      (p) =>
+        ({
+          url: `${APP_URL}tienda/${encodeURIComponent(p.name || '')}`,
+          lastModified: now,
+          priority: 0.6,
+          changeFrequency: 'monthly'
+        }) as SitemapEntry
+    )
   ]
 
   return [...staticRoutes, ...dynamicRoutes]

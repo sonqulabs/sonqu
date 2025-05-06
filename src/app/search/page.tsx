@@ -6,7 +6,9 @@ type Props = {
 }
 
 export const metadata = funMetaData({
-  title: 'Busqueda de Recetas'
+  title: 'Busqueda de Recetas',
+  description:
+    'Encuentra fácilmente recetas deliciosas y tradicionales de la cocina peruana y mundial. Explora nuestra colección de recetas y lleva la tradición a tu hogar.'
 })
 
 export default function search({ searchParams }: Props) {
