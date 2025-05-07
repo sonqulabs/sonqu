@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    APP_URL: 'http://localhost:3000/'
+    APP_URL: 'https://www.sonqu.pe/'
   },
   images: {
     remotePatterns: [
