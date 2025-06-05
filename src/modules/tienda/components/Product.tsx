@@ -4,7 +4,7 @@ import { Button } from '@/common/components/shadcnui/button'
 import { formatPricePEN } from '@/common/utils/price'
 import CauroselProduct from './CarouselProduct'
 import WhatsAppButton from './WhatsappButton'
-import CustomTabs from './cardProduct/CustomTabs'
+// import CustomTabs from './cardProduct/CustomTabs'
 import { mockProducts } from '../data/dataTest'
 import { Product as ProductType, ProductVariant } from '../type'
 
@@ -55,7 +55,8 @@ const Product = ({ productHandle }: ProductProps) => {
 
         <div className="space-y-6">
           <div>
-            <h1 className="text-2xl font-semibold text-[#030712]">{product.name}</h1>
+            <h1 className="mb-2 text-2xl font-semibold text-[#030712]">{product.name}</h1>
+            <p className="text-muted-foreground">{product.description}</p>
           </div>
 
           <div className="flex w-fit flex-col items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 p-4 sm:flex-row">
@@ -120,15 +121,15 @@ const Product = ({ productHandle }: ProductProps) => {
             productName={product.name || 'Producto sin nombre'}
             productPrice={formatPricePEN(discountedPrice)}
             totalPrice={formatPricePEN(discountedPrice * quantity)}
-            phoneNumber="51969507475"
+            phoneNumber="51950797455"
             quantity={quantity}
             variantName={selectedVariant?.name}
           />
         </div>
       </div>
-      <div className="mt-4 w-full">
+      {/* <div className="mt-4 w-full">
         <CustomTabs />
-      </div>
+      </div> */}
     </div>
   )
 }
