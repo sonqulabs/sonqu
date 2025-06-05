@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { Mail, MapPin, Phone, Upload } from 'lucide-react'
+import { Mail, MapPin, Upload } from 'lucide-react'
 import Image from 'next/image'
 import IconFacebook from './iconsSocialMedia/IconFacebook'
 import IconInstagram from './iconsSocialMedia/IconInstagram'
@@ -15,7 +15,7 @@ import logoSonqu from '@recursos/logoSonqu.webp'
 // const socialNet = getNetworks()
 
 const Footer = async () => {
-  const iconComponents = { Mail, Phone, MapPin }
+  const iconComponents = { Mail, IconWhatsapp, MapPin }
   const API_URL = process.env.NEXT_PUBLIC_API_URL
 
   const countRecipesRes = await fetch(`${API_URL}/public/count-recipes`)
@@ -32,7 +32,7 @@ const Footer = async () => {
                 Descubre recetas deliciosas e inspiración culinaria para cada ocasión.
               </p>
               <div className="flex items-center space-x-4">
-                <ul className="flex gap-4">
+                <ul className="flex gap-2.5">
                   <Link href={linksNetworks.Facebook} target="_blank">
                     <IconFacebook />
                   </Link>
@@ -80,10 +80,11 @@ const Footer = async () => {
                     const Icon = iconComponents[item.icon as keyof typeof iconComponents]
                     return (
                       <li key={index} className="flex items-center">
-                        <Icon size={18} className="mr-2 text-yellow-300" />
+                        <Icon className="mr-1 size-5 text-yellow-300" />
                         <Link
                           href={item.href}
                           className="text-sm transition-colors duration-200 hover:text-yellow-300"
+                          target="_blank"
                         >
                           {item.text}
                         </Link>

@@ -1,4 +1,4 @@
-const IconWhatsapp = () => {
+const IconWhatsapp = ({ className = '' }: { className?: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +10,7 @@ const IconWhatsapp = () => {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp"
+      className={`icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp ${className}`}
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />

@@ -78,12 +78,12 @@ const HomeHero = () => {
             >
               <BookText className="h-4 w-4" /> VER RECETAS
             </Link>
-            {/* <Link
+            <Link
               href="/tienda"
               className="flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-3 font-semibold text-gray-900 shadow-lg transition hover:bg-gray-100"
             >
-              <ShoppingBag className="h-4 w-4" /> IR A TIENDA
-            </Link> */}
+              <ShoppingBag className="h-4 w-4" /> VER TIENDA
+            </Link>
           </div>
         </div>
       </div>
