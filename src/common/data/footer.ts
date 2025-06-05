@@ -11,22 +11,23 @@ export const footerSections = [
   {
     title: 'Tienda',
     items: [
-      { name: 'Café Chanchamayo', href: '/tienda/Caf%C3%A9%20Tostado' },
-      { name: 'Panceta Natural', href: '/tienda/Manteca%20de%20Cerdo%20Artesanal' }
+      { name: 'Café Tostado', href: '/tienda/Cafetera%20Italiana%20de%20Acero%20Inoxidable' },
+      { name: 'Manteca de Cerdo', href: '/tienda/Manteca%20de%20Cerdo%20Artesanal' },
+      { name: 'Cafetera Italiana', href: '/tienda/Cafetera%20Italiana%20de%20Acero%20Inoxidable' }
     ]
   }
 ]
 
 export const contactInfo = [
+  // {
+  //   icon: 'Mail',
+  //   text: 'sonquproducciones@gmail.com',
+  //   href: 'mailto:sonquproducciones@gmail.com'
+  // },
   {
-    icon: 'Mail',
-    text: 'sonquproducciones@gmail.com',
-    href: 'mailto:sonquproducciones@gmail.com'
-  },
-  {
-    icon: 'Phone',
-    text: '+1 (555) 123-4567',
-    href: 'tel:+15551234567'
+    icon: 'IconWhatsapp',
+    text: '+51 950 797 455',
+    href: 'https://wa.me/51950797455?text=Hola%2C%20quiero%20más%20información'
   }
   // {
   //   icon: 'MapPin',
