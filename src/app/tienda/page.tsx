@@ -28,7 +28,7 @@ export default async function StorePage() {
             <h2 className="text-xl font-medium">Todos los productos(6)</h2>
           </div>
           <Suspense fallback={null}>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-24 md:grid-cols-3 md:gap-y-16">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-3 md:gap-y-16">
               {mockProducts.map((product: Product) => (
                 <li key={product.id}>
                   <CardProduct product={product} isFeatured />
