@@ -79,7 +79,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="h-full w-full max-w-[500px] rounded-[25px] bg-white px-8 py-8 shadow-sm">
+    <div className="flex h-full w-full items-center justify-center rounded-[25px] bg-white px-8 py-8 shadow-sm">
       <AlertDialog open={showConfirmation} onOpenChange={setShowConfirmation}>
         <AlertDialogContent className="sm:max-w-[425px]">
           <AlertDialogHeader>
@@ -117,66 +117,71 @@ export default function ContactForm() {
         </AlertDialogContent>
       </AlertDialog>
 
-      <h1 className="mb-4 text-center font-monserrat text-2xl font-bold">Contáctanos</h1>
-      <form onSubmit={handleSubmit} className="h-full w-full space-y-4">
-        <div>
-          <label htmlFor="name" className="mb-1 block text-sm font-medium">
-            Nombre
-          </label>
-          <Input
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full bg-gray-100"
-            required
-          />
-        </div>
+      <div className="w-full">
+        <h1 className="mb-1 text-center font-monserrat text-2xl font-bold">Contáctanos</h1>
+        <p className="mx-auto mb-4 max-w-[400px] text-center text-sm">
+          ¿Tienes dudas o necesitas más información? ¡Escríbenos, nos encanta escucharte!
+        </p>
+        <form onSubmit={handleSubmit} className="h-full w-full space-y-4">
+          <div>
+            <label htmlFor="name" className="mb-1 block text-sm font-medium">
+              Nombre
+            </label>
+            <Input
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full bg-gray-100"
+              required
+            />
+          </div>
 
-        <div>
-          <label htmlFor="email" className="mb-1 block text-sm font-medium">
-            Correo electrónico
-          </label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full bg-gray-100"
-            required
-          />
-        </div>
+          <div>
+            <label htmlFor="email" className="mb-1 block text-sm font-medium">
+              Correo electrónico
+            </label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full bg-gray-100"
+              required
+            />
+          </div>
 
-        <div>
-          <label htmlFor="message" className="mb-1 block text-sm font-medium">
-            Mensaje
-          </label>
-          <Textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="min-h-[100px] w-full bg-gray-100"
-            required
-          />
-        </div>
+          <div>
+            <label htmlFor="message" className="mb-1 block text-sm font-medium">
+              Mensaje
+            </label>
+            <Textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className="min-h-[100px] w-full bg-gray-100"
+              required
+            />
+          </div>
 
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="mx-auto flex w-min items-center justify-center whitespace-nowrap rounded-lg bg-[#ED7203] px-4 py-2 text-white disabled:opacity-75"
-        >
-          {isSubmitting ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Enviando...
-            </>
-          ) : (
-            'Enviar'
-          )}
-        </button>
-      </form>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="mx-auto flex w-min items-center justify-center whitespace-nowrap rounded-lg bg-[#ED7203] px-4 py-2 text-white disabled:opacity-75"
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Enviando...
+              </>
+            ) : (
+              'Enviar'
+            )}
+          </button>
+        </form>
+      </div>
     </div>
   )
 }
